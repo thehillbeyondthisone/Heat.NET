@@ -1,0 +1,25 @@
+{
+  "name": "heat-net",
+  "version": "1.0.0",
+  "description": "HEAT.NET - Classic gaming site archive and restoration project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "python3 server.py",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "heat",
+    "gaming",
+    "retro",
+    "archive",
+    "nostalgia"
+  ],
+  "author": "HEAT.NET Restoration Project",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
