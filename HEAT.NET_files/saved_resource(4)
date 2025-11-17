@@ -1,0 +1,952 @@
+<HTML>
+<HEAD>
+<TITLE>HEAT.NET</TITLE> 
+<!-- $Revision: 1.29 $ -->
+<script language=javascript src="/ht_headjs.js"></script>
+
+<LINK REL=StyleSheet HREF="/ht_style.css" TYPE="text/css">
+
+</HEAD>
+
+<BODY BGCOLOR="#000000" TEXT="#000000" LINK="#003399" VLINK="#687BA4" ALINK="#990033" marginheight=0 marginwidth=0 topmargin=0 leftmargin=0>
+
+
+
+<div id="myheatlayer" style="position:absolute; left:37px; top:175px; width:128px; height:130px; z-index:2; visibility: hidden"> 
+<script language="JavaScript">
+<!-- // hide from ancient browsers
+	addLayer2Index('myheatlayer');
+// -->
+</script>
+
+<a href="/cgi-bin/misc/home.cgi"><IMG SRC="/images/navbar/transparent.gif" WIDTH=120 HEIGHT=12 border=0></a>
+
+  <TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 bgcolor=#b6ad96>
+	<tr>
+		<td colspan=3><IMG SRC="/images/navbar/transparent.gif" WIDTH=110 HEIGHT=1 border=0></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+      	<td valign=top width=102>
+		<a href="/cgi-bin/misc/home.cgi" class="menus">My HEAT</a><br>
+        <a href="/cgi-bin/mail/commtouch_login.cgi" class="menus">E-Mail</a><br>
+        <a href="/cgi-bin/forum/forum_list.cgi" class="menus">Post</a><br>
+        <a href="/cgi-bin/chat/list.cgi" class="menus">Chat</a><br>
+		 </td>
+		
+      	<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+	</tr>
+</table>
+</div>
+
+<div id="essentialslayer" style="position:absolute; left:37px; top:190px; width:128px; height:130px; z-index:3; visibility: hidden"> 
+<script language="JavaScript">
+<!-- // hide from ancient browsers
+	addLayer2Index('essentialslayer');
+// -->
+</script>
+
+<a href="/essentials"><IMG SRC="/images/navbar/transparent.gif" WIDTH=120 HEIGHT=12 border=0></a>
+
+  <TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 bgcolor=#a0aa7b>
+	<tr>
+		<td colspan=3><IMG SRC="/images/navbar/transparent.gif" WIDTH=110 HEIGHT=1 border=0></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+      	<td valign=top width=102>
+		<a href="/pub/cgi-bin/reg/register.cgi" class="menus">HEAT Registration</a><br>
+        <a href="ftp://ftp.heat.net/pub/heat.exe" class="menus">Get HEAT Software</a><br>
+        <a href="/get_paid.html" class="menus">Get Paid to Play</a><br>
+        <a href="/essentials/downloads.html" class="menus">Downloads</a><br>
+		<a href="/essentials/featured_products.html" class="menus">Featured Products</a><br>
+        <a href="/essentials/tools.html" class="menus">Tools</a><br>
+		 </td>
+		
+      	<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+	</tr>
+</table>
+</div>
+
+
+<div id="newslayer" style="position:absolute; left:37px; top:205px; width:128px; height:130px; z-index:4; visibility: hidden"> 
+<script language="JavaScript">
+<!-- // hide from ancient browsers
+	addLayer2Index('newslayer');
+// -->
+</script>
+
+<a href="/news"><IMG SRC="/images/navbar/transparent.gif" WIDTH=120 HEIGHT=12 border=0></a>
+
+  <TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 
+bgcolor=#aaaaaa>
+	<tr>
+		<td colspan=3><IMG SRC="/images/navbar/transparent.gif" WIDTH=110 HEIGHT=1 border=0></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+      	<td valign=top width=102>
+		<a href="/news/news_columns.html" class="menus">Columns</a><br>
+        <a href="/news/news_contests.html" class="menus">Contest Page</a><br>
+        <a href="/news/news_sponsor_news.html" class="menus">Sponsor News</a><br>
+        <a href="/news/news_features.html" class="menus">Features News</a><br>
+		 </td>
+		
+      	<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+	</tr>
+</table>
+</div>
+
+
+<div id="eventslayer" style="position:absolute; left:37px; top:220px; width:128px; height:130px; z-index:5; visibility: hidden"> 
+<script language="JavaScript">
+<!-- // hide from ancient browsers
+	addLayer2Index('eventslayer');
+// -->
+</script>
+
+<a href="/events"><IMG SRC="/images/navbar/transparent.gif" WIDTH=120 HEIGHT=12 border=0></a>
+
+  <TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 
+bgcolor=#b6ad96>
+	<tr>
+		<td colspan=3><IMG SRC="/images/navbar/transparent.gif" WIDTH=110 HEIGHT=1 border=0></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>		
+      	<td valign=top width=102>
+		<a href="/events/" class="menus">Events Main</a><br>
+		<a href="/calendar" class="menus">Calendar</a><br>
+		 </td>
+		
+      	<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+	</tr>
+</table>
+</div>
+
+
+<div id="channelslayer" style="position:absolute; left:37px; top:235px; width:128px; height:130px; z-index:6; visibility: hidden"> 
+<script language="JavaScript">
+<!-- // hide from ancient browsers
+	addLayer2Index('channelslayer');
+// -->
+</script>
+
+<a href="/news/channels_index.html"><IMG SRC="/images/navbar/transparent.gif" WIDTH=120 HEIGHT=12 border=0></a>
+
+  <TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 
+bgcolor=#aaaaaa>
+	<tr>
+		<td colspan=3><IMG SRC="/images/navbar/transparent.gif" WIDTH=110 HEIGHT=1 border=0></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>		
+      	<td valign=top width=102>
+		<a href="/news/action_channel.html" class="menus">Action Channel</a><br>
+        <a href="/news/strategy_channel.html" class="menus">Strategy Channel</a><br>
+        <a href="/news/rpg_channel.html" class="menus">RPG Channel</a><br>
+        <a href="/news/sports_channel.html" class="menus">Sports Channel</a><br>
+        <a href="/news/simulation_channel.html" class="menus">Simulation Channel</a><br>
+        <a href="/10sixchannel/10six_frontpage.html" class="menus">10SIX Channel</a><br>
+        <a href="/cgi-bin/games/subclassed_games_list.cgi?game_id=7000" class="menus">HEAT Arcade</a><br>
+        <a href="/cgi-bin/games/nav.cgi" class="menus">Games List</a><br>
+        <a href="/most_popular.html" class="menus">Most Popular Games</a><br>
+		 </td>
+		
+      	<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+	</tr>
+</table>
+</div>
+
+
+<div id="storelayer" style="position:absolute; left:37px; top:250px; width:128px; height:130px; z-index:7; visibility: hidden"> 
+<script language="JavaScript">
+<!-- // hide from ancient browsers
+	addLayer2Index('storelayer');
+// -->
+</script>
+
+<a href="/cgi-bin/commerce/blackmkt.cgi"><IMG SRC="/images/navbar/transparent.gif" WIDTH=120 HEIGHT=12 border=0></a>
+
+  <TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 
+bgcolor=#b6ad96>
+	<tr>
+		<td colspan=3><IMG SRC="/images/navbar/transparent.gif" WIDTH=110 HEIGHT=1 border=0></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+      	<td valign=top width=102>
+        <a href="http://www.cdmag.com/online-stores/cbi_store/heat/action.html" class="menus">Buy Games</a><br>
+        <a href="/cgi-bin/commerce/product_list.cgi?cat_name=Membership" class="menus">Buy Memberships</a><br>
+        <a href="/cgi-bin/commerce/product_list.cgi?cat_name=Membership" class="menus">Upgrade Membership</a><br>
+        <a href="/cgi-bin/commerce/product_list.cgi?cat_name=HEATStuff" class="menus">Buy HEAT Stuff</a><br>
+        <a href="/cgi-bin/commerce/product_list.cgi?cat_name=10SIXSubs" class="menus">10SIX Subscriptions</a><br>
+        <a href="/cgi-bin/commerce/coupon_entry.cgi" class="menus">Redeem a Coupon</a><br>
+		 </td>
+		
+        <td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+	</tr>
+</table>
+</div>
+
+
+<div id="memberslayer" style="position:absolute; left:37px; top:265px; width:128px; height:130px; z-index:8; visibility: hidden"> 
+<script language="JavaScript">
+<!-- // hide from ancient browsers
+	addLayer2Index('memberslayer');
+// -->
+</script>
+
+<a href="/members"><IMG SRC="/images/navbar/transparent.gif" WIDTH=120 HEIGHT=12 border=0></a>
+
+  <TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 
+bgcolor=#aaaaaa>
+	<tr>
+		<td colspan=3><IMG SRC="/images/navbar/transparent.gif" WIDTH=110 HEIGHT=1 border=0></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+      	<td valign=top width=102>
+		<a href="/news/members_get_involved.html" class="menus">Get Involved</a><br>
+        <a href="/news/members_players_of_the_week.html" class="menus">Player of the Week</a><br>
+        <a href="/news/members_player_profiles.html" class="menus">Player Profiles</a><br>
+        <a href="/news/members_trophies.html" class="menus">Trophies</a><br>
+        <a href="/news/members_hot_shots.html" class="menus">Hot Shots</a><br>
+        <a href="http://www.segasoft.com/heat/clanring/" class="menus">Clans</a><br>
+		<a href="http://www.segasoft.com/footsoldier/" class="menus">Footsoldiers</a><br>
+        <a href="/cgi-bin/misc/barons.cgi" class="menus">Degree Barons</a><br>
+		 </td>
+		
+      	<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=6 HEIGHT=1 border=0></td>
+	</tr>
+</table>
+</div>
+
+<div id="menucatcher1" style="position:absolute; left:0px; top:150px; width:293px; height:10px; z-index:0; visibility: show">
+<a href="#" onMouseOver="switchToMenuLayer();"><IMG SRC="/images/navbar/transparent.gif" WIDTH=293 HEIGHT=10 border=0></a>
+</div>
+<div id="menucatcher2" style="position:absolute; left:38px; top:155px; width:154px; height:140px; z-index:0; visibility: show">
+<a href="#" onMouseOver="switchToMenuLayer()"><IMG SRC="/images/navbar/transparent.gif" WIDTH=146 HEIGHT=140 border=0></a>
+</div>
+<div id="menucatcher3" style="position:absolute; left:0px; top:293px; width:192px; height:140px; z-index:0; visibility: show">
+<a href="#" onMouseOver="switchToMenuLayer()"><IMG SRC="/images/navbar/transparent.gif" WIDTH=170 HEIGHT=130 border=0></a>
+</div>
+
+
+<div id="adsearch" style="HEIGHT: 150px; LEFT: 225px; POSITION: absolute; TOP: 12px; WIDTH: 503px; Z-INDEX: 1"> 
+<TABLE WIDTH=497 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+		<td width="100%">
+			<DIV align=right>
+			<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+				<tr><form action="/pub/cgi-bin/web_search/web_search.cgi" method=get>
+					<TD>&nbsp;<A HREF="/company_info.html" class="subnav">COMPANY INFO</a>&nbsp;&nbsp;<span class="subnav">:</span>&nbsp;&nbsp;<a href="/help/intro.html" class="subnav">HELP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+					<td><input size=14 name="terms" value="search HEAT"></td>
+					<td>&nbsp;&nbsp;</td>
+					<td valign=center>			
+<input type=image src="/images/navbar/go.gif" width=31 height=17 border=0 alt="" name="go"></td>
+						
+					</form>
+					<td>&nbsp;&nbsp;&nbsp;</td>
+				</tr>
+			</TABLE></DIV>
+		</td>
+	</TR>
+	<TR>
+		<TD><IMG border=0 height=6 src="/images/navbar/transparent.gif" width=1></TD>
+	</TR>
+	<TR>
+		<TD align="right"><a href="/cgi
+-bin/ads/banner_click.cgi?tag_id=46413" TARGET="_new"><IMG SRC="http://adforce.i
+mgis.com/?adserv|34|46413|1|1|ADFORCE" BORDER=0 HEIGHT=60 WIDTH=468 NATURAL SIZE
+FLAG=0 ALIGN=BOTTOM ALT="ADSmartad"></A></TD>
+	</TR>
+</TABLE>
+</div>
+
+
+<TABLE WIDTH="740" BORDER=0 CELLPADDING=0 CELLSPACING=0 bgcolor=#7fa6bf>
+	<tr>
+    	<TD colspan=2 WIDTH="740" bgcolor=#637E8F><IMG border=0 height=4
+src="/images/navbar/transparent.gif" width=1></TD>
+	</tr>
+	<tr>
+		<TD colspan=2 WIDTH="740" bgcolor="#ff0033"><IMG border=0 height=1
+src="/images/navbar/transparent.gif" width=1></TD>
+	</tr>
+	<tr>
+		<TD colspan=2 WIDTH="740" bgcolor="#9FBCCF"><IMG border=0 height=1
+src="/images/navbar/transparent.gif" width=1></TD>
+	</tr>
+	<tr>
+	
+	
+		<td rowspan=2 width=223 valign="top"><IMG alt=HEAT border=0 height=104 src="/images/navbar/HEAT_cobrand_blue.gif" width=223></td>
+
+
+		<td width=517 valign=top><IMG alt="" border=0 height=55 src="/images/navbar/HEAT_backgrnd_blue.gif" width=497></td>
+	</tr>
+	<tr>
+		<td width=517>&nbsp;</td>
+	</tr>
+</TABLE>
+
+
+
+<TABLE WIDTH="740" BORDER=0 CELLPADDING=0 CELLSPACING=0 bgcolor=#7FA6BF>
+	<tr>
+    	<TD WIDTH="176" valign=top align=center>
+
+<center>
+			<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<form action="/cgi-bin/games/goto.cgi" method="get">	
+				<tr>
+          			<td colspan=3><center>
+            		<SELECT NAME="game_id" SIZE="1">
+              		<OPTION VALUE="0" selected>Select a Game</OPTION> 
+              		<OPTION VALUE="5102">10SIX</OPTION>
+              		<OPTION VALUE="5163">1602 A.D.</OPTION>
+              		<OPTION VALUE="5249">21st Century S..</OPTION>
+              		<OPTION VALUE="5224">AOE II: Age of..</OPTION>
+              		<OPTION VALUE="5226">AOE II: Trial</OPTION>
+              		<OPTION VALUE="5138">AOE Rise of Rome</OPTION>
+              		<OPTION VALUE="5204">AOE: Expansion..</OPTION>
+              		<OPTION VALUE="5081">Adrenix</OPTION>
+              		<OPTION VALUE="5063">Age of Empires </OPTION>
+              		<OPTION VALUE="5223">Age of Wonders</OPTION>
+              		<OPTION VALUE="5229">Age of Wonders..</OPTION>
+              		<OPTION VALUE="5233">Alien Crossfire</OPTION>
+              		<OPTION VALUE="5002">Alien Race</OPTION>
+              		<OPTION VALUE="5184">Aliens Vs Pred..</OPTION>
+              		<OPTION VALUE="5156">Alpha Centauri</OPTION>
+              		<OPTION VALUE="5257">Animaniacs Spl..</OPTION>
+              		<OPTION VALUE="5060">Armor Command </OPTION>
+              		<OPTION VALUE="5073">Army Men</OPTION>
+              		<OPTION VALUE="5141">Army Men 2</OPTION>
+              		<OPTION VALUE="5237">Army Men Air T..</OPTION>
+              		<OPTION VALUE="5265">Army Men World..</OPTION>
+              		<OPTION VALUE="5217">Army Men: TIS ..</OPTION>
+              		<OPTION VALUE="5192">Army Men: Toys..</OPTION>
+              		<OPTION VALUE="5258">Axis & Allies</OPTION>
+              		<OPTION VALUE="5136">Baldurs Gate</OPTION>
+              		<OPTION VALUE="5165">Baldurs Gate: ..</OPTION>
+              		<OPTION VALUE="5053">Battlezone </OPTION>
+              		<OPTION VALUE="5170">Battlezone: Re..</OPTION>
+              		<OPTION VALUE="5001">Blood </OPTION>
+              		<OPTION VALUE="5011">C & C (Red Ale..</OPTION>
+              		<OPTION VALUE="5230">C & C (Tiberia..</OPTION>
+              		<OPTION VALUE="5169">C.A.R.T Racing..</OPTION>
+              		<OPTION VALUE="5250">Chessmaster 7000</OPTION>
+              		<OPTION VALUE="5149">Civilization II</OPTION>
+              		<OPTION VALUE="5211">Clans</OPTION>
+              		<OPTION VALUE="5097">Claw</OPTION>
+              		<OPTION VALUE="5175">CloseCombat3</OPTION>
+              		<OPTION VALUE="5172">CloseCombat3 T..</OPTION>
+              		<OPTION VALUE="5048">Dark Reign: TFW</OPTION>
+              		<OPTION VALUE="5174">Darkstone</OPTION>
+              		<OPTION VALUE="5027">DeathDrome</OPTION>
+              		<OPTION VALUE="5014">Descent 2</OPTION>
+              		<OPTION VALUE="5168">Descent 3</OPTION>
+              		<OPTION VALUE="5145">Descent 3 Demo..</OPTION>
+              		<OPTION VALUE="5009">Diablo</OPTION>
+              		<OPTION VALUE="5210">Disciples</OPTION>
+              		<OPTION VALUE="5206">Disciples Demo</OPTION>
+              		<OPTION VALUE="5177">Doom 95: Share..</OPTION>
+              		<OPTION VALUE="5012">Duke Nukem 3D</OPTION>
+              		<OPTION VALUE="5161">Dune 2000</OPTION>
+              		<OPTION VALUE="5033">Dungeon Keeper</OPTION>
+              		<OPTION VALUE="5110">Enemy Infestat..</OPTION>
+              		<OPTION VALUE="5180">FLW Bass Fishing</OPTION>
+              		<OPTION VALUE="5261">FLW Tournament..</OPTION>
+              		<OPTION VALUE="7900">Fantasy Sports</OPTION>
+              		<OPTION VALUE="5040">Flesh Feast </OPTION>
+              		<OPTION VALUE="5256">Flying Heroes</OPTION>
+              		<OPTION VALUE="5082">Forsaken </OPTION>
+              		<OPTION VALUE="5173">GTA London</OPTION>
+              		<OPTION VALUE="5093">Get Medieval</OPTION>
+              		<OPTION VALUE="5095">GrandTheft (RI..</OPTION>
+              		<OPTION VALUE="5191">Gulf War</OPTION>
+              		<OPTION VALUE="7000">HEAT Arcade</OPTION>
+              		<OPTION VALUE="5144">HOMM III / HOM..</OPTION>
+              		<OPTION VALUE="5199">HOMM III: Arma..</OPTION>
+              		<OPTION VALUE="5140">Half Life</OPTION>
+              		<OPTION VALUE="5084">Hardball 6</OPTION>
+              		<OPTION VALUE="5146">Heretic II</OPTION>
+              		<OPTION VALUE="5092">Hexplore</OPTION>
+              		<OPTION VALUE="5234">Hidden & Dange..</OPTION>
+              		<OPTION VALUE="5221">Hidden & Dange..</OPTION>
+              		<OPTION VALUE="5153">High Heat BB 2..</OPTION>
+              		<OPTION VALUE="5181">High Heat BB D..</OPTION>
+              		<OPTION VALUE="5031">Interstate 76</OPTION>
+              		<OPTION VALUE="5047">Jedi DForces II</OPTION>
+              		<OPTION VALUE="5074">Jedi Mysteries</OPTION>
+              		<OPTION VALUE="5108">KKnD Extreme</OPTION>
+              		<OPTION VALUE="5185">Kingpin</OPTION>
+              		<OPTION VALUE="5114">KlingonHonorGu..</OPTION>
+              		<OPTION VALUE="5109">Liberation Day</OPTION>
+              		<OPTION VALUE="5133">Links Extreme</OPTION>
+              		<OPTION VALUE="5225">Links LS 2000</OPTION>
+              		<OPTION VALUE="5070">Links LS 98</OPTION>
+              		<OPTION VALUE="5137">Links LS 99 </OPTION>
+              		<OPTION VALUE="5118">Lode Runner II</OPTION>
+              		<OPTION VALUE="5098">M.A.X. 2</OPTION>
+              		<OPTION VALUE="5020">MOrion II: Ant..</OPTION>
+              		<OPTION VALUE="5066">Magic: The Gat..</OPTION>
+              		<OPTION VALUE="5205">Man of War II</OPTION>
+              		<OPTION VALUE="5106">MechCommander </OPTION>
+              		<OPTION VALUE="5008">MechW2 (Win95)</OPTION>
+              		<OPTION VALUE="5022">MechW2: Mercs </OPTION>
+              		<OPTION VALUE="5021">MechW2: NetMech </OPTION>
+              		<OPTION VALUE="5194">MechWarrior 3</OPTION>
+              		<OPTION VALUE="5231">MechWarrior 3:..</OPTION>
+              		<OPTION VALUE="5207">Midtown Mad Tr..</OPTION>
+              		<OPTION VALUE="5195">Midtown Madness</OPTION>
+              		<OPTION VALUE="5100">MnstTruck Mad II</OPTION>
+              		<OPTION VALUE="5130">Motocross Madn..</OPTION>
+              		<OPTION VALUE="5186">Motocross Madn..</OPTION>
+              		<OPTION VALUE="5023">NASCAR 2</OPTION>
+              		<OPTION VALUE="5248">NASCAR Racing 3</OPTION>
+              		<OPTION VALUE="5251">NASCAR Racing ..</OPTION>
+              		<OPTION VALUE="5253">NBA Basketball..</OPTION>
+              		<OPTION VALUE="5235">NHL 2000</OPTION>
+              		<OPTION VALUE="5067">NHL 98</OPTION>
+              		<OPTION VALUE="5083">Nam & Napalm</OPTION>
+              		<OPTION VALUE="5139">Need for Spd III</OPTION>
+              		<OPTION VALUE="5056">Net Fighter</OPTION>
+              		<OPTION VALUE="5032">Outlaws </OPTION>
+              		<OPTION VALUE="5129">Panzer Commander</OPTION>
+              		<OPTION VALUE="5086">Panzer Genl II</OPTION>
+              		<OPTION VALUE="5123">Pinky and the ..</OPTION>
+              		<OPTION VALUE="5094">Plane Crazy </OPTION>
+              		<OPTION VALUE="5239">Plane Crazy Demo</OPTION>
+              		<OPTION VALUE="5000">PlayOtherGame</OPTION>
+              		<OPTION VALUE="5255">Pong: the Next..</OPTION>
+              		<OPTION VALUE="5218">Populous: TB D..</OPTION>
+              		<OPTION VALUE="5232">Populous: The ..</OPTION>
+              		<OPTION VALUE="5041">Postal </OPTION>
+              		<OPTION VALUE="5126">PowerSlide</OPTION>
+              		<OPTION VALUE="5117">Powerslide Demo</OPTION>
+              		<OPTION VALUE="36">Quake</OPTION>
+              		<OPTION VALUE="5045">Quake II / DM ..</OPTION>
+              		<OPTION VALUE="5049">Quake II CTF/T..</OPTION>
+              		<OPTION VALUE="5242">Quake III Arena</OPTION>
+              		<OPTION VALUE="5178">Quake III Aren..</OPTION>
+              		<OPTION VALUE="5121">RR Tycoon 2</OPTION>
+              		<OPTION VALUE="5164">RR Tycoon 2: T..</OPTION>
+              		<OPTION VALUE="5241">Re-Volt</OPTION>
+              		<OPTION VALUE="5215">Re-Volt Demo</OPTION>
+              		<OPTION VALUE="5157">Redline</OPTION>
+              		<OPTION VALUE="5152">Redline Demo</OPTION>
+              		<OPTION VALUE="5030">RedneckRampage </OPTION>
+              		<OPTION VALUE="5147">Requiem</OPTION>
+              		<OPTION VALUE="5124">Return Fire 2</OPTION>
+              		<OPTION VALUE="5259">Risk</OPTION>
+              		<OPTION VALUE="5077">Rocket Jockey</OPTION>
+              		<OPTION VALUE="5202">Rollcage</OPTION>
+              		<OPTION VALUE="5243">Sammy Sosa Hig..</OPTION>
+              		<OPTION VALUE="5134">Sanctum</OPTION>
+              		<OPTION VALUE="5244">Scrabble</OPTION>
+              		<OPTION VALUE="5005">Scud: Demo</OPTION>
+              		<OPTION VALUE="5038">Scud: Retail</OPTION>
+              		<OPTION VALUE="5160">Settlers III</OPTION>
+              		<OPTION VALUE="5151">Settlers III D..</OPTION>
+              		<OPTION VALUE="5050">Shadow Warrior </OPTION>
+              		<OPTION VALUE="5171">Shogo Demo</OPTION>
+              		<OPTION VALUE="5143">Shogo Retail</OPTION>
+              		<OPTION VALUE="5055">Sin</OPTION>
+              		<OPTION VALUE="5099">Sin Demo</OPTION>
+              		<OPTION VALUE="5190">Star Trek: Bir..</OPTION>
+              		<OPTION VALUE="5085">Star Wars Rebe..</OPTION>
+              		<OPTION VALUE="5182">Star Wars: Racer</OPTION>
+              		<OPTION VALUE="5046">Starfleet Acad..</OPTION>
+              		<OPTION VALUE="5125">Starflt Ac: Lo..</OPTION>
+              		<OPTION VALUE="5222">Starflt Cmd Demo</OPTION>
+              		<OPTION VALUE="5200">Starflt Command</OPTION>
+              		<OPTION VALUE="5189">Superbike</OPTION>
+              		<OPTION VALUE="5127">TNN Pro Hunter</OPTION>
+              		<OPTION VALUE="5155">Test Drive 5</OPTION>
+              		<OPTION VALUE="5154">Test Drive Off..</OPTION>
+              		<OPTION VALUE="5037">Total Annihila..</OPTION>
+              		<OPTION VALUE="5216">Tribes Demo</OPTION>
+              		<OPTION VALUE="5196">Triple Play 2000</OPTION>
+              		<OPTION VALUE="902">Trivia Trio</OPTION>
+              		<OPTION VALUE="5158">Turok 2</OPTION>
+              		<OPTION VALUE="5198">Ultimate 8 Ball</OPTION>
+              		<OPTION VALUE="5087">Unreal</OPTION>
+              		<OPTION VALUE="5208">Unreal Tourn D..</OPTION>
+              		<OPTION VALUE="5193">Unreal Tournam..</OPTION>
+              		<OPTION VALUE="5116">Uprising 2</OPTION>
+              		<OPTION VALUE="5213">Virtua Fighter..</OPTION>
+              		<OPTION VALUE="5212">Virtua Squad 2..</OPTION>
+              		<OPTION VALUE="5176">Virtual Deep S..</OPTION>
+              		<OPTION VALUE="5075">Virtual Pool  2</OPTION>
+              		<OPTION VALUE="5068">WW Soccer </OPTION>
+              		<OPTION VALUE="5214">WW Soccer Demo</OPTION>
+              		<OPTION VALUE="5162">WWII GI</OPTION>
+              		<OPTION VALUE="5025">Warcraft II: T..</OPTION>
+              		<OPTION VALUE="5150">Wargasm</OPTION>
+              		<OPTION VALUE="5167">Wargasm (ripx)</OPTION>
+              		<OPTION VALUE="5061">Warlords III: ..</OPTION>
+              		<OPTION VALUE="5076">Worms 2</OPTION>
+            		</SELECT></center>
+          			</td>
+				</tr>
+				<tr>
+					<td colspan=3><IMG border=0 height=3 src="/images/navbar/transparent.gif" width=1></td>
+				</tr>
+				<tr>
+					<td width=71 VALIGN=center><input type=image alt="PLAY NOW!" border=0 height=17 src="/images/navbar/play_now.gif" width=71 name="play"></td>
+					<td><font face="Verdana" size="1" color="white">&nbsp;</font></td>
+					<td width=71 VALIGN=center><input type=image alt="GET INFO" border=0 height=17 src="/images/navbar/get_info.gif" width=71 name="info"></td>	
+				</tr>
+</FORM>
+			</TABLE>
+</center>				
+		
+		</TD>
+		
+    	<TD WIDTH="564" bgcolor="#000000"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=3,0,0,0" ID=headline_home WIDTH=564 HEIGHT=51><PARAM NAME=movie VALUE="/images/navbar/headline_home.swf"><PARAM NAME=quality VALUE=high><PARAM NAME=bgcolor VALUE=#7FA6BF><SCRIPT LANGUAGE=JavaScript>
+<!--
+if (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] && navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin &&
+	 navigator.plugins && navigator.plugins["Shockwave Flash"]) {
+	document.write('<EMBED src="/images/navbar/headline_home.swf" quality=high bgcolor=#7FA6BF ');
+	document.write('swLiveConnect=FALSE WIDTH=564 HEIGHT=51');
+	document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">');
+} else if (!(navigator.appName && navigator.appName.indexOf("Netscape")>=0 && navigator.appVersion.indexOf("2.")>=0)){
+	document.write('<IMG SRC="/images/navbar/headline_home.gif" WIDTH=564 HEIGHT=51 BORDER=0>');
+}
+//-->
+</SCRIPT><NOEMBED><IMG SRC="/images/navbar/headline_home.gif" WIDTH=564 HEIGHT=51 BORDER=0></NOEMBED><NOSCRIPT><IMG SRC="/images/navbar/headline_home.gif" WIDTH=564 HEIGHT=51 BORDER=0></NOSCRIPT></OBJECT></TD>
+	</tr>
+</TABLE>
+
+
+
+
+
+
+
+<TABLE WIDTH="740" BORDER=0 CELLPADDING=0 CELLSPACING=0 bgcolor=#ffffff name=content>
+	<tr>
+		<td width=171 valign=top bgcolor=#dddddd>	
+		
+
+
+			<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 bgcolor=#000000 width=171 name=navbar>
+				<TR>
+					<TD COLSPAN=3><IMG SRC="/images/navbar/transparent.gif" WIDTH=171 HEIGHT=6></TD>
+				</TR>			
+				<TR>
+					<TD><a href="#"></a><IMG SRC="/images/navbar/transparent.gif" WIDTH=33 HEIGHT=15 border=0></TD>
+					<TD><a href="/pub/cgi-bin/login/index.cgi"><IMG SRC="/images/navbar/nav_home.gif" WIDTH=99 HEIGHT=15 border=0></a></TD>
+					<TD ROWSPAN=8><IMG SRC="/images/navbar/transparent.gif" WIDTH=39 HEIGHT=120></TD>
+				</TR>
+				<TR>
+		
+          			<TD> <a href="/cgi-bin/misc/home.cgi" onMouseOver="switchToMenuLayer('myheatlayer'); imageLight('myheatlayer_gif');" onMouseOut="imageLight('myheatlayer_gif');" ><IMG SRC="/images/navbar/nav_box.gif" id='myheatlayer_gif' name='myheatlayer_gif' WIDTH=33 HEIGHT=15 border=0></a></TD>
+					<TD>
+			<a href="/cgi-bin/misc/home.cgi"><IMG SRC="/images/navbar/nav_myheat.gif" WIDTH=99 HEIGHT=15 border=0></a></TD>
+				</TR>
+				<TR>
+		
+       			   <TD> <a href="/essentials" onMouseOver="switchToMenuLayer('essentialslayer'); imageLight('essentialslayer_gif');" onMouseOut="imageLight('essentialslayer_gif');" ><IMG SRC="/images/navbar/nav_box.gif" id='essentialslayer_gif' name='essentialslayer_gif' WIDTH=33 HEIGHT=15 border=0></a></TD>
+					<TD>
+			<a href="/essentials"><IMG SRC="/images/navbar/nav_essentials.gif" WIDTH=99 HEIGHT=15 border=0></a></TD>
+				</TR>
+				<TR>
+		
+          			<TD> <a href="/news" onMouseOver="switchToMenuLayer('newslayer'); imageLight('newslayer_gif');" onMouseOut="imageLight('newslayer_gif');" ><IMG SRC="/images/navbar/nav_box.gif" id='newslayer_gif' name='newslayer_gif' WIDTH=33 HEIGHT=15 border=0></a></TD>
+					<TD>
+			<a href="/news"><IMG SRC="/images/navbar/nav_news.gif" WIDTH=99 HEIGHT=15 border=0></a></TD>
+				</TR>
+				<TR>
+		
+          			<TD> <a href="/events" onMouseOver="switchToMenuLayer('eventslayer'); imageLight('eventslayer_gif');" onMouseOut="imageLight('eventslayer_gif');" ><IMG SRC="/images/navbar/nav_box.gif" id='eventslayer_gif' name='eventslayer_gif' WIDTH=33 HEIGHT=15 border=0></a></TD>
+					<TD>
+			<a href="/events"><IMG SRC="/images/navbar/nav_events.gif" WIDTH=99 HEIGHT=15 border=0></a></TD>
+				</TR>
+				<TR>
+		
+          			<TD> <a href="/news/channels_index.html" onMouseOver="switchToMenuLayer('channelslayer'); imageLight('channelslayer_gif');" onMouseOut="imageLight('channelslayer_gif');" ><IMG SRC="/images/navbar/nav_box.gif" id='channelslayer_gif' name='channelslayer_gif' WIDTH=33 HEIGHT=15 border=0></a></TD>
+					<TD>
+			<a href="/news/channels_index.html"><IMG SRC="/images/navbar/nav_channels.gif" WIDTH=99 HEIGHT=15 border=0></a></TD>
+				</TR>
+				<TR>
+		
+          			<TD> <a href="/cgi-bin/commerce/blackmkt.cgi" onMouseOver="switchToMenuLayer('storelayer'); imageLight('storelayer_gif');" onMouseOut="imageLight('storelayer_gif');" ><IMG SRC="/images/navbar/nav_box.gif" id='storelayer_gif' name='storelayer_gif' WIDTH=33 HEIGHT=15 border=0></a></TD>
+					<TD>
+			<a href="/cgi-bin/commerce/blackmkt.cgi"><IMG SRC="/images/navbar/nav_store.gif" WIDTH=99 HEIGHT=15 border=0></a></TD>
+				</TR>
+				<TR>
+		
+          			<TD> <a href="/news/members_index.html" onMouseOver="switchToMenuLayer('memberslayer'); imageLight('memberslayer_gif');" onMouseOut="imageLight('memberslayer_gif');" ><IMG SRC="/images/navbar/nav_box.gif" id='memberslayer_gif' name='memberslayer_gif' WIDTH=33 HEIGHT=15 border=0></a></TD>
+					<TD>
+			<a href="/news/members_index.html"><IMG SRC="/images/navbar/nav_members.gif" WIDTH=99 HEIGHT=15 border=0></a></TD>
+				</TR>
+				<TR>
+					<TD COLSPAN=3>
+			<IMG SRC="/images/navbar/transparent.gif" WIDTH=171 HEIGHT=6></TD>
+				</TR>
+</table>
+
+
+			
+			
+			
+<!--begin sidebar main content-->
+					
+			<TABLE WIDTH="171" BORDER=0 CELLPADDING=0 CELLSPACING=0 bgcolor=#dddddd name=left_sidebar>				
+				<tr>
+					<td valign="top" align="center">&nbsp;			
+					</td>
+				</tr>		
+				<tr>
+					<td valign="top" align=center>		
+						
+<!--updated 4/26 with new tags from adsmart-->
+<center>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<tr>
+		<td><A HREF="http://www.sprint.com"><img src="/images/graphics/sprint_link.gif" border=0 alt="SPRINT"></a></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=1 HEIGHT=8></td>
+	</tr>
+	<tr>
+		<td align=center><A HREF="http://www.sega.com"><img src="/images/graphics/sega_com.gif" border=0 alt="SEGA.COM"></a></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=1 HEIGHT=8></td>
+	</tr>
+	<tr>
+		<td align=center><A HREF="http://www.europe.heat.net/"><img src="/images/graphics/heat_europe.gif" border=0 alt="HEAT EUROPE"></a></td>
+	</tr>	
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=1 HEIGHT=8></td>
+	</tr>
+	<tr>
+		<td><a href="/cgi
+-bin/ads/banner_click.cgi?tag_id=48031" TARGET="_new"><img src="http://adforce.imgis.com/?adserv|2.0|34|48031|1|6|ADFORCE;loc=300;" width=125 height=125 border=0></a>
+</td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=1 HEIGHT=8></td>
+	</tr>
+	<tr>
+		<td align=center><A HREF="http://adforce.imgis.com/?adlink|34|148415|1|12|ADFORCE" TARGET=_new><IMG SRC="http://adforce.imgis.com/?adserv|34|148415|1|12|ADFORCE" BORDER=0 HEIGHT=60 WIDTH=120 NATURALSIZEFLAG=0 ALIGN=BOTTOM ALT="Adsmart Network ad"></A></td>
+	</tr>
+	<tr>
+		<td><IMG SRC="/images/navbar/transparent.gif" WIDTH=1 HEIGHT=8></td>
+	</tr>
+	<tr>
+		<td align=center><A HREF="http://adforce.imgis.com/?adlink|34|148416|1|12|ADFORCE" TARGET=_new><IMG SRC="http://adforce.imgis.com/?adserv|34|148416|1|12|ADFORCE" BORDER=0 HEIGHT=60 WIDTH=120 NATURALSIZEFLAG=0 ALIGN=BOTTOM ALT="Adsmart Network ad"></A></td>
+	</tr>
+</table>
+</center>
+</td>
+				</tr>		
+			</table>
+				
+							
+		</td>
+    	<td width=569 bgcolor=#ffffff valign=top>
+
+
+<!--begin content-->
+	
+			<TABLE WIDTH="569" BORDER=0 CELLPADDING=0 CELLSPACING=0>
+				<tr>				
+          			<td bgcolor="#000000" width=401><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+ codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=3,0,0,0"
+ ID=header_central WIDTH=381 HEIGHT=132>
+ <PARAM NAME=movie VALUE="/images/navbar/header_home.swf"> <PARAM NAME=quality VALUE=high> <PARAM NAME=bgcolor VALUE=#000000> <SCRIPT LANGUAGE=JavaScript>
+<!--
+if (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] && navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin &&
+	 navigator.plugins && navigator.plugins["Shockwave Flash"]) {
+	document.write('<EMBED src="/images/navbar/header_home.swf" quality=high bgcolor=#000000 ');
+	document.write(' swLiveConnect=FALSE WIDTH=381 HEIGHT=132');
+	document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">');
+} else if (!(navigator.appName && navigator.appName.indexOf("Netscape")>=0 && navigator.appVersion.indexOf("2.")>=0)){
+	document.write('<IMG SRC="/images/navbar/header_home.jpg" WIDTH=381 HEIGHT=132 BORDER=0>');
+}
+//-->
+</SCRIPT><NOEMBED><IMG SRC="/images/navbar/header_home.jpg" WIDTH=381 HEIGHT=132 usemap="#header_home" BORDER=0></NOEMBED><NOSCRIPT><IMG SRC="/images/navbar/header_home.jpg" WIDTH=381 HEIGHT=132 usemap="#header_home" BORDER=0></NOSCRIPT></OBJECT></td>
+
+<!--black side cell for registration, etc.-->
+					
+          			<td bgcolor=#000000 width=168  valign="top"><font color="#7FA6BF" face="arial,helvetica" size="2"><i>
+<FONT FACE="Arial, Helvetica, sans-serif" SIZE="2" COLOR="#00FFFF">9199
+      HEAT Members<BR>
+      Have Played Today</FONT>
+</i><BR><BR></font>
+			
+					<A HREF="/pub/cgi-bin/reg/register.cgi?affiliate="><img src="/images/navbar/register.gif" BORDER=0></A></td>
+				</tr>
+			</table>
+			
+			
+			<TABLE WIDTH="569" BORDER=0 CELLPADDING=0 CELLSPACING=0 name=main_content>
+				<tr>
+							
+									
+<!--whitespace with gray lines-->
+
+                	<td bgcolor="#aaaaaa" width=1><img src="/images/navbar/transparent.gif" width="1" height="1"></td>
+                	<td width=6 bgcolor="#FFFFFF"><img src="/images/navbar/transparent.gif" width="6" height="1"></td>
+                	<td bgcolor="#aaaaaa" width=1><img src="/images/navbar/transparent.gif" width="1" height="1"></td>
+                	<td width=12 bgcolor="#FFFFFF"><img src="/images/navbar/transparent.gif" width="12" height="1"></td>
+				
+          			<td width=361 valign=top>&nbsp;<BR>
+					
+<!--begin main content-->					
+
+											
+					<!-- 6921, 6813, 7068, 6812, 6810, 7085, 7088, 7021, 6784, 7020 -->
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+   <tr> 
+		<td bgcolor="#dddddd"><font color="#555555" face="Arial, Helvetica, sans-serif" size=2><b>&nbsp; today's top story :: &nbsp;</b></font></td>
+	</tr>
+</table><br>
+<table cellpadding="0" cellspacing="0" border="0" width="360">
+	<tr>
+		<td width="360" 
+			align="left"
+		><Img src="/images/CMS/4/6538.jpg" width="167" height="104" alt="" border="0"></td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="4" border="0">
+	<tr>
+		<td width="360">
+			<font face="arial,helvetica,sans-serif" size="2" color="#555555"><b>Are You in HEAT?</b></font><br>
+			<font face="arial,helvetica,sans-serif" size="2">These happy campers are. Because starting today, HEAT.NET has launched an awesome new site! The new HEAT is focused on delivering exactly what you want – games.  Whether you want to jump right into a game, or find out the latest news and events – it will all be just one click away!  Faster gameplay, top games and players, reviews, articles and more. HEAT.NET is where gamers get it online! &nbsp;</font>
+			<a href="/news/index.html"
+			><font face="arial,helvetica,sans-serif" size="2">read more...</font></a>
+<br><br>
+		</td>
+	</tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+   <tr> 
+		<td bgcolor="#dddddd"><font color="#555555" face="Arial, Helvetica, sans-serif" size=2><b>&nbsp; more breaking news :: &nbsp;</b></font></td>
+	</tr>
+</table><br>
+<table cellpadding="0" cellspacing="4" border="0">
+	<tr>
+		<td width="360">
+		<Table cellpadding="0" cellspacing="8" border="0" align="left" width="58">
+	<tr>
+		<td><img src="/images/CMS/4/6552.jpg" hspace="4" width="50" height="50" alt="" border="0"></td>
+	</tr>
+</table>
+			<font face="arial,helvetica,sans-serif" size="2" color="#555555"><b>Win Prizes With Ripcord and HEAT</b></font><br>
+			<font face="arial,helvetica,sans-serif" size="2">Ripcord Games and HEAT.NET are partnering to bring you the best in online PC gaming. Read E3 attendees can win big prizes! </font>
+			<a href="/news/7086.html"
+			><font face="arial,helvetica,sans-serif" size="2">read more...</font></a>
+<br><br>
+		</td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="4" border="0">
+	<tr>
+		<td width="360">
+		<Table cellpadding="0" cellspacing="8" border="0" align="left" width="58">
+	<tr>
+		<td><img src="/images/CMS/4/6549.gif" hspace="4" width="50" height="50" alt="" border="0"></td>
+	</tr>
+</table>
+			<font face="arial,helvetica,sans-serif" size="2" color="#555555"><b>Are You a Top Dog?</b></font><br>
+			<font face="arial,helvetica,sans-serif" size="2">Top Dogs are the top 10 game addicts of any game on HEAT over the past 24 hours! If you play <a href="/cgi-bin/games/gamen.cgi?session_id=NULL-SESSION-ID&game_id=36">Quake,</a>   <a href="/cgi-bin/games/gamen.cgi?session_id=NULL-SESSION-ID&game_id=5174">Darkstone</a> or any of...</font>
+			<a href="/news/7084.html"
+			><font face="arial,helvetica,sans-serif" size="2">more...</font></a>
+<br><br>
+		</td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="4" border="0">
+	<tr>
+		<td width="360">
+		<Table cellpadding="0" cellspacing="8" border="0" align="left" width="58">
+	<tr>
+		<td><img src="/images/CMS/4/6514.gif" hspace="4" width="50" height="50" alt="" border="0"></td>
+	</tr>
+</table>
+			<font face="arial,helvetica,sans-serif" size="2" color="#555555"><b>Who Wants a Sega Dreamcast?</b></font><br>
+			<font face="arial,helvetica,sans-serif" size="2">Log-in and play at least 20 days in May and you're entered to win a <b>Sega Dreamcast!</b> Want to learn more? </font>
+			<a href="http://www.segasoft.com/heat/20days/"
+			   target="6657"
+			><font face="arial,helvetica,sans-serif" size="2">click here...</font></a>
+<br><br>
+		</td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="4" border="0">
+	<tr>
+		<td width="360">
+		<Table cellpadding="0" cellspacing="8" border="0" align="left" width="58">
+	<tr>
+		<td><img src="/images/CMS/4/6537.gif" hspace="4" width="50" height="50" alt="" border="0"></td>
+	</tr>
+</table>
+			<font face="arial,helvetica,sans-serif" size="2" color="#555555"><b>You've Got Mail (Really!)</b></font><br>
+			<font face="arial,helvetica,sans-serif" size="2">We are pleased to announce a new and improved HEAT-mail service! From now on you will have your very own HEAT e-mail address (YOUR-USERNAME@heat.net)...</font>
+			<a href="/news/6853.html"
+			><font face="arial,helvetica,sans-serif" size="2">read more...</font></a>
+<br><br>
+		</td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="4" border="0">
+	<tr>
+		<td width="360">
+		<Table cellpadding="0" cellspacing="8" border="0" align="left" width="58">
+	<tr>
+		<td><img src="/images/CMS/4/6548.jpg" hspace="4" width="50" height="50" alt="" border="0"></td>
+	</tr>
+</table>
+			<font face="arial,helvetica,sans-serif" size="2" color="#555555"><b>Winning Hot Shots Entry Announced!</b></font><br>
+			<font face="arial,helvetica,sans-serif" size="2"><b>DRJONKZ</b> won a sweet digital camera simply by sending his picture in to Hot Shots, our member photo gallery! Find out how you can be our next winner.</font>
+			<a href="/news/members_index.html"
+			><font face="arial,helvetica,sans-serif" size="2">read more...</font></a>
+<br><br>
+		</td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="4" border="0">
+	<tr>
+		<td width="360">
+		<Table cellpadding="0" cellspacing="8" border="0" align="left" width="58">
+	<tr>
+		<td><img src="/images/CMS/4/6519.jpg" hspace="4" width="50" height="50" alt="" border="0"></td>
+	</tr>
+</table>
+			<font face="arial,helvetica,sans-serif" size="2" color="#555555"><b>Kingpin Prize Matches!</b></font><br>
+			<font face="arial,helvetica,sans-serif" size="2">Duck into the alley and reload your shotguns and get ready for another dose of hard fragging and lots of degrees when we revisit the Kingpin lobby for Prize Night... <a href="/cgi-bin/games/gamen.cgi?game_id=5185">read more...</a></font>
+<br><br>
+		</td>
+	</tr>
+</table>
+<table cellpadding="0" cellspacing="4" border="0">
+	<tr>
+		<td width="360">
+		<Table cellpadding="0" cellspacing="8" border="0" align="left" width="58">
+	<tr>
+		<td><img src="/images/CMS/4/6182.gif" hspace="4" width="50" height="50" alt="" border="0"></td>
+	</tr>
+</table>
+			<font face="arial,helvetica,sans-serif" size="2" color="#555555"><b>Free 4 Week Trial Period For HEAT Premium Members!</b></font><br>
+			<font face="arial,helvetica,sans-serif" size="2">If you were a HEAT Premium member previous to 04/27, you're eligible to play 10SIX FREE for four weeks! Hurry, offer expires 05/11.</font>
+			<a href="/news/6920.html"
+			><font face="arial,helvetica,sans-serif" size="2">click here...</font></a>
+<br><br>
+		</td>
+	</tr>
+</table>
+<img src="/images/navbar/aaaaaa.gif" width=360 height=5 border=0 alt=""><BR><BR>
+<FONT face="arial,helvetica" size="2"> <a href="http://www.segasoft.com/heat/privacy.html">Privacy Policy</a></font><BR><BR>
+
+<FONT face="arial,helvetica" size="1"> 
+
+        <B>&copy; 2000 Sega.com, Inc. All rights reserved.<BR>
+
+        HEAT.NET, and the HEAT logo are trademarks of Sega.com.<BR>
+
+        All other trademarks are the property of their respective owners.</B><BR></FONT>
+<BR><BR><BR>
+
+ <BR>	 
+					</td>
+
+
+					<td width=20 valign=top><img src="/images/navbar/transparent.gif" width="20" height="1"></td>
+
+					<td valign=top width=168 name=rt_sidebar>&nbsp;<br>
+					
+					
+<!--right sidebar goes here-->
+
+<table width="150" border="0" cellspacing="0" cellpadding="8" bgcolor="#000000">
+<tr> 
+<td bgcolor="#324E7A"> <b><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" font size="2">Top 10 Games</font></b></td>
+</tr>
+<tr> 
+<td bgcolor="#DDDDDD"> <font size="2" face="Arial, Helvetica, sans-serif"> 
+
+<!-- begin Top Ten list-->
+
+<a href='/cgi-bin/games/gamen.cgi?game_id=5102'>10Six</a><br><!-- 10Six : 383 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=5045'>Quake II / DM Mods</a><br><!-- Quake II / DM Mods : 222 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=5185'>Kingpin</a><br><!-- Kingpin : 156 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=5193'>Unreal Tournament</a><br><!-- Unreal Tournament : 117 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=5049'>Quake II CTF/Team Mods</a><br><!-- Quake II CTF/Team Mods : 81 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=5242'>Quake III Arena</a><br><!-- Quake III Arena : 80 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=36'>Quake</a><br><!-- Quake : 62 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=5025'>Warcraft II: Tides of Darkness</a><br><!-- Warcraft II: Tides of Darkness : 43 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=5053'>Battlezone </a><br><!-- Battlezone  : 42 -->
+<a href='/cgi-bin/games/gamen.cgi?game_id=5087'>Unreal</a><br><!-- Unreal : 40 -->
+
+<!-- Tue May  9 19:10:06 2000 -->
+
+</font></TD></TR>
+</TABLE>
+
+<br>
+<!-- featured product -->
+<table width="150" border="0" cellspacing="0" cellpadding="6" bgcolor="#dddddd">
+	<tr>  
+		<td bgcolor=#324e7a><b><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" size="2">Featured Products</font></b></td>
+	</tr>
+	<tr> 
+		<td valign="top" align="center">
+
+			<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+				<TR VALIGN=MIDDLE align=center>
+					<TD><img src="/images/navbar/transparent.gif" width="1" height="5"><br>
+						<a href="" target=_new><FONT FACE="Arial, helvetica, sans serif" SIZE=2><I></I></FONT></A></TD>
+				</TR>
+				<TR> 
+					<TD align="center"><img src="/images/navbar/transparent.gif" width="1" height="7"><br>
+						<A href="" target=_new> <IMG SRC="" ALT="" BORDER=0></A><br>
+						<img src="/images/navbar/transparent.gif" width="1" height="3"></TD>
+				</TR> 
+				<TR>
+					<TD align="center"><a href="" target=_new><FONT FACE="Arial" SIZE=2></FONT></A></TD>
+				</TR>
+				<TR>
+					<TD align="center"><a href="" target=_new><FONT FACE="Arial" SIZE=2>$</FONT></A><br>
+						<img src="/images/navbar/transparent.gif" width="1" height="10"></TD>
+				</TR>  
+			</TABLE>
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<table width="150" border="0" cellpadding="2" cellspacing="0">
+ <tr bgcolor="#dddddd"> 
+  <td><font color="#55555" face="Arial, Helvetica, sans-serif" size=2><b>&nbsp; broadband partners</b></font></td>
+ </tr>
+</table><br>
+
+<font size="2" face="Arial, Helvetica, sans-serif"> 
+<FONT FACE="Arial, Helvetica, sans-serif" SIZE="1"> 
+	  	<a href="http://www.sprint.com" target="_new"><IMG SRC="/images/graphics/partner_sprint.gif" border="0"></A><BR>
+	  <IMG SRC="/images/graphics/transparent.gif" WIDTH="1" HEIGHT="12" BORDER="0"><BR>
+	<a href="http://www.home.com" target="_new"><IMG SRC="/images/graphics/partner_athome.gif" border="0"></A><BR>
+	  <IMG SRC="/images/graphics/transparent.gif" WIDTH="1" HEIGHT="12" BORDER="0"><BR>
+	<a href="http://www.rr.com" target="_new"><IMG SRC="/images/graphics/partner_roadrunner.gif" border="0"></A><BR>
+
+<BR><BR><BR>
+
+					</td>
+				</tr>
+			</TABLE>
+			
+		</TD>
+	</tr>
+</table>
+
+
+</BODY>
+</html>
+

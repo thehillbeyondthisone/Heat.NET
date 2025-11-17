@@ -1,0 +1,104 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+<!--
+
+menuLayers = new Array();
+document.image2Swap = new Image(); 
+document.image2Swap.src = '/images/navbar/nav_box.gif'; 
+document.image2SwapOn = new Image(); 
+document.image2SwapOn.src = '/images/navbar/nav_box_on.gif';
+
+function addLayer2Index( layerName )
+	{
+		if (document.menuLayers==null) document.menuLayers = new Object();				
+		menuLayers[menuLayers.length] = layerName;
+	}
+
+function switchToMenuLayer(visibleLayer)
+	{
+		showHideCatcher = 'hide';
+		for( i in menuLayers)
+			{
+				showHide = 'hide';
+				if (menuLayers[i] == visibleLayer) 
+					{
+						showHide = 'show';
+						showHideCatcher = 'show';
+					}
+				showHideLayers(menuLayers[i], showHide);
+			}
+		showHideMenuCatcher(showHideCatcher);
+	}	
+
+function showHideMenuCatcher( showHide )
+	{
+		showHideLayers('menucatcher1', showHide);
+		showHideLayers('menucatcher2', showHide);
+		showHideLayers('menucatcher3', showHide);
+	}	
+
+function showHideLayers( layerName, showHide )	
+	{
+		if (navigator.appName == 'Netscape' && document.layers != null) 
+		{
+			theObj = eval('document.layers[\'' + layerName + '\']');
+			if (theObj) theObj.visibility = showHide;
+		} 
+	else if (document.all != null) 
+		{ //IE
+			if (showHide == 'show') showHide = 'visible'; //convert vals
+			if (showHide == 'hide') showHide = 'hidden';
+			theObj = eval('document.all[\'' + layerName + '\']');
+			if (theObj) theObj.style.visibility = showHide;
+		}
+	}
+	
+function imageLight(imgName)
+	{
+		if (document.images) 
+			{
+				if (document.images[imgName].src.indexOf("_on") != -1)
+					{
+						newSrc = document.images[imgName].src.substring(0, document.images[imgName].src.indexOf("_on")) + document.images[imgName].src.substring(document.images[imgName].src.indexOf("_on") + 3, document.images[imgName].src.length);				 
+					}
+				else
+					{
+						newSrc = document.images[imgName].src.substring(0, document.images[imgName].src.indexOf(".gif")) + "_on.gif";				 
+         		}
+				document.images[imgName].src = newSrc;
+			} 
+	}
+
+//-->
+
+}
+/*
+     FILE ARCHIVED ON 09:14:07 Jun 21, 2000 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:10:15 Sep 12, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.634
+  exclusion.robots: 0.021
+  exclusion.robots.policy: 0.009
+  esindex: 0.012
+  cdx.remote: 6.109
+  LoadShardBlock: 50.685 (3)
+  PetaboxLoader3.datanode: 89.094 (4)
+  load_resource: 86.293
+  PetaboxLoader3.resolve: 37.498
+*/
