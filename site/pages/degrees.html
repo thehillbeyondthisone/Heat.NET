@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+    <title>HEAT.NET - HEAT Degrees Account</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="HEAT Degrees - Your network currency account">
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        a { color: #00FFFF; text-decoration: none; }
+        a:hover { color: #FF0000; }
+        .balance-display {
+            background: linear-gradient(to bottom, #CC9900, #996600);
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #FFCC00;
+            margin: 10px;
+        }
+        .balance-amount {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FFFF00;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .balance-label {
+            font-size: 14px;
+            color: #FFCC99;
+            margin-bottom: 10px;
+        }
+        .section-header {
+            background-color: #990033;
+            color: #FFFFFF;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 10px 0 5px 0;
+            border-left: 5px solid #FF0000;
+        }
+        .transaction {
+            background-color: #0d0d0d;
+            border: 1px solid #333333;
+            margin: 5px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .transaction:hover {
+            background-color: #1a1a1a;
+        }
+        .transaction.earned {
+            border-left: 3px solid #00FF00;
+        }
+        .transaction.spent {
+            border-left: 3px solid #FF0000;
+        }
+        .transaction-desc {
+            flex: 1;
+        }
+        .transaction-title {
+            color: #FFFFFF;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        .transaction-detail {
+            color: #999999;
+            font-size: 10px;
+        }
+        .transaction-amount {
+            font-size: 18px;
+            font-weight: bold;
+            min-width: 120px;
+            text-align: right;
+        }
+        .amount-earned {
+            color: #00FF00;
+        }
+        .amount-spent {
+            color: #FF6666;
+        }
+        .earn-spend-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 10px;
+        }
+        .earn-box, .spend-box {
+            background-color: #0d0d0d;
+            border: 1px solid #333333;
+            padding: 15px;
+        }
+        .earn-box {
+            border-top: 3px solid #00CC00;
+        }
+        .spend-box {
+            border-top: 3px solid #CC0000;
+        }
+        .earn-item, .spend-item {
+            margin: 8px 0;
+            padding: 5px;
+            font-size: 11px;
+        }
+        .earn-item:before {
+            content: "▲ ";
+            color: #00FF00;
+            font-weight: bold;
+        }
+        .spend-item:before {
+            content: "▼ ";
+            color: #FF6666;
+            font-weight: bold;
+        }
+        .quick-actions {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 10px;
+        }
+        .action-btn {
+            background-color: #990033;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            border: 2px solid #CC0044;
+        }
+        .action-btn:hover {
+            background-color: #CC0044;
+            border-color: #FF0055;
+        }
+        .action-btn.buy {
+            background-color: #CC9900;
+            border-color: #FFCC00;
+        }
+        .action-btn.buy:hover {
+            background-color: #FFCC00;
+            border-color: #FFFF00;
+            color: #000000;
+        }
+    </style>
+    <script>
+        // Embedded account data
+        const ACCOUNT_BALANCE = 37500;
+
+        const TRANSACTIONS = [
+            {
+                id: 1,
+                type: "earned",
+                title: "Footsoldiers Mission Bonus",
+                detail: "Operation Desert Storm - Completed with honors",
+                amount: 2500,
+                date: "Today, 2:30 PM"
+            },
+            {
+                id: 2,
+                type: "spent",
+                title: "Tournament Entry Fee",
+                detail: "Quake II Deathmatch Championship",
+                amount: -5000,
+                date: "Today, 10:15 AM"
+            },
+            {
+                id: 3,
+                type: "earned",
+                title: "Trophy Unlock Reward",
+                detail: "Sharpshooter Trophy - 100 headshots",
+                amount: 1000,
+                date: "Yesterday, 8:45 PM"
+            },
+            {
+                id: 4,
+                type: "earned",
+                title: "Premium Membership Bonus",
+                detail: "Monthly HEAT PREMIUM reward",
+                amount: 10000,
+                date: "Yesterday, 12:00 AM"
+            },
+            {
+                id: 5,
+                type: "spent",
+                title: "Store Purchase",
+                detail: "10SIX Strategy Guide",
+                amount: -19.95,
+                date: "2 days ago"
+            },
+            {
+                id: 6,
+                type: "earned",
+                title: "10SIX Corporation Salary",
+                detail: "Weekly payout from 'Elite Squad'",
+                amount: 5000,
+                date: "3 days ago"
+            },
+            {
+                id: 7,
+                type: "earned",
+                title: "Match Wins Streak Bonus",
+                detail: "10 consecutive wins in Unreal Tournament",
+                amount: 3500,
+                date: "3 days ago"
+            },
+            {
+                id: 8,
+                type: "spent",
+                title: "Game Download",
+                detail: "Descent 3 Full Version",
+                amount: -15000,
+                date: "4 days ago"
+            },
+            {
+                id: 9,
+                type: "earned",
+                title: "Referral Bonus",
+                detail: "Friend joined HEAT using your code",
+                amount: 2500,
+                date: "5 days ago"
+            },
+            {
+                id: 10,
+                type: "earned",
+                title: "Tournament Prize",
+                detail: "2nd Place - Half-Life CTF Tournament",
+                amount: 50000,
+                date: "1 week ago"
+            }
+        ];
+
+        function renderBalance() {
+            document.getElementById('balance-amount').textContent = ACCOUNT_BALANCE.toLocaleString();
+        }
+
+        function renderTransactions() {
+            const container = document.getElementById('transactions-container');
+            let html = '';
+
+            TRANSACTIONS.forEach(txn => {
+                const typeClass = txn.type === 'earned' ? 'earned' : 'spent';
+                const amountClass = txn.type === 'earned' ? 'amount-earned' : 'amount-spent';
+                const amountPrefix = txn.type === 'earned' ? '+' : '';
+                const displayAmount = typeof txn.amount === 'number' && txn.amount < 100
+                    ? `$${Math.abs(txn.amount).toFixed(2)}`
+                    : `${txn.amount.toLocaleString()} Degrees`;
+
+                html += `
+                    <div class="transaction ${typeClass}">
+                        <div class="transaction-desc">
+                            <div class="transaction-title">${txn.title}</div>
+                            <div class="transaction-detail">${txn.detail} • ${txn.date}</div>
+                        </div>
+                        <div class="transaction-amount ${amountClass}">
+                            ${amountPrefix}${displayAmount}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        window.onload = function() {
+            renderBalance();
+            renderTransactions();
+        };
+    </script>
+</head>
+<body bgcolor="#000000" link="#00FFFF" vlink="#009999" alink="#FF0000">
+
+<center>
+
+<!-- Header with Logo -->
+<table width="636" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="223" bgcolor="#000000">
+      <a href="../index.html"><img src="../images/ui/nav_cobrand.gif" width="223" height="60" border="0" alt="HEAT.NET"></a>
+    </td>
+    <td width="413" bgcolor="#000000" align="center">
+      <img src="../images/store/degrees.gif" width="80" height="40" border="0" style="vertical-align: middle;"><br>
+      <font face="Verdana" size="2" color="#FFCC00">Your Network Currency Account</font>
+    </td>
+  </tr>
+
+  <!-- Navigation Bar -->
+  <tr>
+    <td colspan="2">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href="../index.html"><img src="../images/navigation/nav_frontpage.gif" width="74" height="30" border="0" alt="Front Page"></a></td>
+          <td><a href="#myheat"><img src="../images/ui/nav_myhomebase.gif" width="70" height="30" border="0" alt="My HEAT"></a></td>
+          <td><a href="../games.html"><img src="../images/navigation/nav_games.gif" width="44" height="30" border="0" alt="Games"></a></td>
+          <td><a href="../store.html"><img src="../images/ui/nav_store.gif" width="41" height="30" border="0" alt="Store"></a></td>
+          <td><a href="#events"><img src="../images/navigation/nav_events.gif" width="45" height="30" border="0" alt="Events"></a></td>
+          <td><a href="#news"><img src="../images/ui/nav_news.gif" width="40" height="30" border="0" alt="News"></a></td>
+          <td><a href="#communicate"><img src="../images/navigation/nav_communicate.gif" width="40" height="30" border="0" alt="Communicate"></a></td>
+          <td><a href="#search"><img src="../images/ui/nav_search.gif" width="35" height="30" border="0" alt="Search"></a></td>
+          <td><a href="#help"><img src="../images/navigation/nav_help.gif" width="34" height="30" border="0" alt="Help"></a></td>
+          <td><a href="pager.html"><img src="../images/ui/nav_pager.gif" width="58" height="30" border="0" alt="Pager"></a></td>
+          <td><img src="../images/ui/nav_rightbevel.gif" width="13" height="30" border="0" alt=""></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<img src="../images/ui/dot_clear.gif" width="1" height="15" border="0"><br>
+
+<!-- Main Content -->
+<table width="636" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+  <tr>
+    <td>
+      <!-- Account Balance Display -->
+      <div class="balance-display">
+        <div class="balance-label">YOUR CURRENT BALANCE</div>
+        <div class="balance-amount" id="balance-amount">0</div>
+        <div class="balance-label">HEAT DEGREES</div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <button class="action-btn buy" onclick="window.location.href='../store.html'">
+          💰 BUY DEGREES
+        </button>
+        <button class="action-btn" onclick="alert('Send Degrees to other HEAT members!')">
+          📤 SEND DEGREES
+        </button>
+        <button class="action-btn" onclick="alert('View detailed account statement')">
+          📊 FULL STATEMENT
+        </button>
+      </div>
+
+      <!-- Recent Transactions -->
+      <div class="section-header">
+        📋 RECENT TRANSACTIONS
+      </div>
+
+      <div id="transactions-container" style="padding: 10px;">
+        <!-- Transactions will be rendered here -->
+      </div>
+
+      <!-- Ways to Earn and Spend -->
+      <div class="section-header">
+        💡 HEAT DEGREES ECONOMY
+      </div>
+
+      <div class="earn-spend-grid">
+        <!-- Ways to Earn -->
+        <div class="earn-box">
+          <font face="Verdana" size="2" color="#00FF00"><b>WAYS TO EARN DEGREES:</b></font><br>
+          <img src="../images/ui/dot_clear.gif" width="1" height="8" border="0"><br>
+          <div class="earn-item"><b>Match Wins:</b> 100-500 per victory</div>
+          <div class="earn-item"><b>Tournament Prizes:</b> 5,000-100,000+</div>
+          <div class="earn-item"><b>Trophy Unlocks:</b> 500-5,000</div>
+          <div class="earn-item"><b>Footsoldiers Missions:</b> 1,000-5,000</div>
+          <div class="earn-item"><b>10SIX Corporation Salary:</b> 5,000/week</div>
+          <div class="earn-item"><b>Daily Login Bonus:</b> 250/day</div>
+          <div class="earn-item"><b>Referral Bonuses:</b> 2,500 per friend</div>
+          <div class="earn-item"><b>Premium Membership:</b> 10,000/month</div>
+          <div class="earn-item"><b>Achievement Bonuses:</b> 500-10,000</div>
+          <div class="earn-item"><b>Special Events:</b> Varies</div>
+        </div>
+
+        <!-- Ways to Spend -->
+        <div class="spend-box">
+          <font face="Verdana" size="2" color="#FF6666"><b>WAYS TO SPEND DEGREES:</b></font><br>
+          <img src="../images/ui/dot_clear.gif" width="1" height="8" border="0"><br>
+          <div class="spend-item"><b>Tournament Entry Fees:</b> 1,000-10,000</div>
+          <div class="spend-item"><b>Premium Games:</b> 5,000-25,000</div>
+          <div class="spend-item"><b>Game Downloads:</b> 10,000-50,000</div>
+          <div class="spend-item"><b>Expansion Packs:</b> 5,000-15,000</div>
+          <div class="spend-item"><b>Custom Avatars:</b> 2,500</div>
+          <div class="spend-item"><b>Trophy Case Upgrades:</b> 10,000</div>
+          <div class="spend-item"><b>Server Priority:</b> 1,000/month</div>
+          <div class="spend-item"><b>Clan/Corp Creation:</b> 25,000</div>
+          <div class="spend-item"><b>Trade with Members:</b> Any amount</div>
+          <div class="spend-item"><b>HEAT Store Items:</b> Varies</div>
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Degrees Info -->
+      <table width="616" border="0" cellpadding="10" cellspacing="0" bgcolor="#0d0d0d" style="margin: 10px;">
+        <tr>
+          <td>
+            <font face="Verdana" size="2" color="#FFCC00"><b>WHAT ARE HEAT DEGREES?</b></font><br>
+            <img src="../images/ui/dot_clear.gif" width="1" height="5" border="0"><br>
+            <font face="Verdana" size="1" color="#CCCCCC">
+              HEAT Degrees are the official currency of the HEAT.NET gaming network. Launched in 1997,
+              Degrees revolutionized online gaming by creating a unified economy across all games and services.
+              <br><br>
+              <b>Key Features:</b><br>
+              • Earn Degrees through gameplay, tournaments, and achievements<br>
+              • Spend Degrees on games, tournaments, memberships, and more<br>
+              • Trade Degrees with other HEAT members<br>
+              • Purchase Degrees packs in the <a href="../store.html">HEAT Store</a><br>
+              • Track your balance and transactions in real-time<br>
+              • Integrated with all HEAT games and services
+              <br><br>
+              <b>Current Exchange Rate:</b> Approximately $1 USD = 1,000 HEAT Degrees<br>
+              <i>(Rates may vary based on purchase amount and promotions)</i>
+            </font>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+
+      <!-- Historical Note -->
+      <div style="margin: 10px; padding: 12px; background-color: #1a1a1a; border-left: 3px solid #FFCC00;">
+        <font face="Verdana" size="1" color="#999999">
+          <i><b>Historical Note:</b> HEAT Degrees was one of the first virtual currencies in online gaming (1997-2003).
+          It pioneered the concept of a unified gaming economy where players could earn in-game currency through
+          gameplay and spend it across the entire network. This restoration shows simulated account data and
+          transaction history. The original system supported real-time balance updates, peer-to-peer trading,
+          and integration with payment processors for purchasing Degrees.</i>
+        </font>
+      </div>
+
+      <img src="../images/ui/dot_clear.gif" width="1" height="20" border="0"><br>
+    </td>
+  </tr>
+</table>
+
+<!-- Footer -->
+<br>
+<font face="Verdana" size="1" color="#666666">
+  <a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="trophies.html">Trophies</a> |
+  <a href="../store.html">Store</a> | <a href="degrees.html">HEAT Degrees</a> | <a href="pager.html">Pager</a>
+</font>
+
+</center>
+
+</body>
+</html>

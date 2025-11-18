@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+    <title>HEAT.NET - HEAT Pager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="HEAT Pager - Your network messaging and notification center">
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        a { color: #00FFFF; text-decoration: none; }
+        a:hover { color: #FF0000; }
+        .pager-header {
+            background: linear-gradient(to bottom, #990033, #660022);
+            color: #FFFFFF;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #FF0000;
+        }
+        .pager-stats {
+            background-color: #1a1a1a;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #333333;
+        }
+        .message {
+            background-color: #0d0d0d;
+            border: 1px solid #333333;
+            margin: 5px 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .message:hover {
+            background-color: #1a1a1a;
+            border-color: #990033;
+        }
+        .message.unread {
+            background-color: #1a0a0a;
+            border-left: 3px solid #FF0000;
+            font-weight: bold;
+        }
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .message-from {
+            color: #00FFFF;
+            font-weight: bold;
+        }
+        .message-time {
+            color: #999999;
+            font-size: 10px;
+        }
+        .message-subject {
+            color: #FFFFFF;
+            margin-bottom: 5px;
+        }
+        .message-preview {
+            color: #CCCCCC;
+            font-size: 11px;
+        }
+        .message-type {
+            display: inline-block;
+            padding: 2px 6px;
+            margin-right: 8px;
+            font-size: 9px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .type-friend { background-color: #003366; color: #00FFFF; }
+        .type-game { background-color: #336600; color: #66FF66; }
+        .type-tournament { background-color: #663300; color: #FF9933; }
+        .type-system { background-color: #660000; color: #FF6666; }
+        .type-trophy { background-color: #666600; color: #FFFF66; }
+        .tabs {
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #990033;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .tab {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0d0d0d;
+            border: 1px solid #333333;
+            border-bottom: none;
+            cursor: pointer;
+            color: #CCCCCC;
+        }
+        .tab:hover {
+            background-color: #1a1a1a;
+            color: #FFFFFF;
+        }
+        .tab.active {
+            background-color: #990033;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+        .compose-btn {
+            background-color: #990033;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .compose-btn:hover {
+            background-color: #CC0044;
+        }
+    </style>
+    <script>
+        // Embedded message data
+        const MESSAGES = [
+            {
+                id: 1,
+                from: "HEAT System",
+                subject: "Welcome to HEAT Pager!",
+                preview: "Your personal messaging center is now active. You can receive game invites, friend requests, tournament notifications...",
+                time: "2 hours ago",
+                type: "system",
+                unread: true
+            },
+            {
+                id: 2,
+                from: "TournamentBot",
+                subject: "Quake II Tournament Starting Soon!",
+                preview: "The Quake II Deathmatch Championship begins in 30 minutes. Entry fee: 5,000 HEAT Degrees. Prize pool: 100,000 Degrees!",
+                time: "3 hours ago",
+                type: "tournament",
+                unread: true
+            },
+            {
+                id: 3,
+                from: "Player_Duke47",
+                subject: "Friend Request",
+                preview: "Duke47 wants to add you as a friend. You played together in 10SIX Corporation 'Red Phoenix' last week.",
+                time: "5 hours ago",
+                type: "friend",
+                unread: true
+            },
+            {
+                id: 4,
+                from: "10SIX GameMaster",
+                subject: "Corporation War Alert!",
+                preview: "Your corporation 'Elite Squad' is under attack! Enemy forces detected near Base Alpha. Rally your troops!",
+                time: "1 day ago",
+                type: "game",
+                unread: false
+            },
+            {
+                id: 5,
+                from: "Trophy System",
+                subject: "New Trophy Unlocked!",
+                preview: "Congratulations! You've earned the 'Sharpshooter' trophy for 100 headshots in Unreal Tournament. Check your trophy case!",
+                time: "1 day ago",
+                type: "trophy",
+                unread: false
+            },
+            {
+                id: 6,
+                from: "Footsoldiers HQ",
+                subject: "Mission Complete - Bonus Awarded",
+                preview: "Mission 'Operation Desert Storm' completed successfully! Bonus: 2,500 HEAT Degrees + Rank Promotion to Captain.",
+                time: "2 days ago",
+                type: "game",
+                unread: false
+            },
+            {
+                id: 7,
+                from: "HEAT Store",
+                subject: "Your Order is Ready",
+                preview: "Your HEAT Premium membership has been activated. Enjoy priority server access, exclusive tournaments, and 10,000 bonus Degrees!",
+                time: "2 days ago",
+                type: "system",
+                unread: false
+            },
+            {
+                id: 8,
+                from: "Player_Jitter99",
+                subject: "Re: Great match!",
+                preview: "That was an epic 10SIX battle! Your base defense strategy was incredible. Want to team up for the next corp war?",
+                time: "3 days ago",
+                type: "friend",
+                unread: false
+            }
+        ];
+
+        function renderMessages() {
+            const container = document.getElementById('messages-container');
+            let html = '';
+
+            MESSAGES.forEach(msg => {
+                const unreadClass = msg.unread ? 'unread' : '';
+                const typeClass = `type-${msg.type}`;
+
+                html += `
+                    <div class="message ${unreadClass}" onclick="openMessage(${msg.id})">
+                        <div class="message-header">
+                            <div>
+                                <span class="message-type ${typeClass}">${msg.type.toUpperCase()}</span>
+                                <span class="message-from">${msg.from}</span>
+                            </div>
+                            <div class="message-time">${msg.time}</div>
+                        </div>
+                        <div class="message-subject">${msg.subject}</div>
+                        <div class="message-preview">${msg.preview}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            updateStats();
+        }
+
+        function updateStats() {
+            const unreadCount = MESSAGES.filter(m => m.unread).length;
+            document.getElementById('unread-count').textContent = unreadCount;
+            document.getElementById('total-count').textContent = MESSAGES.length;
+        }
+
+        function openMessage(id) {
+            alert('Message viewer would open here in the original HEAT Pager!\n\nThis is a restored historical interface. Full messaging functionality was server-based.');
+        }
+
+        window.onload = renderMessages;
+    </script>
+</head>
+<body bgcolor="#000000" link="#00FFFF" vlink="#009999" alink="#FF0000">
+
+<center>
+
+<!-- Header with Logo -->
+<table width="636" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="223" bgcolor="#000000">
+      <a href="../index.html"><img src="../images/ui/nav_cobrand.gif" width="223" height="60" border="0" alt="HEAT.NET"></a>
+    </td>
+    <td width="413" bgcolor="#000000" align="center">
+      <font face="Arial" size="5" color="#FF0000"><b>HEAT PAGER</b></font><br>
+      <font face="Verdana" size="2" color="#00FFFF">Your Network Messaging Center</font>
+    </td>
+  </tr>
+
+  <!-- Navigation Bar -->
+  <tr>
+    <td colspan="2">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href="../index.html"><img src="../images/navigation/nav_frontpage.gif" width="74" height="30" border="0" alt="Front Page"></a></td>
+          <td><a href="#myheat"><img src="../images/ui/nav_myhomebase.gif" width="70" height="30" border="0" alt="My HEAT"></a></td>
+          <td><a href="../games.html"><img src="../images/navigation/nav_games.gif" width="44" height="30" border="0" alt="Games"></a></td>
+          <td><a href="../store.html"><img src="../images/ui/nav_store.gif" width="41" height="30" border="0" alt="Store"></a></td>
+          <td><a href="#events"><img src="../images/navigation/nav_events.gif" width="45" height="30" border="0" alt="Events"></a></td>
+          <td><a href="#news"><img src="../images/ui/nav_news.gif" width="40" height="30" border="0" alt="News"></a></td>
+          <td><a href="#communicate"><img src="../images/navigation/nav_communicate.gif" width="40" height="30" border="0" alt="Communicate"></a></td>
+          <td><a href="#search"><img src="../images/ui/nav_search.gif" width="35" height="30" border="0" alt="Search"></a></td>
+          <td><a href="#help"><img src="../images/navigation/nav_help.gif" width="34" height="30" border="0" alt="Help"></a></td>
+          <td><a href="pager.html"><img src="../images/ui/nav_pager.gif" width="58" height="30" border="0" alt="Pager"></a></td>
+          <td><img src="../images/ui/nav_rightbevel.gif" width="13" height="30" border="0" alt=""></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<img src="../images/ui/dot_clear.gif" width="1" height="15" border="0"><br>
+
+<!-- Main Content -->
+<table width="636" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+  <tr>
+    <td>
+      <!-- Pager Header -->
+      <div class="pager-header">
+        <img src="../images/ui/nav_pager.gif" width="58" height="30" border="0" style="vertical-align: middle; margin-right: 10px;">
+        HEAT PAGER - INBOX
+      </div>
+
+      <!-- Stats and Actions -->
+      <div class="pager-stats">
+        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+          <tr>
+            <td width="50%">
+              <font face="Verdana" size="2" color="#FFFFFF">
+                <b>Unread:</b> <span id="unread-count" style="color: #FF0000;">0</span> &nbsp;&nbsp;
+                <b>Total:</b> <span id="total-count">0</span>
+              </font>
+            </td>
+            <td width="50%" align="right">
+              <button class="compose-btn" onclick="alert('Compose message functionality was available in the original HEAT Pager!')">
+                ✉ COMPOSE MESSAGE
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Message Tabs -->
+      <div class="tabs">
+        <span class="tab active">ALL MESSAGES</span>
+        <span class="tab">FRIENDS</span>
+        <span class="tab">GAMES</span>
+        <span class="tab">TOURNAMENTS</span>
+        <span class="tab">SYSTEM</span>
+      </div>
+
+      <!-- Messages Container -->
+      <div id="messages-container" style="padding: 10px;">
+        <!-- Messages will be rendered here by JavaScript -->
+      </div>
+
+      <br>
+
+      <!-- Pager Features -->
+      <table width="616" border="0" cellpadding="10" cellspacing="0" bgcolor="#0d0d0d" style="margin: 10px;">
+        <tr>
+          <td>
+            <font face="Verdana" size="2" color="#00FFFF"><b>HEAT PAGER FEATURES:</b></font><br>
+            <img src="../images/ui/dot_clear.gif" width="1" height="5" border="0"><br>
+            <font face="Verdana" size="1" color="#CCCCCC">
+              • <b>Friend Requests:</b> Connect with other HEAT members<br>
+              • <b>Game Invites:</b> Join multiplayer matches instantly<br>
+              • <b>Tournament Alerts:</b> Never miss a competition<br>
+              • <b>Trophy Notifications:</b> Track your achievements<br>
+              • <b>System Messages:</b> Important HEAT network updates<br>
+              • <b>Corporation Messages:</b> 10SIX team communications<br>
+              • <b>Store Receipts:</b> Purchase confirmations and delivery notices
+            </font>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+
+      <!-- Historical Note -->
+      <div style="margin: 10px; padding: 12px; background-color: #1a1a1a; border-left: 3px solid #FF0000;">
+        <font face="Verdana" size="1" color="#999999">
+          <i><b>Historical Note:</b> The HEAT Pager was HEAT.NET's integrated messaging system (1997-2003).
+          It provided real-time notifications for friend requests, game invites, tournament alerts, trophy unlocks,
+          and corporation messages. This restoration preserves the interface design with simulated message data.
+          Original functionality required server-side infrastructure and real-time communication protocols.</i>
+        </font>
+      </div>
+
+      <img src="../images/ui/dot_clear.gif" width="1" height="20" border="0"><br>
+    </td>
+  </tr>
+</table>
+
+<!-- Footer -->
+<br>
+<font face="Verdana" size="1" color="#666666">
+  <a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="trophies.html">Trophies</a> |
+  <a href="../store.html">Store</a> | <a href="degrees.html">HEAT Degrees</a> | <a href="pager.html">Pager</a>
+</font>
+
+</center>
+
+</body>
+</html>
