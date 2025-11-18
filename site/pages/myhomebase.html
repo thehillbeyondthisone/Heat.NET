@@ -1,0 +1,446 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+    <title>HEAT.NET - My Homebase</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="My Homebase - Your HEAT.NET personal dashboard">
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        a { color: #00FFFF; text-decoration: none; }
+        a:hover { color: #FF0000; }
+
+        .dashboard-header {
+            background: linear-gradient(to bottom, #990033, #660022);
+            padding: 15px;
+            border-bottom: 3px solid #FF0000;
+        }
+        .welcome-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+        .member-since {
+            font-size: 11px;
+            color: #FFCCCC;
+        }
+
+        /* Top Stats Bar */
+        .stats-bar {
+            display: flex;
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #333333;
+        }
+        .stat-box {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            border-right: 1px solid #333333;
+            cursor: pointer;
+        }
+        .stat-box:last-child {
+            border-right: none;
+        }
+        .stat-box:hover {
+            background-color: #252525;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 10px;
+            color: #999999;
+            text-transform: uppercase;
+        }
+        .degrees-value { color: #FFFF00; }
+        .messages-value { color: #00FFFF; }
+        .trophies-value { color: #FFD700; }
+        .rank-value { color: #FF6600; }
+
+        /* Content Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 10px;
+        }
+        .dashboard-panel {
+            background-color: #0d0d0d;
+            border: 1px solid #333333;
+            padding: 15px;
+        }
+        .panel-header {
+            background-color: #990033;
+            color: #FFFFFF;
+            padding: 8px 10px;
+            margin: -15px -15px 15px -15px;
+            font-weight: bold;
+            font-size: 12px;
+            border-bottom: 2px solid #FF0000;
+        }
+
+        /* Recent Activity */
+        .activity-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #222222;
+            font-size: 11px;
+        }
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        .activity-time {
+            color: #666666;
+            font-size: 9px;
+        }
+        .activity-type {
+            display: inline-block;
+            padding: 2px 5px;
+            margin-right: 5px;
+            font-size: 8px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+        .type-earn { background-color: #003300; color: #00FF00; }
+        .type-trophy { background-color: #663300; color: #FFCC00; }
+        .type-game { background-color: #000066; color: #6699FF; }
+        .type-social { background-color: #330033; color: #FF66FF; }
+
+        /* Quick Links */
+        .quick-link {
+            display: block;
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            padding: 10px;
+            margin: 8px 0;
+            color: #00FFFF;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .quick-link:hover {
+            background-color: #990033;
+            border-color: #FF0000;
+            color: #FFFFFF;
+        }
+
+        /* Pager Preview */
+        .message-preview {
+            background-color: #1a0a0a;
+            border-left: 3px solid #FF0000;
+            padding: 8px;
+            margin: 8px 0;
+            font-size: 11px;
+        }
+        .message-preview.unread {
+            font-weight: bold;
+        }
+        .message-from {
+            color: #00FFFF;
+            font-weight: bold;
+        }
+
+        /* Membership Status */
+        .membership-badge {
+            background: linear-gradient(to right, #CC9900, #FFCC00);
+            color: #000000;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid #FFFF00;
+            margin: 10px 0;
+        }
+        .membership-free {
+            background: linear-gradient(to right, #333333, #666666);
+            color: #FFFFFF;
+            border-color: #999999;
+        }
+    </style>
+    <script>
+        // Simulated user data
+        const USER_DATA = {
+            username: "Player_1",
+            memberSince: "June 1997",
+            membershipType: "HEAT PREMIUM",
+            degrees: 37500,
+            unreadMessages: 3,
+            totalTrophies: 12,
+            rank: "Captain",
+            recentActivity: [
+                {
+                    type: "earn",
+                    text: "Earned 2,500 Degrees from Footsoldiers mission",
+                    time: "2 hours ago"
+                },
+                {
+                    type: "trophy",
+                    text: "Unlocked 'Sharpshooter' trophy in Unreal Tournament",
+                    time: "Yesterday"
+                },
+                {
+                    type: "game",
+                    text: "Joined 10SIX corporation 'Elite Squad'",
+                    time: "Yesterday"
+                },
+                {
+                    type: "earn",
+                    text: "Received 10,000 Degrees monthly Premium bonus",
+                    time: "2 days ago"
+                },
+                {
+                    type: "social",
+                    text: "Player_Duke47 sent you a friend request",
+                    time: "3 days ago"
+                },
+                {
+                    type: "game",
+                    text: "Won Quake II Deathmatch Tournament (2nd place)",
+                    time: "1 week ago"
+                },
+                {
+                    type: "earn",
+                    text: "Earned 50,000 Degrees tournament prize",
+                    time: "1 week ago"
+                }
+            ],
+            recentMessages: [
+                { from: "HEAT System", subject: "Welcome to HEAT Pager!", unread: true },
+                { from: "TournamentBot", subject: "Quake II Tournament Starting Soon!", unread: true },
+                { from: "Player_Duke47", subject: "Friend Request", unread: true },
+                { from: "10SIX GameMaster", subject: "Corporation War Alert!", unread: false }
+            ]
+        };
+
+        function loadDashboard() {
+            // Update stats
+            document.getElementById('degrees-stat').textContent = USER_DATA.degrees.toLocaleString();
+            document.getElementById('messages-stat').textContent = USER_DATA.unreadMessages;
+            document.getElementById('trophies-stat').textContent = USER_DATA.totalTrophies;
+            document.getElementById('rank-stat').textContent = USER_DATA.rank;
+
+            // Update welcome
+            document.getElementById('username').textContent = USER_DATA.username;
+            document.getElementById('member-since').textContent = USER_DATA.memberSince;
+
+            // Recent activity
+            const activityContainer = document.getElementById('recent-activity');
+            USER_DATA.recentActivity.forEach(activity => {
+                const div = document.createElement('div');
+                div.className = 'activity-item';
+                div.innerHTML = `
+                    <span class="activity-type type-${activity.type}">${activity.type.toUpperCase()}</span>
+                    ${activity.text}
+                    <div class="activity-time">${activity.time}</div>
+                `;
+                activityContainer.appendChild(div);
+            });
+
+            // Recent messages
+            const messagesContainer = document.getElementById('recent-messages');
+            USER_DATA.recentMessages.forEach(msg => {
+                const div = document.createElement('div');
+                div.className = 'message-preview' + (msg.unread ? ' unread' : '');
+                div.innerHTML = `
+                    <span class="message-from">${msg.from}</span><br>
+                    ${msg.subject}
+                `;
+                div.onclick = () => window.location.href = 'pager.html';
+                messagesContainer.appendChild(div);
+            });
+        }
+
+        window.onload = loadDashboard;
+    </script>
+</head>
+<body bgcolor="#000000" link="#00FFFF" vlink="#009999" alink="#FF0000">
+
+<center>
+
+<!-- Header with Logo -->
+<table width="636" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="223" bgcolor="#000000">
+      <a href="../index.html"><img src="../images/ui/nav_cobrand.gif" width="223" height="60" border="0" alt="HEAT.NET"></a>
+    </td>
+    <td width="413" bgcolor="#000000">
+      <div class="dashboard-header">
+        <div class="welcome-text">WELCOME, <span id="username">PLAYER</span></div>
+        <div class="member-since">HEAT Member Since <span id="member-since">1997</span></div>
+      </div>
+    </td>
+  </tr>
+
+  <!-- Navigation Bar -->
+  <tr>
+    <td colspan="2">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href="../index.html"><img src="../images/navigation/nav_frontpage.gif" width="74" height="30" border="0" alt="Front Page"></a></td>
+          <td><a href="myhomebase.html"><img src="../images/ui/nav_myhomebase.gif" width="70" height="30" border="0" alt="My HEAT"></a></td>
+          <td><a href="../games.html"><img src="../images/navigation/nav_games.gif" width="44" height="30" border="0" alt="Games"></a></td>
+          <td><a href="../store.html"><img src="../images/ui/nav_store.gif" width="41" height="30" border="0" alt="Store"></a></td>
+          <td><a href="#events"><img src="../images/navigation/nav_events.gif" width="45" height="30" border="0" alt="Events"></a></td>
+          <td><a href="#news"><img src="../images/ui/nav_news.gif" width="40" height="30" border="0" alt="News"></a></td>
+          <td><a href="#communicate"><img src="../images/navigation/nav_communicate.gif" width="40" height="30" border="0" alt="Communicate"></a></td>
+          <td><a href="#search"><img src="../images/ui/nav_search.gif" width="35" height="30" border="0" alt="Search"></a></td>
+          <td><a href="#help"><img src="../images/navigation/nav_help.gif" width="34" height="30" border="0" alt="Help"></a></td>
+          <td><a href="pager.html"><img src="../images/ui/nav_pager.gif" width="58" height="30" border="0" alt="Pager"></a></td>
+          <td><img src="../images/ui/nav_rightbevel.gif" width="13" height="30" border="0" alt=""></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- Stats Bar -->
+<table width="636" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+  <tr>
+    <td colspan="4">
+      <div class="stats-bar">
+        <div class="stat-box" onclick="window.location.href='degrees.html'">
+          <div class="stat-value degrees-value" id="degrees-stat">0</div>
+          <div class="stat-label">HEAT Degrees</div>
+        </div>
+        <div class="stat-box" onclick="window.location.href='pager.html'">
+          <div class="stat-value messages-value" id="messages-stat">0</div>
+          <div class="stat-label">Unread Messages</div>
+        </div>
+        <div class="stat-box" onclick="window.location.href='trophies.html'">
+          <div class="stat-value trophies-value" id="trophies-stat">0</div>
+          <div class="stat-label">Trophies Earned</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value rank-value" id="rank-stat">-</div>
+          <div class="stat-label">Current Rank</div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<img src="../images/ui/dot_clear.gif" width="1" height="10" border="0"><br>
+
+<!-- Main Dashboard Grid -->
+<table width="636" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+  <tr>
+    <td>
+      <div class="dashboard-grid">
+        <!-- Recent Activity Panel -->
+        <div class="dashboard-panel">
+          <div class="panel-header">📊 RECENT ACTIVITY</div>
+          <div id="recent-activity"></div>
+        </div>
+
+        <!-- Pager Messages Panel -->
+        <div class="dashboard-panel">
+          <div class="panel-header">📬 PAGER MESSAGES</div>
+          <div id="recent-messages"></div>
+          <br>
+          <a href="pager.html" style="color: #00FFFF; font-size: 11px;">→ View All Messages</a>
+        </div>
+
+        <!-- Membership Panel -->
+        <div class="dashboard-panel">
+          <div class="panel-header">💳 MEMBERSHIP STATUS</div>
+          <div class="membership-badge">
+            <img src="../images/store/membership_60.gif" width="60" height="60" style="vertical-align: middle;"><br>
+            HEAT PREMIUM MEMBER
+          </div>
+          <font face="Verdana" size="1" color="#CCCCCC">
+            <b>Benefits Active:</b><br>
+            ✓ Priority Server Access<br>
+            ✓ 10,000 Monthly Degree Bonus<br>
+            ✓ Exclusive Tournaments<br>
+            ✓ Premium Trophy Access<br>
+            ✓ Priority Support<br>
+            <br>
+            <a href="../store.html">→ Manage Membership</a>
+          </font>
+        </div>
+
+        <!-- Quick Links Panel -->
+        <div class="dashboard-panel">
+          <div class="panel-header">🔗 QUICK LINKS</div>
+          <a href="degrees.html" class="quick-link">💰 HEAT Degrees Wallet</a>
+          <a href="pager.html" class="quick-link">📱 HEAT Pager Messages</a>
+          <a href="trophies.html" class="quick-link">🏆 My Trophy Case</a>
+          <a href="../games.html" class="quick-link">🎮 Browse Games</a>
+          <a href="footsoldiers.html" class="quick-link">⚔️ Footsoldiers HQ</a>
+          <a href="../store.html" class="quick-link">🛒 HEAT Store</a>
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Current Games Section -->
+      <table width="616" border="0" cellpadding="10" cellspacing="0" bgcolor="#0d0d0d" style="margin: 10px;">
+        <tr>
+          <td>
+            <font face="Verdana" size="2" color="#FF0000"><b>🎮 YOUR GAMES</b></font><br>
+            <img src="../images/ui/dot_clear.gif" width="1" height="8" border="0"><br>
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+              <tr>
+                <td width="33%" valign="top">
+                  <font face="Verdana" size="1" color="#FFFFFF"><b>10SIX</b></font><br>
+                  <font face="Verdana" size="1" color="#CCCCCC">
+                    Corporation: Elite Squad<br>
+                    Rank: Commander<br>
+                    <a href="10six.html">→ Launch Game</a>
+                  </font>
+                </td>
+                <td width="33%" valign="top">
+                  <font face="Verdana" size="1" color="#FFFFFF"><b>Unreal Tournament</b></font><br>
+                  <font face="Verdana" size="1" color="#CCCCCC">
+                    Win Rate: 68%<br>
+                    K/D Ratio: 2.4<br>
+                    <a href="../games.html">→ Play Now</a>
+                  </font>
+                </td>
+                <td width="34%" valign="top">
+                  <font face="Verdana" size="1" color="#FFFFFF"><b>Footsoldiers</b></font><br>
+                  <font face="Verdana" size="1" color="#CCCCCC">
+                    Rank: Captain<br>
+                    Missions: 47 Complete<br>
+                    <a href="footsoldiers.html">→ Continue Mission</a>
+                  </font>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+
+      <!-- Historical Note -->
+      <div style="margin: 10px; padding: 12px; background-color: #1a1a1a; border-left: 3px solid #990033;">
+        <font face="Verdana" size="1" color="#999999">
+          <i><b>Historical Note:</b> "My Homebase" was the personal dashboard for HEAT.NET members (1997-2003).
+          It provided at-a-glance access to Degrees balance, messages, trophies, game stats, and membership status.
+          This restoration simulates the integrated experience with representative data. The original system
+          connected to live game servers, real-time messaging, and dynamic stats tracking.</i>
+        </font>
+      </div>
+
+      <img src="../images/ui/dot_clear.gif" width="1" height="20" border="0"><br>
+    </td>
+  </tr>
+</table>
+
+<!-- Footer -->
+<br>
+<font face="Verdana" size="1" color="#666666">
+  <a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="trophies.html">Trophies</a> |
+  <a href="../store.html">Store</a> | <a href="degrees.html">HEAT Degrees</a> | <a href="pager.html">Pager</a> | <a href="myhomebase.html">My Homebase</a>
+</font>
+
+</center>
+
+</body>
+</html>
