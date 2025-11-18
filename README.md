@@ -29,12 +29,13 @@ HEAT.NET was a pioneering online gaming portal from the late 1990s and early 200
 - [x] Static file servers created (Python & Node.js)
 - [x] Comprehensive project documentation
 
-### Phase 2: Visual Authenticity 🔄 **NEXT**
-- [ ] Remove Wayback Machine artifacts from HTML
-- [ ] Update all asset paths
+### Phase 2: Visual Authenticity 🔄 **IN PROGRESS**
+- [x] Organized original files into archive directory
+- [x] Created clean project structure
+- [x] Created landing page for cleaned site
+- [ ] Build complete clean HTML pages
 - [ ] Convert Flash content to HTML5
 - [ ] Test cross-browser compatibility
-- [ ] Mobile responsiveness (optional)
 
 ### Phase 3: Core Functional Features 📋 **PLANNED**
 - [ ] **Trophy System** (database + display)
@@ -77,52 +78,48 @@ Both servers will start on **http://localhost:8000**
 
 ```
 Heat.NET/
+├── index.html                   # Auto-redirects to /site
 ├── README.md                    # This file
 ├── server.py                    # Python static file server
 ├── server.js                    # Node.js static file server
 ├── package.json                 # npm configuration
 │
-├── docs/                        # 📚 Documentation
-│   ├── INVENTORY.md             # Complete file inventory
-│   ├── CSS-ANALYSIS.md          # CSS files analysis
-│   ├── JAVASCRIPT-ANALYSIS.md   # JavaScript files analysis
-│   └── IMAGE-ASSETS.md          # Image assets organization
-│
-├── site/                        # 🎨 Cleaned/organized version (in progress)
+├── site/                        # 🎨 Clean, active version
+│   ├── index.html               # Main landing page
 │   ├── css/
 │   │   └── heat-style.css       # Consolidated HEAT.NET stylesheet
 │   ├── js/
 │   │   └── heat-nav.js          # Navigation and menu system
 │   ├── images/
-│   │   ├── logos/               # HEAT.NET and partner logos
-│   │   ├── navigation/          # Navigation buttons
-│   │   ├── ui/                  # UI elements
-│   │   ├── games/               # Game screenshots
-│   │   └── misc/                # Miscellaneous graphics
-│   ├── pages/                   # Secondary pages
+│   │   ├── logos/               # HEAT.NET logos (2 files)
+│   │   ├── navigation/          # Nav buttons (16 files)
+│   │   ├── ui/                  # UI elements (6 files)
+│   │   ├── games/               # Game screenshots (6 files)
+│   │   └── misc/                # Misc graphics (14 files)
+│   ├── pages/                   # Additional pages (to be created)
 │   └── assets/                  # Additional resources
 │
-├── Original Archive Files (Preserved as-is):
-│   ├── index.html               # Main homepage
-│   ├── HEAT.NET.html            # Main portal page
-│   ├── HEAT2.html               # Alternative homepage
-│   ├── 10Six.htm                # 10Six game channel
-│   ├── Footsoldiers.html        # Footsoldiers game page
-│   ├── HEAT.NET __ STORE.html   # Store page
-│   ├── HEAT.NET __ Diablo.html  # Diablo game page
-│   ├── HEAT __ Retired HEAT Trophies.html  # Trophy archive
-│   ├── Heat Registration.mhtml  # Registration page
-│   │
-│   ├── 10Six_files/             # 10Six page assets (683 KB)
-│   ├── HEAT2_files/             # HEAT2 page assets (206 KB)
-│   ├── HEAT.NET_files/          # Main portal assets (773 KB)
-│   ├── HEAT.NET __ STORE_files/ # Store assets (2.2 MB)
-│   ├── Footsoldiers_files/      # Game page assets (699 KB)
-│   ├── HEAT __ Honor Trophies_files/      # Trophy assets (2.6 MB)
-│   ├── HEAT __ Retired HEAT Trophies_files/  # Trophy archive (2.6 MB)
-│   └── more/original_files/     # 1997 original archive
+├── docs/                        # 📚 Complete Documentation
+│   ├── INVENTORY.md             # Full file inventory (384 files)
+│   ├── CSS-ANALYSIS.md          # CSS breakdown and analysis
+│   ├── JAVASCRIPT-ANALYSIS.md   # JavaScript documentation
+│   ├── IMAGE-ASSETS.md          # Image catalog (573+ files)
+│   └── PHASE-1-COMPLETE.md      # Phase 1 completion report
 │
-└── Root-level images (25 files) # Logos, headers, game graphics
+└── original_archive/            # 💾 Original Wayback Files (Preserved)
+    ├── README.md                # Archive documentation
+    ├── html_pages/              # Original HTML pages (10 files)
+    │   ├── index.html, HEAT.NET.html, HEAT2.html
+    │   ├── 10Six.htm, Footsoldiers.html
+    │   ├── HEAT.NET __ STORE.html
+    │   ├── HEAT __ Retired HEAT Trophies.html
+    │   └── more/                # 1997 original archive
+    ├── asset_directories/       # Original *_files directories (7 dirs, ~13 MB)
+    │   ├── 10Six_files/, HEAT2_files/, HEAT.NET_files/
+    │   ├── HEAT.NET __ STORE_files/, Footsoldiers_files/
+    │   ├── HEAT __ Honor Trophies_files/
+    │   └── HEAT __ Retired HEAT Trophies_files/
+    └── root_images/             # Original root images (25 files + Flash)
 ```
 
 ---
@@ -131,14 +128,20 @@ Heat.NET/
 
 Once the server is running, you can visit:
 
+### Clean Version (Active Development)
 | Page | URL | Description |
 |------|-----|-------------|
-| **Main Homepage** | http://localhost:8000/index.html | Primary entry point with top games and channels |
-| **HEAT.NET Portal** | http://localhost:8000/HEAT.NET.html | Comprehensive portal with all features |
-| **HEAT2 Version** | http://localhost:8000/HEAT2.html | Alternative homepage layout |
-| **10Six Channel** | http://localhost:8000/10Six.htm | Dedicated 10Six MMO game channel |
-| **Store** | http://localhost:8000/HEAT.NET%20__%20STORE.html | E-commerce store (display only) |
-| **Retired Trophies** | http://localhost:8000/HEAT%20__%20Retired%20HEAT%20Trophies.html | Tournament trophy archive |
+| **Main Landing** | http://localhost:8000/ or /site/index.html | Clean landing page with project info |
+
+### Original Archive (Reference)
+| Page | URL | Description |
+|------|-----|-------------|
+| **Original Homepage** | http://localhost:8000/original_archive/html_pages/index.html | Original HEAT homepage |
+| **HEAT.NET Portal** | http://localhost:8000/original_archive/html_pages/HEAT.NET.html | Full portal |
+| **HEAT2 Version** | http://localhost:8000/original_archive/html_pages/HEAT2.html | Alternative homepage |
+| **10Six Channel** | http://localhost:8000/original_archive/html_pages/10Six.htm | 10Six game channel |
+| **Store** | http://localhost:8000/original_archive/html_pages/HEAT.NET%20__%20STORE.html | Store page |
+| **Trophy Archive** | http://localhost:8000/original_archive/html_pages/HEAT%20__%20Retired%20HEAT%20Trophies.html | Trophies |
 
 ---
 
@@ -188,11 +191,13 @@ Late 1990s / Early 2000s web design (1997-2003 archived snapshots)
 - Working servers
 - Documentation
 
-### 🔄 Phase 2: Visual Authenticity (NEXT - 2-3 weeks)
-- Remove Wayback artifacts
-- Update asset paths
-- Convert Flash to HTML5
-- Cross-browser testing
+### 🔄 Phase 2: Visual Authenticity (IN PROGRESS)
+- ✅ Organized archive (moved originals to `/original_archive`)
+- ✅ Created clean structure (`/site` directory)
+- ✅ Built landing page
+- ⏳ Build complete page set
+- ⏳ Convert Flash to HTML5
+- ⏳ Cross-browser testing
 
 ### 📋 Phase 3: Core Features (3-4 weeks)
 - **Trophy System** (priority!)
@@ -233,4 +238,26 @@ The trophy system will be fully functional with:
 
 ---
 
-**Last Updated:** 2025-11-17 | **Version:** 1.0.0 (Phase 1 Complete)
+## 🧹 Clean Structure (Phase 2)
+
+The project has been reorganized for clarity:
+
+**Active Development:**
+- `/site` - Clean, modern version (actively developed)
+- `/docs` - All documentation
+- Root files - Servers, README, config
+
+**Archive (Preserved):**
+- `/original_archive` - All original Wayback Machine files
+  - `html_pages/` - Original HTML (10 files)
+  - `asset_directories/` - Original assets (7 dirs, ~13 MB)
+  - `root_images/` - Original images (25 files + Flash)
+
+The cleaned structure makes it easy to:
+1. Work on the modern version (`/site`)
+2. Reference original files (`/original_archive`)
+3. Access documentation (`/docs`)
+
+---
+
+**Last Updated:** 2025-11-17 | **Version:** 1.1.0 (Phase 2 Cleanup Complete)

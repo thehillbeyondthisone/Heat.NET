@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- hi -->
+<html>
+<head>
+<title>Sega.com</title>
+<link rel="stylesheet" href="/include/segapages.css" type="text/css">
+<script language="JavaScript">
+<!-- hide me
+var agt=navigator.userAgent.toLowerCase()
+this.dream   = (agt.indexOf("dream")!=-1)
+
+
+function popupSS(url) {
+	if ( this.dream ) {
+		window.location=url; return false;
+	} else {		
+		remote = window.open("","utilitywindow","left=15,top=15,width=340,height=320");
+		remote.location.href = url;
+		remote.focus();
+			if (remote.opener == null) remote.opener = window;
+	}
+}
+
+function popupAds(url) {
+	if ( this.dream ) {
+		window.location=url; return false;
+	} else {		
+		remote = window.open("","adswindow","left=15,top=15,width=790,height=535");
+		remote.location.href = url;
+		remote.focus();
+			if (remote.opener == null) remote.opener = window;
+	}
+}
+
+function popupVault(url) {
+	if ( this.dream ) {
+		window.location=url; return false;
+	} else {		
+		remote = window.open("","vaultwindow","left=15,top=15,width=500,height=400");
+		remote.location.href = url;
+		remote.focus();
+			if (remote.opener == null) remote.opener = window;
+	}
+}
+
+
+function popupWindow(url,w,h) {
+	if ( this.dream ) {
+		window.location=url; return false;
+	} else {		
+		remote = window.open("","popupwindow","left=15,top=15,width=340,height=320");
+		remote.location.href = url;
+		remote.focus();
+		remote.resizeTo( w,h );
+			if (remote.opener == null) remote.opener = window;
+	}
+}
+
+       function popupNoSize(w,h,name,URL) {
+
+        newWin = window.open(URL,name,"width=" + w + ",height=" + h);
+
+        newWin.focus();
+
+	
+}
+
+//-->
+</script>
+
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="blue" TEXT="#FFFFFF" LINK="#ffffff" VLINK="#ffffff" ALINK="#ffffff" background="/images/dreamcast/dcbackground.gif" bgcolor=#000038 x-marginleft=0>
+
+<!--BEGIN GLOBAL NAV INCLUDE-->
+<div align="center">
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var rollovers = new Array();
+
+
+rollovers[0] = new Image();
+rollovers[0].src = "/images/gn_segacom_off.gif";
+rollovers[1] = new Image();
+rollovers[1].src = "/images/gn_segacom_over.gif";
+rollovers[2] = new Image();
+rollovers[2].src = "/images/gn_segasports_off.gif";
+rollovers[3] = new Image();
+rollovers[3].src = "/images/gn_segasports_over.gif";
+rollovers[4] = new Image();
+rollovers[4].src = "/images/gn_segamobile_off.gif";
+rollovers[5] = new Image();
+rollovers[5].src = "/images/gn_segamobile_over.gif";
+
+//-->
+</script>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td bgcolor="#FFFFFF"><img src="/images/clear.gif" width="12" height="1" alt="" border="0"></td>
+<td bgcolor="#FFFFFF"><img src="/images/clear.gif" width="41" height="1" alt="" border="0"></td>
+<td bgcolor="#FFFFFF"><img src="/images/clear.gif" width="1" height="1" alt="" border="0"></td>
+</tr>
+<tr>
+<td width="12" bgcolor="#000000"><img src="/images/clear.gif" width="12" height="1" alt="" border="0"></td>
+<td width="41"><a href="/index_3.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1?DM=GN"><img src="/images/gn_sega_logo.gif" width="41" height="20" alt="" border="0"></a></td>
+<td align="center" bgcolor="#000000" width="100%">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+	<td width="50%"><img src="/images/clear.gif" width=1 height=1 border=0 alt=""></td>
+	
+	<td><a href="/index_2.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1?DM=GN"><img src="/images/gn_segacom_on.gif" alt="" border="0" id="segacom"></a></td>
+	
+	
+	
+	<td><a href="#" onClick="popupSS('/function/leaving_espn.jhtml');return false;"  onMouseover="getElementById('segasports').src=rollovers[3].src" onMouseout="getElementById('segasports').src=rollovers[2].src"><img src="/images/gn_segasports_off.gif" border="0" alt="" id="segasports"></a></td>
+	
+	
+	
+	<td><a href="/mobile/home.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1?DM=GN" onMouseover="getElementById('segamobile').src=rollovers[5].src" onMouseout="getElementById('segamobile').src=rollovers[4].src"><img src="/images/gn_segamobile_off.gif" alt="" border="0" id="segamobile"></a></td>
+	
+	<td width="50%"><img src="/images/clear.gif" width=1 height=1 border=0 alt=""></td>
+	</tr>
+	</table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#808080" width="100%" colspan="3"><img src="/images/clear.gif" width="1" height="1" alt="" border="0"></td>
+</tr>
+</table>
+</div>
+<!--END GLOBAL NAV INCLUDE-->
+
+<TABLE WIDTH=603 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<tr>
+<td align=left colspan=3><img src="/images/clear.gif" width=1 height=12 border=0 alt=""></td>
+</tr>
+<TR>
+<TD rowspan=3>
+<!-- begin logonav include-->
+<IMG SRC="/include/images/nav_sega.gif" WIDTH=90 HEIGHT=26 BORDER=0>
+<!-- end logonav include-->
+</TD>
+<TD rowspan=3><img src="/images/clear.gif" width=21 height=26 border=0 alt=""></TD>
+<TD>
+<!-- begin topnav include -->
+	<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<tr>
+	<td><A HREF="/index_2.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><IMG SRC="/include/images/nav_home.gif" WIDTH=39 HEIGHT=15 BORDER=0 alt=""></A></TD>
+	<td><A HREF="/games/home_games.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><IMG SRC="/include/images/nav_allgames.gif" WIDTH=70 HEIGHT=15 BORDER=0 alt="general Sega game info, release list, Arcade, Sega Arcade, Game Boy Advance sections"></A></TD>
+	<TD><A HREF="/games/dreamcast/home_dreamcast.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><IMG SRC="/include/images/nav_dreamcast.gif" WIDTH=77 HEIGHT=15 BORDER=0 alt="Dreamcast game pages and official game sites, feature articles"></A></TD>
+	<TD><A HREF="/games/gamecube/home_gamecube.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><IMG SRC="/include/images/nav_gamecube.gif" WIDTH=70 HEIGHT=15 BORDER=0 alt="upcoming Sega games for GameCube, game info, news, feature articles"></A></TD>
+	<!--<TD><A HREF="/games/gba/home_gba.jhtml"><IMG SRC="images/nav_gba.gif" WIDTH=36 HEIGHT=15 BORDER=0 alt="upcoming Sega games for Game Boy Advance, game info, news, feature articles"></A></TD>-->
+	<TD><A HREF="/games/ps2/home_ps2.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><IMG SRC="/include/images/nav_ps2.gif" WIDTH=91 HEIGHT=15 BORDER=0 alt="upcoming Sega games for PlayStation 2, game info, news, feature articles"></A></TD>
+	<TD><A HREF="/games/xbox/home_xbox.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><IMG SRC="/include/images/nav_xbox.gif" WIDTH=42 HEIGHT=15 BORDER=0 alt="upcoming Sega games for Xbox, game info, news, feature articles"></A></TD>
+	<TD><A HREF="/games/pc/home_pc.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><IMG SRC="/include/images/nav_pc.gif" WIDTH=29 HEIGHT=15 BORDER=0 alt="upcoming Sega games for PC, game info, mini-games"></A></TD>
+	<TD><A HREF="/games/online/home_online.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><img src="/include/images/nav_online.gif" width=52 height=15 border=0 alt="Info on Sega's online titles: Sega Sports 2K3, Phantasy Star Online series, and more"></A></TD>
+	</tr>
+	</table>
+<!-- end topnav include -->
+</TD>
+</TR>
+<tr>
+<!-- begin colored header underline -->
+<td bgcolor="#E2751C"><img src="/images/clear.gif" width=1 height=1 border=0 alt=""></td>
+<!-- end colored header underline -->
+</tr>
+<tr>
+<td align=left><img src="/images/clear.gif" width=1 height=12 border=0 alt=""></td>
+</tr>
+<tr>
+<td align=left colspan=3><img src="/images/clear.gif" width=1 height=1 border=0 alt=""></td>
+</tr>
+</TABLE>
+<!-- end header table -->
+
+<!-- begin upper main table -->
+<table cellpadding=0 cellspacing=0 border=0 height=600>
+<tr>
+<td width=10 valign=top bgcolor=#0033CC background="/images/dreamcast/snav_gradient.gif"><img src="/images/clear.gif" width=10 height=1 border=0 alt=""></td>
+<td width=103 valign=top bgcolor=#0033CC background="/images/dreamcast/background_cornerback.gif">
+		
+<!--begin sidenav include-->
+<a href="/community/boards.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><img src="/include/images/snav_community.gif" width=103 height=21 border=0 alt="Sega.com message boards"></A><a href="/segashop/home_segashop.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><img src="/include/images/snav_segashop.gif" width=103 height=21 border=0 alt="Find out where to purchase Sega games, watches, Sonic Team collectibles, and more"></A><a href="/vault/home_vault.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><img src="/include/images/snav_vault.gif" width=103 height=21 border=0 alt="movies, screenshots, wallpaper, mini-games, vmu files, and more"></A><a href="/segascream/home_sega.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><img src="/include/images/snav_sega.gif" width=103 height=21 border=0 alt="jobs, press room, Sega history and developers, corporate info, contact us"></A><a href="/help/helpmain.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><img src="/include/images/snav_help.gif" width=103 height=21 border=0 alt="in-depth help on Sega hardware, software, playing online, manuals, and more"></A>
+
+<!--end sidenav include-->
+
+</td>
+<td width=20 valign=top bgcolor=#0033CC><img src="/images/clear.gif" width=4 height=1 border=0 alt=""></td>
+<!-- begin main body cell -->
+<td width=442 valign=top align=left bgcolor=#0033CC>
+<!-- begin top template elements -->
+	<table width=442 cellpadding=0 cellspacing=0 border=0>
+	<tr>
+	<td valign=top height=17 colspan=3><img src="/images/clear.gif" width=222 height=17 border=0 alt=""></td>
+	</tr>
+	<tr>
+	<td valign=top height=18><img src="/images/error/header_error404.gif" width=174 height=18 border=0 alt=""></td>
+	</tr>
+	<tr>
+	<td valign=top height=10><img src="/images/clear.gif" width=178 height=10 border=0 alt=""><br>
+	</td>
+	</tr>
+	<tr>
+	<td valign=top>
+<!--begin breadcrumb include-->
+	<i><span class="breadcrumbs"><font color="#ffffff"><a href="/index.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1" class="breadcrumbs">Home</a> &gt; 404 Error</font></span></i><p>
+	</td>
+	</tr>			
+	</tr>
+	<tr>
+	<td><img src="/images/clear.gif" width=1 height=20 border=0 alt="">
+	</td>
+	</tr>
+	</table>
+<!-- end top template elements -->
+
+<font color="#FFFFFF" class="article">
+
+The page you are trying to find does not exist on this server. But while you're here, why not look around. You're sure to find something you'll like from the following:
+<p><br>
+<a href="/index.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><b><u>Sega Games</u></b></a> - they're the reason you're here, right?
+Dreamcast, PlayStation 2, Xbox, GameCube, Game Boy Advance, Mobile, and PC.
+<p>
+<a href="http://www.segamobile.com/"><b><u>Sega Mobile</u></b></a> - Read up on great Sega games for your cell phone and PDA. 
+<p>
+<a href="http://www.segasports.com/"><b><u>Sega Sports</u></b></a> - take the Sega Sports Challenge and get an in-depth look at Sega Sports' titles with stats, rankings, message boards, and more.
+<p>
+<a href="/games/online/home_online.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><b><u>Online</u></b></a> - Find out more about Sega's exciting online games, featuring Sega Sports 2K3 titles, the <i>Phantasy Star Online</i> series, and more.
+<p>
+<a href="/vault/home_vault.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><b><u>The Vault</u></b></a> - hot, hip new downloads.
+<p>
+<a href="/community/home_community.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><b><u>Community</u></b></a> - Message Boards, player profiles, contests, and more.
+<p>
+<a href="/help/helpmain.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><b><u>Help</u></b></a> - fast answers so you can get back in the game.
+<p>
+<a href="/segascream/corporate/home_corporate.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><b><u>Sega Corporate</u></b></a> - legacy, press releases, jobs.
+<p>
+</font></td>
+<!--end main body cell -->
+<td width=15 valign=top bgcolor=#0033CC><img src="/images/clear.gif" width=15 height=6 border=0 alt=""></td>
+</tr>
+<tr>
+<td bgcolor=#0033CC><img src="/images/clear.gif" width=10 height=20 border=0 alt=""></td>
+<td bgcolor=#0033CC><img src="/images/clear.gif" width=103 height=20 border=0 alt=""></td>
+<td bgcolor=#0033CC><img src="/images/clear.gif" width=20 height=20 border=0 alt=""></td>
+<td bgcolor=#0033CC><img src="/images/clear.gif" width=442 height=20 border=0 alt=""></td>
+<td bgcolor=#0033CC><img src="/images/clear.gif" width=15 height=20 border=0 alt=""></td>
+</tr>
+</table>
+<!-- end upper main table -->
+
+<!--begin content footer-->	
+
+
+<table cellpadding=0 cellspacing=0 border=0 width=590 bgcolor=#0033CC>
+<tr>
+<td align=center colspan=2 width=200><img src="/images/clear.gif" width=107 height=1 border=0><br><br></td>
+<td align=center colspan=2 width=390>&nbsp;<br></td>
+</tr>
+<tr>
+<td align=center width=140><img src="/images/clear.gif" height=1
+width=140></td>
+<td aling=right width=60><img src="/images/clear.gif" height=1 width=40></td>
+<td width=165><img src="/images/clear.gif" height=1 width=165></td>
+<td width=225><img src="/images/clear.gif" height=1 width=225></td>
+</tr>
+<tr valign=top>
+   <!-- user is not logged in -->
+<td align=center width=140 valign=top><a href="/community/profiles/login.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1" CLASS="footer">Log In</a></td>
+   
+<td aling=right width=60 valign=top><!--<a href="/segascream/corporate/terms.jhtml#legal" CLASS="footer">Legal Lines</a>-->&nbsp;</td>
+<td width=165 valign=top><a href="http://207.238.131.199/segareg.php" CLASS="footer">Product Registration</a></td>
+<td width=225 valign=top><a href="/segascream/corporate/terms.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1#legal" CLASS="footer">&copy; 2003 Sega.com, Inc.</a><br><br></td>
+</tr>
+</table>
+
+<!--end content footer-->	
+
+<!--begin search layer-->	
+
+
+
+
+
+
+<div id="searchlayer" style="position:absolute; left:535px; top:60px; width:189px; height:40px; z-index:1">
+<table cellpadding=2 cellspacing=0 border=0 width=100>
+<tr>
+<FORM action="/function/gameSearchResults.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1" method="get" name="searchme">
+<td align=right>
+
+<!-- new stuff -->
+<input type="text" size="10" onFocus="window.document.searchme.SEARCH_PATTERN.value='';"  value="Game Search" name="SEARCH_PATTERN" class="dc_colorform">
+
+<!-- end new stuff -->
+
+</td>
+</tr>
+<tr>
+<td align=right>
+
+<!-- new stuff -->
+<INPUT TYPE="IMAGE" src="/images/dreamcast/button_search.gif" value="Search" border="0" width=45 height=22>
+<!-- end new stuff -->
+
+</td>
+</form>
+</tr>
+</table>
+</div>
+
+
+
+
+<!--end search layer-->	
+
+<!--begin esrb layer-->	
+<div id="esrblayer" style="position:absolute; left:648px; top:622px; width:142px; height:77px; z-index:2"><a href="/segascream/corporate/privacy.jhtml;jsessionid=LMEVC4OCCJY1MCRSBUKDWAAKGIGQUOU1"><img src="/images/id_esrb.gif" width=115 height=41 border=0 alt=""></a></div>
+
+<!--end esrb layer-->	
+
+</body>
+</html>
