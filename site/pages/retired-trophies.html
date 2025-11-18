@@ -192,14 +192,16 @@
 </center>
 
 <script>
+// Embedded trophy data
+const TROPHY_DATA = {"retired":[{"id":"charter-member","name":"Charter Member Trophy","image":"6160.gif","description":"If you visit a Homebase that contains the Charter Member Trophy, it means the user who holds it was with HEAT at the very beginning, when the network first went LIVE in 1997. They are the first pioneers to play on HEAT, helping to make it what it is today.","retiredDate":"1997-12-31","retiredYear":"1997","category":"membership","status":"retired"},{"id":"feel-the-heat","name":"Feel the HEAT Trophy","image":"6142.gif","description":"When we first launched our deal with @Home, we hosted an @Home Event to kick off our new partnership. Users who participated in the event earned this stylish \"@Home Feels the Heat\" Trophy.","retiredDate":"1998-04","retiredYear":"1998","category":"event","status":"retired"},{"id":"the-movie","name":"\"The Movie\" Trophy","image":"6143.gif","description":"We just couldn't let the opening of Episode 1: The Phantom Menace go by without marking it in the HEAT history books. So, in celebration of what was one of the most anticipated movies of all time, we awarded every user who either played a Star Wars game on HEAT the day Phantom Menace released in the theatres OR sent us their Phantom Menace ticket stub via snail mail by June 19th, this commemorative Star Wars Homebase Trophy.","retiredDate":"1999-07","retiredYear":"1999","category":"special-event","status":"retired"},{"id":"10six-tester","name":"10SIX Tester of the Week","image":"6144.gif","description":"The 10SIX Tester of the Week Trophy used to go to one user a week for testing Heat's awesome game 10SIX. They are users who exhibited excellent participation, willingly help others, and display an overall commitment to making the game ROCK.","retiredDate":"2000-03","retiredYear":"2000","category":"community","status":"retired"},{"id":"hellcamp-ref","name":"Hellcamp Ref Trophy","image":"6145.gif","description":"HELLCAMP Ref's are HEAT PREMIUM Members who applied and were picked to run Raids, Trivia Events and more in an installment of the HEAT HellCamp Program. If you see someone bearing this Trophy, he/she was picked as a Ref in the past Hellcamp Program. The last Hellcamp program was held in 1999.","retiredDate":"2000-03","retiredYear":"2000","category":"community","status":"retired"},{"id":"premium-potm","name":"Premium Player of the Month","image":"6101.gif","description":"The POTM Trophy was awarded to PREMIUM Members whose contributions to the network have been so great, that the PREMIUM Player Of The Week Trophy just isn't enough to honor them. Not only did the PREMIUM Player Of The Month get this cool trophy, but they also got a large Degree prize from our friends at the Barons!","retiredDate":"2000","retiredYear":"2000","category":"award","status":"retired"}],"active":[{"id":"player-of-week","name":"Player of the Week","image":"6100.gif","description":"Awarded weekly to players who demonstrate exceptional participation, sportsmanship, and contribution to the HEAT community.","category":"award","status":"active"},{"id":"tournament-winner","name":"Tournament Champion","image":"6104.gif","description":"Awarded to winners of official HEAT tournament competitions across various games and channels.","category":"competition","status":"active"},{"id":"premium-member","name":"HEAT PREMIUM Member","image":"21102.gif","description":"Designates players who have upgraded to HEAT PREMIUM membership, unlocking exclusive features, events, and benefits.","category":"membership","status":"active"}],"categories":[{"id":"membership","name":"Membership","description":"Trophies related to HEAT network membership status"},{"id":"event","name":"Special Events","description":"Trophies awarded for participation in HEAT events"},{"id":"special-event","name":"Special Commemorative","description":"One-time trophies commemorating special occasions"},{"id":"community","name":"Community","description":"Trophies for community contribution and leadership"},{"id":"award","name":"Awards","description":"Recognition trophies for outstanding players"},{"id":"competition","name":"Competition","description":"Trophies for tournament and competitive victories"}],"stats":{"totalRetired":6,"totalActive":3,"totalTrophies":9,"categoriesCount":6}};
+
 // Load trophy data
 let allTrophies = [];
 let filteredTrophies = [];
 
-async function loadTrophies() {
+function loadTrophies() {
     try {
-        const response = await fetch('../data/trophies.json');
-        const data = await response.json();
+        const data = TROPHY_DATA;
         allTrophies = data.retired;
         filteredTrophies = [...allTrophies];
 
@@ -219,7 +221,7 @@ async function loadTrophies() {
         document.getElementById('trophies-container').style.display = 'block';
     } catch (error) {
         document.getElementById('loading').innerHTML =
-            '<font color="#FF0000">Error loading trophies. Please try again later.</font>';
+            '<font color="#FF0000">Error loading trophies: ' + error.message + '</font>';
         console.error('Error loading trophies:', error);
     }
 }
