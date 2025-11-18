@@ -1,0 +1,432 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+    <title>HEAT.NET - Events & Tournaments</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="HEAT.NET Events Calendar - Tournaments, T.G.I.F., Trivia Trio, and special gaming events">
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        a { color: #00FFFF; text-decoration: none; }
+        a:hover { color: #FF0000; }
+        .event-header {
+            background: linear-gradient(to bottom, #990033, #660022);
+            color: #FFFFFF;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #FF0000;
+        }
+        .calendar {
+            background-color: #1a1a1a;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #333333;
+        }
+        .event-card {
+            background-color: #0d0d0d;
+            border-left: 4px solid #FF0000;
+            margin: 10px 0;
+            padding: 15px;
+        }
+        .event-card.tgif {
+            border-left-color: #990033;
+        }
+        .event-card.trivia {
+            border-left-color: #00FFFF;
+        }
+        .event-card.tournament {
+            border-left-color: #FF9933;
+        }
+        .event-card.special {
+            border-left-color: #66FF66;
+        }
+        .event-title {
+            color: #FF0000;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .event-time {
+            color: #00FFFF;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .event-prize {
+            color: #FFFF00;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+        .event-desc {
+            color: #CCCCCC;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+        .day-header {
+            background-color: #990033;
+            color: #FFFFFF;
+            padding: 8px;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+        }
+        .prize-pool {
+            background-color: #1a0a0a;
+            border: 2px solid #FFFF00;
+            padding: 10px;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        // Event calendar data
+        const WEEKLY_EVENTS = {
+            monday: [],
+            tuesday: [
+                {
+                    title: "Trivia Trio",
+                    time: "3:00 PM - 4:00 PM PST",
+                    prize: "15,000 HEAT Degrees",
+                    type: "trivia",
+                    description: "Test your gaming knowledge with HEATriviaLord! First session of the day in various game lobbies."
+                },
+                {
+                    title: "Trivia Trio (Evening)",
+                    time: "8:00 PM - 9:00 PM PST",
+                    prize: "15,000 HEAT Degrees",
+                    type: "trivia",
+                    description: "Evening trivia session with HEATriviaGoddess. Join the fun and win big!"
+                }
+            ],
+            wednesday: [],
+            thursday: [
+                {
+                    title: "Trivia Trio",
+                    time: "3:00 PM - 4:00 PM PST",
+                    prize: "15,000 HEAT Degrees",
+                    type: "trivia",
+                    description: "Mid-week trivia madness with HEATriviaSpaz in game lobbies across HEAT.NET."
+                },
+                {
+                    title: "Trivia Trio (Evening)",
+                    time: "8:00 PM - 9:00 PM PST",
+                    prize: "15,000 HEAT Degrees",
+                    type: "trivia",
+                    description: "Evening knowledge battle with HEATriviaPunk. Earn Degrees and bragging rights!"
+                }
+            ],
+            friday: [
+                {
+                    title: "T.G.I.F. - Thank Goodness It's Fragdays!",
+                    time: "10:00 PM - 2:00 AM PST",
+                    prize: "100,000 HEAT Degrees",
+                    type: "tgif",
+                    description: "Late night frag fest! Join HEAT Prize Personalities for intense multiplayer action across FPS games. The biggest prize pool of the week!"
+                }
+            ],
+            saturday: [
+                {
+                    title: "Trivia Trio",
+                    time: "3:00 PM - 4:00 PM PST",
+                    prize: "15,000 HEAT Degrees",
+                    type: "trivia",
+                    description: "Weekend trivia with HEATriviaDiva! Relax and win Degrees."
+                },
+                {
+                    title: "Weekend Tournament Series",
+                    time: "6:00 PM - 10:00 PM PST",
+                    prize: "Varies by game",
+                    type: "tournament",
+                    description: "Competitive tournaments in Quake II, Unreal Tournament, and other featured games. Entry fees and prizes vary."
+                },
+                {
+                    title: "Trivia Trio (Evening)",
+                    time: "8:00 PM - 9:00 PM PST",
+                    prize: "15,000 HEAT Degrees",
+                    type: "trivia",
+                    description: "Final trivia session of the week with HEATriviaMonger!"
+                }
+            ],
+            sunday: [
+                {
+                    title: "10SIX Corporation Wars",
+                    time: "2:00 PM - 6:00 PM PST",
+                    prize: "50,000 HEAT Degrees",
+                    type: "special",
+                    description: "Massive corporation battles on Planet Visitor! Coordinate with your corp for territorial conquest."
+                }
+            ]
+        };
+
+        const MONTHLY_TOURNAMENTS = [
+            {
+                title: "Quake II Deathmatch Championship",
+                date: "First Saturday of Month",
+                time: "7:00 PM PST",
+                prize: "250,000 HEAT Degrees + Trophy",
+                entryFee: "5,000 Degrees"
+            },
+            {
+                title: "Unreal Tournament Team Deathmatch",
+                date: "Second Saturday of Month",
+                time: "7:00 PM PST",
+                prize: "300,000 HEAT Degrees + Trophy",
+                entryFee: "10,000 Degrees (per team)"
+            },
+            {
+                title: "10SIX Territory Control Championship",
+                date: "Third Sunday of Month",
+                time: "3:00 PM PST",
+                prize: "500,000 HEAT Degrees + Premium Trophy",
+                entryFee: "Free for Corporation Members"
+            },
+            {
+                title: "Diablo Speedrun Challenge",
+                date: "Fourth Saturday of Month",
+                time: "6:00 PM PST",
+                prize: "150,000 HEAT Degrees + Trophy",
+                entryFee: "3,000 Degrees"
+            }
+        ];
+
+        function renderWeeklyCalendar() {
+            const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+            const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            const container = document.getElementById('weekly-calendar');
+            let html = '';
+
+            days.forEach((day, index) => {
+                const events = WEEKLY_EVENTS[day];
+                if (events.length > 0) {
+                    html += `<div class="day-header">${dayNames[index]}</div>`;
+                    events.forEach(event => {
+                        html += `
+                            <div class="event-card ${event.type}">
+                                <div class="event-title">${event.title}</div>
+                                <div class="event-time">${event.time}</div>
+                                <div class="event-prize">Prize Pool: ${event.prize}</div>
+                                <div class="event-desc">${event.description}</div>
+                            </div>
+                        `;
+                    });
+                }
+            });
+
+            container.innerHTML = html;
+        }
+
+        function renderMonthlyTournaments() {
+            const container = document.getElementById('monthly-tournaments');
+            let html = '';
+
+            MONTHLY_TOURNAMENTS.forEach(tournament => {
+                html += `
+                    <div class="event-card tournament">
+                        <div class="event-title">${tournament.title}</div>
+                        <div class="event-time">${tournament.date} - ${tournament.time}</div>
+                        <div class="event-prize">Grand Prize: ${tournament.prize}</div>
+                        <div class="event-desc">Entry Fee: ${tournament.entryFee}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        window.onload = function() {
+            renderWeeklyCalendar();
+            renderMonthlyTournaments();
+        };
+    </script>
+</head>
+<body bgcolor="#000000" link="#00FFFF" vlink="#009999" alink="#FF0000">
+
+<center>
+
+<!-- Header with Logo -->
+<table width="636" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="223" bgcolor="#000000">
+      <a href="../index.html"><img src="../images/ui/nav_cobrand.gif" width="223" height="60" border="0" alt="HEAT.NET"></a>
+    </td>
+    <td width="413" bgcolor="#000000" align="center">
+      <font face="Arial" size="5" color="#FF0000"><b>EVENTS & TOURNAMENTS</b></font><br>
+      <font face="Verdana" size="2" color="#00FFFF">Your Calendar for HEAT Gaming Events</font>
+    </td>
+  </tr>
+
+  <!-- Navigation Bar -->
+  <tr>
+    <td colspan="2">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href="../index.html"><img src="../images/navigation/nav_frontpage.gif" width="74" height="30" border="0" alt="Front Page"></a></td>
+          <td><a href="myhomebase.html"><img src="../images/ui/nav_myhomebase.gif" width="70" height="30" border="0" alt="My HEAT"></a></td>
+          <td><a href="../games.html"><img src="../images/navigation/nav_games.gif" width="44" height="30" border="0" alt="Games"></a></td>
+          <td><a href="../store.html"><img src="../images/ui/nav_store.gif" width="41" height="30" border="0" alt="Store"></a></td>
+          <td><a href="events.html"><img src="../images/navigation/nav_events.gif" width="45" height="30" border="0" alt="Events"></a></td>
+          <td><a href="#news"><img src="../images/ui/nav_news.gif" width="40" height="30" border="0" alt="News"></a></td>
+          <td><a href="#communicate"><img src="../images/navigation/nav_communicate.gif" width="40" height="30" border="0" alt="Communicate"></a></td>
+          <td><a href="#search"><img src="../images/ui/nav_search.gif" width="35" height="30" border="0" alt="Search"></a></td>
+          <td><a href="#help"><img src="../images/navigation/nav_help.gif" width="34" height="30" border="0" alt="Help"></a></td>
+          <td><a href="pager.html"><img src="../images/ui/nav_pager.gif" width="58" height="30" border="0" alt="Pager"></a></td>
+          <td><img src="../images/ui/nav_rightbevel.gif" width="13" height="30" border="0" alt=""></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<img src="../images/ui/dot_clear.gif" width="1" height="15" border="0"><br>
+
+<!-- Main Content -->
+<table width="636" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
+  <tr>
+    <td>
+      <!-- Events Header -->
+      <div class="event-header">
+        <img src="../images/navigation/nav_events.gif" width="45" height="30" border="0" style="vertical-align: middle; margin-right: 10px;">
+        HEAT EVENTS CALENDAR
+      </div>
+
+      <!-- Weekly Prize Pool -->
+      <div class="prize-pool">
+        <font face="Verdana" size="3" color="#FFFF00"><b>WEEKLY PRIZE POOL</b></font><br>
+        <font face="Verdana" size="5" color="#FFFFFF"><b>545,000 HEAT Degrees!</b></font><br>
+        <font face="Verdana" size="1" color="#CCCCCC">Plus monthly tournament bonuses</font>
+      </div>
+
+      <!-- Introduction -->
+      <div style="background-color: #1a1a1a; padding: 15px; margin: 10px; border: 1px solid #333333;">
+        <font face="Verdana" size="2" color="#FFFFFF">
+          <b>Welcome to the HEAT Events Calendar!</b><br><br>
+        </font>
+        <font face="Verdana" size="1" color="#CCCCCC">
+          Join thousands of HEAT members in weekly events, tournaments, and special competitions.
+          Earn massive HEAT Degrees prizes, unlock exclusive trophies, and compete against the best
+          gamers on the network. All events are FREE to enter (except premium tournaments), and
+          everyone walks away with participation Degrees!
+        </font>
+      </div>
+
+      <!-- Weekly Events -->
+      <div class="calendar">
+        <font face="Verdana" size="3" color="#FF0000"><b>WEEKLY EVENTS SCHEDULE</b></font>
+        <img src="../images/ui/dot_clear.gif" width="1" height="10" border="0"><br>
+        <div id="weekly-calendar">
+          <!-- Rendered by JavaScript -->
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Monthly Tournaments -->
+      <div class="calendar">
+        <font face="Verdana" size="3" color="#FF9933"><b>MONTHLY TOURNAMENT CHAMPIONSHIPS</b></font>
+        <img src="../images/ui/dot_clear.gif" width="1" height="10" border="0"><br>
+        <font face="Verdana" size="1" color="#CCCCCC">
+          Premium tournaments with massive prize pools and exclusive trophies!<br><br>
+        </font>
+        <div id="monthly-tournaments">
+          <!-- Rendered by JavaScript -->
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Event Details -->
+      <div style="background-color: #0d0d0d; padding: 15px; margin: 10px; border: 1px solid #990033;">
+        <font face="Verdana" size="2" color="#FF0000"><b>EVENT DETAILS:</b></font><br><br>
+
+        <font face="Verdana" size="1" color="#FFFFFF">
+          <b>T.G.I.F. - Thank Goodness It's Fragdays</b><br>
+        </font>
+        <font face="Verdana" size="1" color="#CCCCCC">
+          Every Friday night, late night gamers unite for the biggest FPS party of the week!
+          HEAT Prize Personalities host massive multiplayer sessions across Quake II, Unreal
+          Tournament, Half-Life, and more. 100,000 Degrees prize pool distributed to top fraggers,
+          most improved players, and random participants. No entry fee - just show up and frag!<br><br>
+        </font>
+
+        <font face="Verdana" size="1" color="#FFFFFF">
+          <b>Trivia Trio</b><br>
+        </font>
+        <font face="Verdana" size="1" color="#CCCCCC">
+          Three times per week (Tuesday, Thursday, Saturday), HEAT's trivia personalities visit
+          game lobbies to test your gaming knowledge. Questions range from game lore to industry
+          history to pop culture. 45,000 Degrees total weekly prizes! Look for personalities:
+          HEATriviaLord, HEATriviaGoddess, HEATriviaSpaz, HEATriviaPunk, HEATriviaDiva, and
+          HEATriviaMonger.<br><br>
+        </font>
+
+        <font face="Verdana" size="1" color="#FFFFFF">
+          <b>10SIX Corporation Wars</b><br>
+        </font>
+        <font face="Verdana" size="1" color="#CCCCCC">
+          Every Sunday, corporations battle for territorial supremacy on Planet Visitor!
+          Coordinate with your corp members for massive PvP battles. Winning corporation members
+          each receive Degrees bonuses and exclusive trophies. Base defense, tactical strikes,
+          and all-out warfare - this is 10SIX at its finest!<br><br>
+        </font>
+
+        <font face="Verdana" size="1" color="#FFFFFF">
+          <b>How to Participate:</b><br>
+        </font>
+        <font face="Verdana" size="1" color="#CCCCCC">
+          1. Check your <a href="pager.html">HEAT Pager</a> for event notifications<br>
+          2. Join the game lobby or server at scheduled times<br>
+          3. Look for HEAT event hosts (marked with special tags)<br>
+          4. Compete, have fun, and earn Degrees!<br>
+          5. Prizes are automatically added to your <a href="degrees.html">Degrees balance</a>
+        </font>
+      </div>
+
+      <br>
+
+      <!-- Earning Bonus -->
+      <div style="background-color: #1a0a0a; padding: 15px; margin: 10px; border: 2px solid #00FFFF;">
+        <center>
+          <font face="Verdana" size="2" color="#00FFFF">
+            <b>DON'T FORGET: You still earn your regular 250 Degrees per hour during events!</b><br>
+          </font>
+          <font face="Verdana" size="1" color="#CCCCCC">
+            Event prizes are ON TOP of your standard gameplay Degrees.<br>
+            <a href="getpaid.html">Learn more about earning Degrees →</a>
+          </font>
+        </center>
+      </div>
+
+      <br>
+
+      <!-- Historical Note -->
+      <div style="margin: 10px; padding: 12px; background-color: #1a1a1a; border-left: 3px solid #FF0000;">
+        <font face="Verdana" size="1" color="#999999">
+          <i><b>Historical Note:</b> HEAT.NET's events program (1997-2003) was revolutionary for its time,
+          offering scheduled community events with real prizes. T.G.I.F., Trivia Trio, and tournament
+          championships created a vibrant competitive community. This calendar preserves the weekly schedule
+          and prize structures from the peak HEAT.NET era (2000-2001). All times listed are Pacific Standard Time.</i>
+        </font>
+      </div>
+
+      <img src="../images/ui/dot_clear.gif" width="1" height="20" border="0"><br>
+    </td>
+  </tr>
+</table>
+
+<!-- Footer -->
+<br>
+<font face="Verdana" size="1" color="#666666">
+  <a href="../index.html">Home</a> | <a href="../games.html">Games</a> | <a href="trophies.html">Trophies</a> |
+  <a href="../store.html">Store</a> | <a href="degrees.html">HEAT Degrees</a> | <a href="pager.html">Pager</a> |
+  <a href="myhomebase.html">My Homebase</a> | <a href="events.html">Events</a>
+</font>
+
+</center>
+
+</body>
+</html>
