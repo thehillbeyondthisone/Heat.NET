@@ -1,0 +1,663 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>HEAT :: Trophy Administration</title>
+<link rel="StyleSheet" href="../css/heat-style.css" type="text/css">
+<style>
+.subnav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    font-style: normal;
+    font-weight: bold;
+    color: #003399;
+    text-decoration: none;
+    line-height: 1.2em;
+}
+.menus {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.6em;
+    text-decoration: none;
+    color: #003399;
+    line-height: 1.2em;
+}
+a:hover { color: #990033; }
+.form-input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-color: #FFFFFF;
+    border: 1px solid #666666;
+    padding: 2px;
+}
+.form-select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-color: #FFFFFF;
+    border: 1px solid #666666;
+}
+.form-textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-color: #FFFFFF;
+    border: 1px solid #666666;
+    padding: 3px;
+}
+.btn-action {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #003399;
+    color: #FFFFFF;
+    border: 1px solid #000000;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+.btn-action:hover {
+    background-color: #990033;
+}
+.btn-secondary {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-color: #666666;
+    color: #FFFFFF;
+    border: 1px solid #000000;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+.trophy-row:hover {
+    background-color: #EEEEEE;
+}
+.status-active { color: #009900; font-weight: bold; }
+.status-retired { color: #990000; font-weight: bold; }
+.admin-notice {
+    background-color: #FFFFCC;
+    border: 1px solid #CC9900;
+    padding: 8px;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body bgcolor="#000000" text="#000000" link="#003399" vlink="#687BA4" alink="#990033" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0">
+
+<!-- Header Bar -->
+<table width="740" border="0" cellpadding="0" cellspacing="0" bgcolor="#AAAAAA">
+    <tr>
+        <td colspan="2" width="740" bgcolor="#777777"><img border="0" height="4" src="../images/ui/dot_clear.gif" width="1"></td>
+    </tr>
+    <tr>
+        <td colspan="2" width="740" bgcolor="#ff0033"><img border="0" height="1" src="../images/ui/dot_clear.gif" width="1"></td>
+    </tr>
+    <tr>
+        <td colspan="2" width="740" bgcolor="#cococo"><img border="0" height="1" src="../images/ui/dot_clear.gif" width="1"></td>
+    </tr>
+    <tr>
+        <td rowspan="2" width="223" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="223" height="104" bgcolor="#b6ad96">
+                <tr>
+                    <td align="center" valign="middle">
+                        <font face="Arial, Helvetica, sans-serif" size="4" color="#003399"><b>HEAT.NET</b></font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="2" color="#666666">ADMIN PANEL</font>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td width="517" valign="top" bgcolor="#b6ad96">
+            <img border="0" height="55" src="../images/ui/dot_clear.gif" width="497">
+        </td>
+    </tr>
+    <tr>
+        <td width="517" bgcolor="#b6ad96">&nbsp;</td>
+    </tr>
+</table>
+
+<!-- Game Selector Bar -->
+<table width="740" border="0" cellpadding="0" cellspacing="0" bgcolor="#aaaaaa">
+    <tr>
+        <td width="176" valign="top" align="center" bgcolor="#b6ad96">
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="3"><center>
+                    <select name="admin_section" class="form-select" onchange="location.href=this.value">
+                        <option value="" selected>Admin Sections</option>
+                        <option value="trophy-admin.html">Trophy Management</option>
+                        <option value="myhomebase.html">User Dashboard</option>
+                        <option value="degrees.html">Degrees System</option>
+                    </select></center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><img border="0" height="3" src="../images/ui/dot_clear.gif" width="1"></td>
+                </tr>
+                <tr>
+                    <td width="71" valign="center"><a href="trophies.html"><img src="../images/store/play_now.gif" alt="VIEW TROPHIES" border="0" height="17" width="71"></a></td>
+                    <td><font face="Verdana" size="1" color="white">&nbsp;</font></td>
+                    <td width="71" valign="center"><a href="../index.html"><img src="../images/store/get_info.gif" alt="HOME" border="0" height="17" width="71"></a></td>
+                </tr>
+            </table>
+            <br>
+        </td>
+        <td width="564" bgcolor="#000000">
+            <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                <tr>
+                    <td>
+                        <font face="Arial, Helvetica, sans-serif" size="3" color="#FFFFFF"><b>TROPHY ADMINISTRATION</b></font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="1" color="#999999">Manage HEAT.NET Trophy System</font>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Main Content Area -->
+<table width="740" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" name="content">
+    <tr>
+        <!-- Left Sidebar -->
+        <td width="171" valign="top" bgcolor="#dddddd">
+
+            <!-- Navigation Menu -->
+            <table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="171" name="navbar">
+                <tr>
+                    <td colspan="3"><img src="../images/ui/dot_clear.gif" width="171" height="6"></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/ui/dot_clear.gif" width="33" height="15" border="0"></td>
+                    <td><a href="../index.html"><img src="../images/store/nav_home.gif" width="99" height="15" border="0" alt="Home"></a></td>
+                    <td rowspan="8"><img src="../images/ui/dot_clear.gif" width="39" height="120"></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><a href="myhomebase.html"><img src="../images/store/nav_myheat.gif" width="99" height="15" border="0" alt="My HEAT"></a></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><a href="../games.html"><img src="../images/store/nav_channels.gif" width="99" height="15" border="0" alt="Channels"></a></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><a href="../store.html"><img src="../images/store/nav_store.gif" width="99" height="15" border="0" alt="Store"></a></td>
+                </tr>
+                <tr>
+                    <td><img src="../images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><a href="trophies.html"><img src="../images/store/nav_members.gif" width="99" height="15" border="0" alt="Trophies"></a></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><img src="../images/ui/dot_clear.gif" width="132" height="6"></td>
+                </tr>
+            </table>
+
+            <!-- Sidebar Links -->
+            <table width="171" border="0" cellpadding="0" cellspacing="0" bgcolor="#dddddd">
+                <tr>
+                    <td valign="top">
+                        <br>
+                        <img height="5" src="../images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="trophies.html"><span class="subnav">&gt; Trophy Overview</span></a><br>
+                        <img height="5" src="../images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="active-trophies.html"><span class="subnav">&gt; Honor Trophies</span></a><br>
+                        <img height="5" src="../images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="retired-trophies.html"><span class="subnav">&gt; Retired Trophies</span></a><br>
+                        <img height="5" src="../images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#add-trophy"><span class="subnav">&gt; Add New Trophy</span></a><br>
+                        <img height="5" src="../images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#award-trophy"><span class="subnav">&gt; Award Trophy</span></a><br>
+                        <img height="5" src="../images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="degrees.html"><span class="subnav">&gt; Degree Barons</span></a><br>
+                        <img height="5" src="../images/store/aaaaaa.gif" width="171"><br>
+                        <br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td align="center">
+                                    <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">
+                                        <b>ADMIN TOOLS</b><br>
+                                        Trophy Management v1.0
+                                    </font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="../images/ui/dot_clear.gif" width="1" height="8"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+
+        <!-- Main Content -->
+        <td width="569" bgcolor="#ffffff" valign="top">
+
+            <!-- Content Header -->
+            <table width="569" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="6" bgcolor="#003399" width="569">
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td>
+                                    <font face="Arial, Helvetica, sans-serif" size="3" color="#FFFFFF"><b>Trophy Management Console</b></font>
+                                </td>
+                                <td align="right">
+                                    <font face="Arial, Helvetica, sans-serif" size="1" color="#CCCCCC">Admin Access Required</font>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Main Admin Content -->
+            <table width="569" border="0" cellpadding="0" cellspacing="0" name="main_content">
+                <tr>
+                    <td bgcolor="#aaaaaa" width="1"><img src="../images/ui/dot_clear.gif" width="1" height="1"></td>
+                    <td width="6" bgcolor="#FFFFFF"><img src="../images/ui/dot_clear.gif" width="6" height="1"></td>
+                    <td bgcolor="#aaaaaa" width="1"><img src="../images/ui/dot_clear.gif" width="1" height="1"></td>
+                    <td width="12" bgcolor="#FFFFFF"><img src="../images/ui/dot_clear.gif" width="12" height="1"></td>
+                    <td width="540" valign="top">&nbsp;<br>
+
+                        <!-- Admin Notice -->
+                        <div class="admin-notice">
+                            <font face="Arial, Helvetica, sans-serif">
+                                <b>Notice:</b> This is the Trophy Administration panel. Changes made here will affect the trophy database.
+                                All modifications are logged for audit purposes.
+                            </font>
+                        </div>
+
+                        <!-- Stats Summary -->
+                        <table border="0" cellspacing="0" cellpadding="6" width="100%">
+                            <tr>
+                                <td bgcolor="#EEEEEE" width="25%" align="center">
+                                    <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">TOTAL TROPHIES</font><br>
+                                    <font face="Arial, Helvetica, sans-serif" size="4" color="#003399"><b id="stat-total">9</b></font>
+                                </td>
+                                <td bgcolor="#EEEEEE" width="25%" align="center">
+                                    <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">ACTIVE</font><br>
+                                    <font face="Arial, Helvetica, sans-serif" size="4" color="#009900"><b id="stat-active">3</b></font>
+                                </td>
+                                <td bgcolor="#EEEEEE" width="25%" align="center">
+                                    <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">RETIRED</font><br>
+                                    <font face="Arial, Helvetica, sans-serif" size="4" color="#990000"><b id="stat-retired">6</b></font>
+                                </td>
+                                <td bgcolor="#EEEEEE" width="25%" align="center">
+                                    <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">CATEGORIES</font><br>
+                                    <font face="Arial, Helvetica, sans-serif" size="4" color="#003399"><b id="stat-categories">6</b></font>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+                        <img src="../images/store/aaaaaa.gif" width="520" height="1"><br>
+                        <br>
+
+                        <!-- Trophy List Section -->
+                        <font face="Arial, Helvetica, sans-serif" size="3"><b>Current Trophy Inventory</b></font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">Click on a trophy to edit its details</font><br>
+                        <br>
+
+                        <table border="0" cellspacing="0" cellpadding="4" width="100%" bgcolor="#DDDDDD">
+                            <tr bgcolor="#003399">
+                                <td width="60"><font face="Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><b>IMAGE</b></font></td>
+                                <td><font face="Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><b>TROPHY NAME</b></font></td>
+                                <td width="80"><font face="Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><b>CATEGORY</b></font></td>
+                                <td width="60"><font face="Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><b>STATUS</b></font></td>
+                                <td width="80"><font face="Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><b>ACTIONS</b></font></td>
+                            </tr>
+                            <tbody id="trophy-list">
+                                <!-- Trophy rows populated by JavaScript -->
+                            </tbody>
+                        </table>
+
+                        <br>
+                        <img src="../images/store/aaaaaa.gif" width="520" height="1"><br>
+                        <br>
+
+                        <!-- Add New Trophy Section -->
+                        <a name="add-trophy"></a>
+                        <font face="Arial, Helvetica, sans-serif" size="3"><b>Add New Trophy</b></font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">Create a new trophy for the HEAT.NET network</font><br>
+                        <br>
+
+                        <table border="0" cellspacing="0" cellpadding="0" bgcolor="#b6ad96">
+                            <tr>
+                                <td>
+                                    <table border="0" cellspacing="1" cellpadding="6" width="520">
+                                        <tr bgcolor="#EEEEEE">
+                                            <td colspan="2">
+                                                <font face="Arial, Helvetica, sans-serif" size="2"><b>Trophy Details</b></font>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td width="120" valign="top">
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Trophy ID:</font>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="trophy_id" id="new-trophy-id" class="form-input" size="30" placeholder="e.g., tournament-winner">
+                                                <font face="Arial, Helvetica, sans-serif" size="1" color="#666666"><br>Unique identifier (lowercase, hyphens only)</font>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td valign="top">
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Trophy Name:</font>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="trophy_name" id="new-trophy-name" class="form-input" size="40" placeholder="e.g., Tournament Champion">
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td valign="top">
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Image File:</font>
+                                            </td>
+                                            <td>
+                                                <select name="trophy_image" id="new-trophy-image" class="form-select">
+                                                    <option value="">-- Select Image --</option>
+                                                    <option value="6100.gif">6100.gif - Player Trophy</option>
+                                                    <option value="6101.gif">6101.gif - Premium POTM</option>
+                                                    <option value="6104.gif">6104.gif - Tournament</option>
+                                                    <option value="6142.gif">6142.gif - Feel the HEAT</option>
+                                                    <option value="6143.gif">6143.gif - The Movie</option>
+                                                    <option value="6144.gif">6144.gif - 10SIX Tester</option>
+                                                    <option value="6145.gif">6145.gif - Hellcamp Ref</option>
+                                                    <option value="6160.gif">6160.gif - Charter Member</option>
+                                                    <option value="21102.gif">21102.gif - Premium Member</option>
+                                                </select>
+                                                <font face="Arial, Helvetica, sans-serif" size="1" color="#666666"><br>60x90 pixel GIF images</font>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td valign="top">
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Category:</font>
+                                            </td>
+                                            <td>
+                                                <select name="trophy_category" id="new-trophy-category" class="form-select">
+                                                    <option value="">-- Select Category --</option>
+                                                    <option value="membership">Membership</option>
+                                                    <option value="event">Special Events</option>
+                                                    <option value="special-event">Special Commemorative</option>
+                                                    <option value="community">Community</option>
+                                                    <option value="award">Awards</option>
+                                                    <option value="competition">Competition</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td valign="top">
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Status:</font>
+                                            </td>
+                                            <td>
+                                                <select name="trophy_status" id="new-trophy-status" class="form-select">
+                                                    <option value="active">Active - Can be earned</option>
+                                                    <option value="retired">Retired - Historical only</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td valign="top">
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Description:</font>
+                                            </td>
+                                            <td>
+                                                <textarea name="trophy_desc" id="new-trophy-desc" class="form-textarea" rows="4" cols="50" placeholder="Enter trophy description..."></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#EEEEEE">
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <input type="button" value="ADD TROPHY" class="btn-action" onclick="addTrophy()">
+                                                <input type="button" value="CLEAR FORM" class="btn-secondary" onclick="clearForm()">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+                        <img src="../images/store/aaaaaa.gif" width="520" height="1"><br>
+                        <br>
+
+                        <!-- Award Trophy Section -->
+                        <a name="award-trophy"></a>
+                        <font face="Arial, Helvetica, sans-serif" size="3"><b>Award Trophy to User</b></font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">Grant a trophy to a HEAT.NET member</font><br>
+                        <br>
+
+                        <table border="0" cellspacing="0" cellpadding="0" bgcolor="#b6ad96">
+                            <tr>
+                                <td>
+                                    <table border="0" cellspacing="1" cellpadding="6" width="520">
+                                        <tr bgcolor="#EEEEEE">
+                                            <td colspan="2">
+                                                <font face="Arial, Helvetica, sans-serif" size="2"><b>Award Details</b></font>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td width="120">
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Username:</font>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="award_user" id="award-username" class="form-input" size="30" placeholder="Enter HEAT username">
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td>
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Trophy:</font>
+                                            </td>
+                                            <td>
+                                                <select name="award_trophy" id="award-trophy-select" class="form-select">
+                                                    <option value="">-- Select Trophy --</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#FFFFFF">
+                                            <td valign="top">
+                                                <font face="Arial, Helvetica, sans-serif" size="2">Reason:</font>
+                                            </td>
+                                            <td>
+                                                <textarea name="award_reason" id="award-reason" class="form-textarea" rows="2" cols="50" placeholder="Reason for awarding trophy..."></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr bgcolor="#EEEEEE">
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <input type="button" value="AWARD TROPHY" class="btn-action" onclick="awardTrophy()">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+                        <img src="../images/store/aaaaaa.gif" width="520" height="1"><br>
+                        <br>
+
+                        <!-- Recent Activity Log -->
+                        <font face="Arial, Helvetica, sans-serif" size="3"><b>Recent Activity Log</b></font><br>
+                        <br>
+
+                        <table border="0" cellspacing="0" cellpadding="4" width="100%" bgcolor="#DDDDDD">
+                            <tr bgcolor="#666666">
+                                <td width="120"><font face="Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><b>DATE</b></font></td>
+                                <td width="80"><font face="Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><b>ACTION</b></font></td>
+                                <td><font face="Arial, Helvetica, sans-serif" size="1" color="#FFFFFF"><b>DETAILS</b></font></td>
+                            </tr>
+                            <tr bgcolor="#FFFFFF" class="trophy-row">
+                                <td><font face="Arial, Helvetica, sans-serif" size="1">Dec 20, 2025</font></td>
+                                <td><font face="Arial, Helvetica, sans-serif" size="1" color="#009900">Created</font></td>
+                                <td><font face="Arial, Helvetica, sans-serif" size="1">Trophy Admin interface deployed</font></td>
+                            </tr>
+                            <tr bgcolor="#FFFFFF" class="trophy-row">
+                                <td><font face="Arial, Helvetica, sans-serif" size="1">Dec 19, 2025</font></td>
+                                <td><font face="Arial, Helvetica, sans-serif" size="1" color="#003399">Updated</font></td>
+                                <td><font face="Arial, Helvetica, sans-serif" size="1">Trophy database migrated to JSON format</font></td>
+                            </tr>
+                            <tr bgcolor="#FFFFFF" class="trophy-row">
+                                <td><font face="Arial, Helvetica, sans-serif" size="1">Dec 18, 2025</font></td>
+                                <td><font face="Arial, Helvetica, sans-serif" size="1" color="#990000">Retired</font></td>
+                                <td><font face="Arial, Helvetica, sans-serif" size="1">6 historical trophies marked as retired</font></td>
+                            </tr>
+                        </table>
+
+                        <br><br>
+
+                    </td>
+                    <td width="9" bgcolor="#FFFFFF"><img src="../images/ui/dot_clear.gif" width="9" height="1"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+<!-- Footer -->
+<table width="740" border="0" cellpadding="8" cellspacing="0" bgcolor="#000000">
+    <tr>
+        <td align="center">
+            <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">
+                Copyright &copy; 2000-2025 HEAT.NET Restoration Project<br>
+                <a href="../index.html" style="color: #999999;">Home</a> |
+                <a href="trophies.html" style="color: #999999;">Trophies</a> |
+                <a href="../games.html" style="color: #999999;">Games</a> |
+                <a href="../about.html" style="color: #999999;">About</a>
+            </font>
+        </td>
+    </tr>
+</table>
+
+<script>
+// Trophy Data (embedded)
+const TROPHY_DATA = {
+    "retired": [
+        {"id": "charter-member", "name": "Charter Member Trophy", "image": "6160.gif", "category": "membership", "status": "retired"},
+        {"id": "feel-the-heat", "name": "Feel the HEAT Trophy", "image": "6142.gif", "category": "event", "status": "retired"},
+        {"id": "the-movie", "name": "\"The Movie\" Trophy", "image": "6143.gif", "category": "special-event", "status": "retired"},
+        {"id": "10six-tester", "name": "10SIX Tester of the Week", "image": "6144.gif", "category": "community", "status": "retired"},
+        {"id": "hellcamp-ref", "name": "Hellcamp Ref Trophy", "image": "6145.gif", "category": "community", "status": "retired"},
+        {"id": "premium-potm", "name": "Premium Player of the Month", "image": "6101.gif", "category": "award", "status": "retired"}
+    ],
+    "active": [
+        {"id": "player-of-week", "name": "Player of the Week", "image": "6100.gif", "category": "award", "status": "active"},
+        {"id": "tournament-winner", "name": "Tournament Champion", "image": "6104.gif", "category": "competition", "status": "active"},
+        {"id": "premium-member", "name": "HEAT PREMIUM Member", "image": "21102.gif", "category": "membership", "status": "active"}
+    ]
+};
+
+const CATEGORIES = {
+    'membership': 'Membership',
+    'event': 'Event',
+    'special-event': 'Special',
+    'community': 'Community',
+    'award': 'Award',
+    'competition': 'Competition'
+};
+
+function loadTrophyList() {
+    const tbody = document.getElementById('trophy-list');
+    const awardSelect = document.getElementById('award-trophy-select');
+    let html = '';
+    let optionsHtml = '<option value="">-- Select Trophy --</option>';
+
+    // Active trophies first
+    TROPHY_DATA.active.forEach(trophy => {
+        html += createTrophyRow(trophy);
+        optionsHtml += `<option value="${trophy.id}">${trophy.name} (Active)</option>`;
+    });
+
+    // Then retired
+    TROPHY_DATA.retired.forEach(trophy => {
+        html += createTrophyRow(trophy);
+    });
+
+    tbody.innerHTML = html;
+    awardSelect.innerHTML = optionsHtml;
+}
+
+function createTrophyRow(trophy) {
+    const statusClass = trophy.status === 'active' ? 'status-active' : 'status-retired';
+    const statusText = trophy.status === 'active' ? 'ACTIVE' : 'RETIRED';
+
+    return `
+        <tr bgcolor="#FFFFFF" class="trophy-row">
+            <td align="center">
+                <img src="../images/trophies/${trophy.image}" width="30" height="45" border="0" alt="${trophy.name}">
+            </td>
+            <td>
+                <font face="Arial, Helvetica, sans-serif" size="2"><b>${trophy.name}</b></font><br>
+                <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">ID: ${trophy.id}</font>
+            </td>
+            <td>
+                <font face="Arial, Helvetica, sans-serif" size="1">${CATEGORIES[trophy.category] || trophy.category}</font>
+            </td>
+            <td>
+                <font face="Arial, Helvetica, sans-serif" size="1" class="${statusClass}">${statusText}</font>
+            </td>
+            <td>
+                <input type="button" value="EDIT" class="btn-secondary" onclick="editTrophy('${trophy.id}')" style="font-size:10px;padding:2px 6px;">
+            </td>
+        </tr>
+    `;
+}
+
+function addTrophy() {
+    const id = document.getElementById('new-trophy-id').value;
+    const name = document.getElementById('new-trophy-name').value;
+    const image = document.getElementById('new-trophy-image').value;
+    const category = document.getElementById('new-trophy-category').value;
+    const status = document.getElementById('new-trophy-status').value;
+    const desc = document.getElementById('new-trophy-desc').value;
+
+    if (!id || !name || !image || !category) {
+        alert('Please fill in all required fields (ID, Name, Image, Category)');
+        return;
+    }
+
+    alert('Trophy "' + name + '" would be added to the database.\n\nNote: In a production environment, this would save to the server.\n\nTrophy Details:\nID: ' + id + '\nImage: ' + image + '\nCategory: ' + category + '\nStatus: ' + status);
+    clearForm();
+}
+
+function clearForm() {
+    document.getElementById('new-trophy-id').value = '';
+    document.getElementById('new-trophy-name').value = '';
+    document.getElementById('new-trophy-image').selectedIndex = 0;
+    document.getElementById('new-trophy-category').selectedIndex = 0;
+    document.getElementById('new-trophy-status').selectedIndex = 0;
+    document.getElementById('new-trophy-desc').value = '';
+}
+
+function editTrophy(trophyId) {
+    alert('Edit mode for trophy: ' + trophyId + '\n\nNote: In a production environment, this would open an edit form with the trophy details.');
+}
+
+function awardTrophy() {
+    const username = document.getElementById('award-username').value;
+    const trophyId = document.getElementById('award-trophy-select').value;
+    const reason = document.getElementById('award-reason').value;
+
+    if (!username || !trophyId) {
+        alert('Please enter a username and select a trophy');
+        return;
+    }
+
+    alert('Trophy would be awarded to: ' + username + '\n\nNote: In a production environment, this would update the user\'s profile.\n\nReason: ' + (reason || 'No reason specified'));
+
+    document.getElementById('award-username').value = '';
+    document.getElementById('award-trophy-select').selectedIndex = 0;
+    document.getElementById('award-reason').value = '';
+}
+
+// Initialize on page load
+loadTrophyList();
+</script>
+
+</body>
+</html>
