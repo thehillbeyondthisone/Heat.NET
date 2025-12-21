@@ -1,384 +1,424 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html lang="en">
+<html>
 <head>
-    <title>HEAT.NET - HEAT Store</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="HEAT Store - Premium memberships, game subscriptions, HEAT Degrees, and merchandise">
-    <link rel="stylesheet" href="css/heat-style.css">
-    <style>
-        body {
-            background-color: #000000;
-            color: #000000;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        a { color: #003399; text-decoration: none; }
-        a:hover { color: #990033; }
-        .store-header {
-            background-color: #CAC2AB;
-        }
-        .store-content {
-            background-color: #FFFFFF;
-        }
-        .sidebar {
-            background-color: #DDDDDD;
-            width: 176px;
-        }
-        .sidebar-nav {
-            background-color: #000000;
-            padding: 6px 0;
-        }
-        .product-section {
-            margin: 20px;
-            padding: 15px;
-            background-color: #F5F5F5;
-            border: 1px solid #CCCCCC;
-        }
-        .product-item {
-            margin: 15px 0;
-            padding: 10px;
-            background-color: #FFFFFF;
-            border: 1px solid #DDDDDD;
-        }
-        .product-title {
-            font-weight: bold;
-            font-size: 14px;
-            color: #990033;
-            margin-bottom: 8px;
-        }
-        .product-desc {
-            font-size: 11px;
-            color: #000000;
-            line-height: 1.5;
-        }
-        .product-price {
-            font-weight: bold;
-            font-size: 12px;
-            color: #003399;
-            margin-top: 8px;
-        }
-        .section-header {
-            font-size: 16px;
-            font-weight: bold;
-            color: #FFFFFF;
-            background-color: #990033;
-            padding: 8px;
-            margin-bottom: 15px;
-        }
-        .banner-note {
-            background-color: #FFFFCC;
-            border: 2px solid #FFCC00;
-            padding: 10px;
-            margin: 15px 20px;
-            font-size: 11px;
-            text-align: center;
-        }
-    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>HEAT.NET :: STORE</title>
+<link rel="StyleSheet" href="css/heat-style.css" type="text/css">
+<style>
+.subnav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    font-style: normal;
+    font-weight: bold;
+    color: #003399;
+    text-decoration: none;
+    line-height: 1.2em;
+}
+.menus {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.6em;
+    text-decoration: none;
+    color: #003399;
+    line-height: 1.2em;
+}
+a:hover { color: #990033; }
+.form-select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    background-color: #FFFFFF;
+    border: 1px solid #666666;
+}
+</style>
 </head>
-<body bgcolor="#000000" link="#003399" vlink="#687BA4" alink="#990033">
 
-<center>
-<!-- Top Border -->
-<table width="740" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <td colspan="2" width="740" bgcolor="#CAC2AB"><img border="0" height="1" src="images/ui/dot_clear.gif" width="1"></td>
-  </tr>
-  <tr>
-    <!-- HEAT Branding -->
-    <td rowspan="2" width="223" valign="top"><img alt="HEAT STORE" border="0" height="104" src="images/store/HEAT_cobrand_sand.gif" width="223"></td>
-    <td width="517" valign="top"><img alt="" border="0" height="55" src="images/store/HEAT_backgrnd_sand.gif" width="497"></td>
-  </tr>
-  <tr>
-    <td width="517">&nbsp;</td>
-  </tr>
+<body bgcolor="#000000" text="#000000" link="#003399" vlink="#687BA4" alink="#990033" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0">
+
+<!-- Header Bar -->
+<table width="740" border="0" cellpadding="0" cellspacing="0" bgcolor="#AAAAAA">
+    <tr>
+        <td colspan="2" width="740" bgcolor="#777777"><img border="0" height="4" src="images/ui/dot_clear.gif" width="1"></td>
+    </tr>
+    <tr>
+        <td colspan="2" width="740" bgcolor="#ff0033"><img border="0" height="1" src="images/ui/dot_clear.gif" width="1"></td>
+    </tr>
+    <tr>
+        <td colspan="2" width="740" bgcolor="#cococo"><img border="0" height="1" src="images/ui/dot_clear.gif" width="1"></td>
+    </tr>
+    <tr>
+        <td rowspan="2" width="223" valign="top">
+            <a href="index.html">
+            <table border="0" cellpadding="0" cellspacing="0" width="223" height="104" bgcolor="#C2B280">
+                <tr>
+                    <td align="center" valign="middle">
+                        <font face="Arial, Helvetica, sans-serif" size="4" color="#003399"><b>HEAT.NET</b></font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">THE HOME OF ONLINE GAMING</font>
+                    </td>
+                </tr>
+            </table>
+            </a>
+        </td>
+        <td width="517" valign="top" bgcolor="#C2B280">
+            <img border="0" height="55" src="images/ui/dot_clear.gif" width="497">
+        </td>
+    </tr>
+    <tr>
+        <td width="517" bgcolor="#C2B280">&nbsp;</td>
+    </tr>
 </table>
 
-<!-- Main Navigation and Content -->
-<table width="740" border="0" cellpadding="0" cellspacing="0" bgcolor="#B6AD96">
-  <tr>
-    <!-- Game Selector -->
-    <td width="176" valign="top" align="center" class="sidebar">
-      <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td colspan="3" align="center">
-            <img src="images/ui/dot_clear.gif" width="1" height="10" border="0"><br>
-            <font face="Verdana" size="2" color="#000000"><b>Quick Game Access</b></font><br>
-            <img src="images/ui/dot_clear.gif" width="1" height="5" border="0"><br>
-            <select name="game_id" size="1" style="width:160px; font-size:11px;">
-              <option value="0" selected>Select a Game</option>
-              <option value="1">10SIX</option>
-              <option value="2">Quake II</option>
-              <option value="3">Unreal Tournament</option>
-              <option value="4">Diablo II</option>
-              <option value="5">StarCraft</option>
-              <option value="6">Baldur's Gate</option>
-              <option value="7">Half-Life</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3"><img border="0" height="3" src="images/ui/dot_clear.gif" width="1"></td>
-        </tr>
-        <tr>
-          <td width="71" align="center"><img alt="PLAY NOW!" border="0" height="17" src="images/store/play_now.gif" width="71"></td>
-          <td width="18">&nbsp;</td>
-          <td width="71" align="center"><img alt="GET INFO" border="0" height="17" src="images/store/get_info.gif" width="71"></td>
-        </tr>
-      </table>
-      <br>
-    </td>
-
-    <!-- Main Content -->
-    <td width="564" bgcolor="#FFFFFF" valign="top" class="store-content">
-      <img src="images/ui/dot_clear.gif" width="1" height="15" border="0"><br>
-
-      <center>
-        <img src="images/store/header_heatstore.jpg" width="400" height="51" border="0" alt="HEAT STORE">
-      </center>
-      <br>
-
-      <!-- Note Banner -->
-      <div class="banner-note">
-        <font face="Verdana" size="2" color="#000000">
-          <b>WELCOME TO THE HEAT STORE!</b><br>
-          Purchase premium memberships, game subscriptions, HEAT Degrees, and exclusive merchandise.
-        </font>
-      </div>
-
-      <!-- HEAT PREMIUM Membership Section -->
-      <div class="product-section">
-        <div class="section-header">
-          <img src="images/store/21102.gif" width="60" height="90" align="left" hspace="10" border="0">
-          HEAT PREMIUM MEMBERSHIP
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">PREMIUM Monthly Membership</div>
-          <div class="product-desc">
-            Upgrade to HEAT PREMIUM and unlock exclusive features: priority server access,
-            special events, premium tournaments, exclusive trophies, and bonus HEAT Degrees every month!
-          </div>
-          <div class="product-price">$4.95/month</div>
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">PREMIUM 6-Month Membership</div>
-          <div class="product-desc">
-            Save 20% with a 6-month PREMIUM subscription. Includes all PREMIUM features plus
-            a special Charter Member badge for your Homebase.
-          </div>
-          <div class="product-price">$23.95 (Save $6!)</div>
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">PREMIUM Annual Membership</div>
-          <div class="product-desc">
-            Best value! Annual PREMIUM membership with all features plus exclusive annual trophy,
-            50,000 bonus HEAT Degrees, and priority customer support.
-          </div>
-          <div class="product-price">$39.95 (Save $20!)</div>
-        </div>
-      </div>
-
-      <!-- 10SIX Subscriptions -->
-      <div class="product-section">
-        <div class="section-header">
-          <img src="images/store/10six_60.gif" width="60" height="60" align="left" hspace="10" border="0">
-          10SIX GAME SUBSCRIPTIONS
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">10SIX Monthly Subscription</div>
-          <div class="product-desc">
-            Continue your conquest of Planet Visitor! Monthly subscription to HEAT's flagship
-            massively multiplayer FPS. Build bases, form corporations, and battle for territory.
-          </div>
-          <div class="product-price">$9.95/month</div>
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">10SIX 3-Month Subscription + Jitter Pack</div>
-          <div class="product-desc">
-            3 months of 10SIX plus exclusive Jitter Pack DLC with new weapons, base upgrades,
-            and corporation bonuses. Limited time offer!
-          </div>
-          <div class="product-price">$24.95</div>
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">10SIX Annual Subscription</div>
-          <div class="product-desc">
-            Full year of planetary warfare! Includes base game, all Jitter Packs, exclusive
-            Avatar skins, and 100,000 HEAT Degrees.
-          </div>
-          <div class="product-price">$89.95 (Save $30!)</div>
-        </div>
-      </div>
-
-      <!-- HEAT Degrees -->
-      <div class="product-section">
-        <div class="section-header">
-          <img src="images/store/degrees.gif" width="80" height="40" align="left" hspace="10" border="0">
-          HEAT DEGREES - NETWORK CURRENCY
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">10,000 HEAT Degrees</div>
-          <div class="product-desc">
-            HEAT Degrees are the network currency. Use them to purchase games, unlock features,
-            buy tournament entries, and trade with other HEAT members.
-          </div>
-          <div class="product-price">$2.95</div>
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">50,000 HEAT Degrees</div>
-          <div class="product-desc">
-            Popular pack! Get bonus 5,000 Degrees free when you purchase 50,000.
-          </div>
-          <div class="product-price">$12.95 (+5,000 Bonus!)</div>
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">100,000 HEAT Degrees</div>
-          <div class="product-desc">
-            Best value! 100,000 Degrees plus 15,000 bonus Degrees. Power users' choice.
-          </div>
-          <div class="product-price">$24.95 (+15,000 Bonus!)</div>
-        </div>
-      </div>
-
-      <!-- HEAT Merchandise -->
-      <div class="product-section">
-        <div class="section-header">
-          <img src="images/store/heat_merchandise_60.gif" width="60" height="60" align="left" hspace="10" border="0">
-          HEAT MERCHANDISE
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">Official HEAT T-Shirt</div>
-          <div class="product-desc">
-            Show your HEAT pride! 100% cotton black t-shirt with classic HEAT logo.
-            Available in sizes S-XXL.
-          </div>
-          <div class="product-price">$14.95</div>
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">HEAT Gaming Mouse Pad</div>
-          <div class="product-desc">
-            Premium gaming surface with HEAT branding. 12" x 10", non-slip rubber backing.
-          </div>
-          <div class="product-price">$9.95</div>
-        </div>
-
-        <div class="product-item">
-          <div class="product-title">10SIX Strategy Guide</div>
-          <div class="product-desc">
-            Official 10SIX strategy guide with maps, corporation strategies, weapon stats,
-            and base-building blueprints. 200+ pages.
-          </div>
-          <div class="product-price">$19.95</div>
-        </div>
-      </div>
-
-      <!-- Partner Products -->
-      <div class="product-section">
-        <div class="section-header">PARTNER PRODUCTS & SPECIAL OFFERS</div>
-
-        <table border="0" cellpadding="10" cellspacing="0" width="100%">
-          <tr>
-            <td width="33%" align="center" valign="top">
-              <img src="images/store/rocket_cash_60.gif" width="60" height="60" border="0"><br>
-              <font size="1"><b>Rocket Cash</b><br>Online payment system<br><a href="#rocketcash">Learn More</a></font>
-            </td>
-            <td width="33%" align="center" valign="top">
-              <img src="images/store/gamespot_60.gif" width="60" height="60" border="0"><br>
-              <font size="1"><b>GameSpot</b><br>Game reviews & news<br><a href="#gamespot">Visit Site</a></font>
-            </td>
-            <td width="34%" align="center" valign="top">
-              <img src="images/store/chips_bits_60.gif" width="60" height="60" border="0"><br>
-              <font size="1"><b>Chips & Bits</b><br>Games & software<br><a href="#chips">Shop Now</a></font>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <br>
-
-      <!-- Historical Note -->
-      <div style="margin: 15px 20px; padding: 12px; background-color: #F0F0F0; border-left: 3px solid #990033;">
-        <font face="Verdana" size="1" color="#666666">
-          <i><b>Historical Note:</b> This is a restored historical page from HEAT.NET (1997-2003).
-          The original HEAT Store was a fully functional e-commerce system with payment processing,
-          subscription management, and digital delivery. This restoration preserves the design and
-          product catalog for historical reference. All prices shown are from the year 2000 era.</i>
-        </font>
-      </div>
-
-      <img src="images/ui/dot_clear.gif" width="1" height="20" border="0"><br>
-    </td>
-  </tr>
+<!-- Game Selector Bar -->
+<table width="740" border="0" cellpadding="0" cellspacing="0" bgcolor="#aaaaaa">
+    <tr>
+        <td width="176" valign="top" align="center" bgcolor="#C2B280">
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="3"><center>
+                    <select name="game_id" class="form-select">
+                        <option value="0" selected>Select a Game</option>
+                        <option value="5102">10SIX</option>
+                        <option value="5136">Baldurs Gate</option>
+                        <option value="5009">Diablo</option>
+                        <option value="5012">Duke Nukem 3D</option>
+                        <option value="5140">Half Life</option>
+                        <option value="36">Quake</option>
+                        <option value="5045">Quake II</option>
+                        <option value="5087">Unreal</option>
+                        <option value="5025">Warcraft II</option>
+                    </select></center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><img border="0" height="3" src="images/ui/dot_clear.gif" width="1"></td>
+                </tr>
+                <tr>
+                    <td width="71" valign="center"><a href="games.html"><img src="images/store/play_now.gif" alt="PLAY NOW!" border="0" height="17" width="71"></a></td>
+                    <td><font face="Verdana" size="1" color="white">&nbsp;</font></td>
+                    <td width="71" valign="center"><a href="games.html"><img src="images/store/get_info.gif" alt="GET INFO" border="0" height="17" width="71"></a></td>
+                </tr>
+            </table>
+            <br>
+        </td>
+        <td width="564" bgcolor="#000000">
+            <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                <tr>
+                    <td>
+                        <font face="Arial, Helvetica, sans-serif" size="3" color="#FFFFFF"><b>HEAT.NET STORE</b></font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="1" color="#999999">Shop with your HEAT Degrees!</font>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
 </table>
 
-<!-- Left Sidebar Navigation -->
-<table width="740" border="0" cellpadding="0" cellspacing="0" bgcolor="#DDDDDD" style="margin-top: -450px; position: absolute; left: 50%; margin-left: -370px;">
-  <tr>
-    <td width="176" valign="top">
-      <table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="171">
-        <tr>
-          <td colspan="3"><img src="images/ui/dot_clear.gif" width="171" height="6"></td>
-        </tr>
-        <tr>
-          <td><img src="images/ui/dot_clear.gif" width="33" height="15" border="0"></td>
-          <td><a href="index.html"><img src="images/store/nav_home.gif" width="99" height="15" border="0" alt="Home"></a></td>
-          <td rowspan="8"><img src="images/ui/dot_clear.gif" width="39" height="120"></td>
-        </tr>
-        <tr>
-          <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
-          <td><a href="#myheat"><img src="images/store/nav_myheat.gif" width="99" height="15" border="0" alt="My HEAT"></a></td>
-        </tr>
-        <tr>
-          <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
-          <td><a href="games.html"><img src="images/store/nav_essentials.gif" width="99" height="15" border="0" alt="Games"></a></td>
-        </tr>
-        <tr>
-          <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
-          <td><a href="#news"><img src="images/store/nav_news.gif" width="99" height="15" border="0" alt="News"></a></td>
-        </tr>
-        <tr>
-          <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
-          <td><a href="#events"><img src="images/store/nav_events.gif" width="99" height="15" border="0" alt="Events"></a></td>
-        </tr>
-        <tr>
-          <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
-          <td><a href="games.html"><img src="images/store/nav_channels.gif" width="99" height="15" border="0" alt="Channels"></a></td>
-        </tr>
-        <tr>
-          <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
-          <td><a href="store.html"><img src="images/store/nav_store.gif" width="99" height="15" border="0" alt="Store"></a></td>
-        </tr>
-        <tr>
-          <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
-          <td><a href="pages/trophies.html"><img src="images/store/nav_members.gif" width="99" height="15" border="0" alt="Members"></a></td>
-        </tr>
-        <tr>
-          <td colspan="3"><img src="images/ui/dot_clear.gif" width="171" height="6"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
+<!-- Main Content Area -->
+<table width="740" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" name="content">
+    <tr>
+        <!-- Left Sidebar -->
+        <td width="171" valign="top" bgcolor="#dddddd">
+
+            <!-- Navigation Menu -->
+            <table border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" width="171" name="navbar">
+                <tr>
+                    <td colspan="3"><img src="images/ui/dot_clear.gif" width="171" height="6"></td>
+                </tr>
+                <tr>
+                    <td><img src="images/ui/dot_clear.gif" width="33" height="15" border="0"></td>
+                    <td><a href="index.html"><img src="images/store/nav_home.gif" width="99" height="15" border="0" alt="Home"></a></td>
+                    <td rowspan="8"><img src="images/ui/dot_clear.gif" width="39" height="120"></td>
+                </tr>
+                <tr>
+                    <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><a href="pages/myhomebase.html"><img src="images/store/nav_myheat.gif" width="99" height="15" border="0" alt="My HEAT"></a></td>
+                </tr>
+                <tr>
+                    <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><a href="games.html"><img src="images/store/nav_channels.gif" width="99" height="15" border="0" alt="Channels"></a></td>
+                </tr>
+                <tr>
+                    <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><img src="images/store/nav_store.gif" width="99" height="15" border="0" alt="Store"></td>
+                </tr>
+                <tr>
+                    <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><a href="pages/trophies.html"><img src="images/store/nav_members.gif" width="99" height="15" border="0" alt="Members"></a></td>
+                </tr>
+                <tr>
+                    <td><img src="images/store/nav_box.gif" width="33" height="15" border="0"></td>
+                    <td><a href="pages/degrees.html"><img src="images/store/nav_essentials.gif" width="99" height="15" border="0" alt="Essentials"></a></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><img src="images/ui/dot_clear.gif" width="132" height="6"></td>
+                </tr>
+            </table>
+
+            <!-- Sidebar Links -->
+            <table width="171" border="0" cellpadding="0" cellspacing="0" bgcolor="#dddddd">
+                <tr>
+                    <td valign="top">
+                        <br>
+                        <img height="5" src="images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="subnav" style="color:#990033;">&gt; Store Home</span><br>
+                        <img height="5" src="images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#memberships"><span class="subnav">&gt; Memberships</span></a><br>
+                        <img height="5" src="images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#games"><span class="subnav">&gt; Buy Games</span></a><br>
+                        <img height="5" src="images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#merchandise"><span class="subnav">&gt; Merchandise</span></a><br>
+                        <img height="5" src="images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="pages/degrees.html"><span class="subnav">&gt; How to order</span></a><br>
+                        <img height="5" src="images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="about.html"><span class="subnav">&gt; Consumer services</span></a><br>
+                        <img height="5" src="images/store/aaaaaa.gif" width="171"><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="pages/degrees.html"><span class="subnav">&gt; Redeem a coupon</span></a><br>
+                        <img height="5" src="images/store/aaaaaa.gif" width="171"><br>
+                        <br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td align="center"><a href="pages/10six.html"><img src="images/store/sega_com.gif" border="0" alt="SEGA.COM"></a></td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/ui/dot_clear.gif" width="1" height="8"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><a href="about.html"><img src="images/store/heat_europe.gif" border="0" alt="HEAT EUROPE"></a></td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/ui/dot_clear.gif" width="1" height="8"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+
+        <!-- Main Content -->
+        <td width="569" bgcolor="#ffffff" valign="top">
+
+            <!-- Store Header Image -->
+            <table width="569" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000" width="401">
+                        <img src="images/store/header_heatstore.jpg" width="381" height="132" border="0" alt="HEAT STORE">
+                    </td>
+                    <td bgcolor="#000000" width="168" valign="top">
+                        <br>
+                        <font face="Arial, Helvetica, sans-serif" size="1" color="#d9d9d9">Your HEAT Degrees:</font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="4" color="#00FFFF"><b>1,250</b></font><br>
+                        <font face="Arial, Helvetica, sans-serif" size="1" color="#999999">
+                            <a href="pages/degrees.html" style="color:#33FFFF;">Check Balance</a>
+                        </font>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Main Store Content -->
+            <table width="569" border="0" cellpadding="0" cellspacing="0" name="main_content">
+                <tr>
+                    <td bgcolor="#aaaaaa" width="1"><img src="images/ui/dot_clear.gif" width="1" height="1"></td>
+                    <td width="6" bgcolor="#FFFFFF"><img src="images/ui/dot_clear.gif" width="6" height="1"></td>
+                    <td bgcolor="#aaaaaa" width="1"><img src="images/ui/dot_clear.gif" width="1" height="1"></td>
+                    <td width="12" bgcolor="#FFFFFF"><img src="images/ui/dot_clear.gif" width="12" height="1"></td>
+                    <td width="361" valign="top">&nbsp;<br>
+
+                        <!-- Your Degrees Section -->
+                        <table border="0" cellpadding="2" cellspacing="0" width="360">
+                            <tr bgcolor="#dddddd">
+                                <td><font color="#555555" face="Arial, Helvetica, sans-serif" size="2"><b>&nbsp; your Degrees :: &nbsp;</b></font></td>
+                            </tr>
+                        </table><br>
+
+                        <table width="360" border="0" cellspacing="6" cellpadding="0">
+                            <tr>
+                                <td><img src="images/store/degrees.gif" width="60" height="60"></td>
+                                <td><font face="arial,helvetica" size="2">
+                                    <a href="pages/degrees.html">Click here</a> to find out how much your Degrees are worth.
+                                    Or, if you are ready to go shopping, just click any of the links below.
+                                </font></td>
+                            </tr>
+                        </table>
+                        <br>
+
+                        <!-- Go Shopping Section -->
+                        <a name="games"></a>
+                        <table border="0" cellpadding="2" cellspacing="0" width="360">
+                            <tr bgcolor="#dddddd">
+                                <td><font color="#555555" face="Arial, Helvetica, sans-serif" size="2"><b>&nbsp; go shopping :: &nbsp;</b></font></td>
+                            </tr>
+                        </table><br>
+
+                        <table width="325" border="0" cellspacing="6" cellpadding="0">
+                            <tr>
+                                <td valign="top" align="center">
+                                    <a href="pages/10six.html"><img src="images/store/10six_60.gif" width="60" height="60" border="0" alt="10SIX Subscriptions"></a>
+                                </td>
+                                <td><font face="arial,helvetica" size="2"><a href="pages/10six.html">Buy 10SIX Subscriptions</a><br>
+                                <font size="1" color="#666666">Play the massive online game!</font></font></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center">
+                                    <a href="pages/10six.html"><img src="images/store/10six_60.gif" width="60" height="60" border="0" alt="10SIX Jitter Packs"></a>
+                                </td>
+                                <td><font face="arial,helvetica" size="2"><a href="pages/10six.html">Buy 10SIX Jitter Packs</a><br>
+                                <font size="1" color="#666666">Power up your 10SIX experience!</font></font></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center">
+                                    <a name="memberships"></a>
+                                    <a href="pages/degrees.html"><img src="images/store/membership_60.gif" width="60" height="60" border="0"></a>
+                                </td>
+                                <td><font face="arial,helvetica" size="2"><a href="pages/degrees.html">Buy Premium Memberships</a><br>
+                                <font size="1" color="#666666">Unlock exclusive features and events!</font></font></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center">
+                                    <a name="merchandise"></a>
+                                    <a href="#"><img src="images/store/heat_merchandise_60.gif" width="60" height="60" border="0"></a>
+                                </td>
+                                <td><font face="arial,helvetica" size="2"><a href="#">Buy HEAT Merchandise</a><br>
+                                <font size="1" color="#666666">Show your HEAT pride!</font></font></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center">
+                                    <a href="#"><img src="images/store/chips_bits_60.gif" width="60" height="60" border="0"></a>
+                                </td>
+                                <td><font face="arial,helvetica" size="2"><a href="#">Buy Games From Chips &amp; Bits</a><br>
+                                <font size="1" color="#666666">Huge selection of PC games!</font></font></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center">
+                                    <a href="#"><img src="images/store/rocket_cash_60.gif" width="60" height="60" border="0"></a>
+                                </td>
+                                <td><font face="arial,helvetica" size="2"><a href="#">Shop Online without a Credit Card</a><br>
+                                <font size="1" color="#666666">RocketCash makes it easy!</font></font></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center">
+                                    <a href="#"><img src="images/store/dealdeal_60.gif" width="60" height="60" border="0"></a>
+                                </td>
+                                <td><font face="arial,helvetica" size="2"><a href="#">Auctions - Powered By DealDeal.Com</a><br>
+                                <font size="1" color="#666666">Bid on great gaming deals!</font></font></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="center">
+                                    <a href="#"><img src="images/store/gamespot_60.gif" width="60" height="60" border="0"></a>
+                                </td>
+                                <td><font face="arial,helvetica" size="2"><a href="#">Buy Strategy Guides from GameGuides.com</a><br>
+                                <font size="1" color="#666666">Master any game!</font></font></td>
+                            </tr>
+                        </table>
+
+                        <br><br>
+
+                    </td>
+
+                    <td width="20" valign="top"><img src="images/ui/dot_clear.gif" width="20" height="1"></td>
+
+                    <!-- Side Tables -->
+                    <td valign="top" width="168">
+                        &nbsp;<br>
+
+                        <!-- HEAT Specials -->
+                        <table width="150" border="0" cellspacing="0" cellpadding="6" bgcolor="#DDDDDD">
+                            <tr>
+                                <td bgcolor="#660033">
+                                    <b><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" size="2">HEAT Specials</font></b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <font face="arial, helvetica, sans serif" size="2">
+                                        <a href="pages/10six.html">3 Months 10SIX $25.95</a><br>
+                                        <font size="1">Buy for $25.95</font><br><br>
+                                        <a href="pages/degrees.html">Premium 1 Year $29.95</a><br>
+                                        <font size="1">Best Value!</font>
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+
+                        <!-- Featured Products -->
+                        <table width="150" border="0" cellspacing="0" cellpadding="6" bgcolor="#DDDDDD">
+                            <tr>
+                                <td bgcolor="#660033"><b><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" size="2">Featured Products</font></b></td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr valign="MIDDLE" align="center">
+                                            <td><img src="images/ui/dot_clear.gif" width="1" height="5"><br>
+                                                <a href="#"><font face="Arial, helvetica, sans serif" size="2"><i>Chips &amp; Bits Featured Product</i></font></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center"><img src="images/ui/dot_clear.gif" width="1" height="7"><br>
+                                                <a href="#"><img src="images/store/diablo2_100.gif" alt="Diablo II" border="0"></a><br>
+                                                <img src="images/ui/dot_clear.gif" width="1" height="3">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center"><a href="#"><font face="Arial" size="2">BUY NOW<br>Diablo II</font></a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+
+                        <!-- Quick Links -->
+                        <table width="150" border="0" cellspacing="0" cellpadding="6" bgcolor="#DDDDDD">
+                            <tr>
+                                <td bgcolor="#003399"><b><font face="Arial, Helvetica, sans-serif" color="#FFFFFF" size="2">Quick Links</font></b></td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <font face="arial, helvetica, sans serif" size="1">
+                                        <a href="pages/getpaid.html">&gt; Get Paid to Play</a><br>
+                                        <a href="pages/trophies.html">&gt; Trophy System</a><br>
+                                        <a href="pages/myhomebase.html">&gt; My Homebase</a><br>
+                                        <a href="games.html">&gt; Game Channels</a><br>
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td width="9" bgcolor="#FFFFFF"><img src="images/ui/dot_clear.gif" width="9" height="1"></td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
 </table>
 
 <!-- Footer -->
-<br><br>
-<font face="Verdana" size="1" color="#999999">
-  Copyright &copy; 2000-2025 HEAT.NET Restoration Project - For Nostalgic Purposes<br>
-  <a href="index.html">Home</a> | <a href="games.html">Games</a> | <a href="pages/trophies.html">Trophies</a> | <a href="store.html">Store</a>
-</font>
-
-</center>
+<table width="740" border="0" cellpadding="8" cellspacing="0" bgcolor="#000000">
+    <tr>
+        <td align="center">
+            <font face="Arial, Helvetica, sans-serif" size="1" color="#666666">
+                Copyright &copy; 2000-2025 HEAT.NET Restoration Project<br>
+                <a href="index.html" style="color: #999999;">Home</a> |
+                <a href="games.html" style="color: #999999;">Games</a> |
+                <a href="store.html" style="color: #999999;">Store</a> |
+                <a href="pages/trophies.html" style="color: #999999;">Trophies</a> |
+                <a href="about.html" style="color: #999999;">About</a>
+            </font>
+        </td>
+    </tr>
+</table>
 
 </body>
 </html>
