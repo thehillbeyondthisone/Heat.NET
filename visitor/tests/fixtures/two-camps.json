@@ -1,0 +1,286 @@
+{
+	"activity": [
+		{
+			"camp": 735,
+			"details": {
+				"raiders": 3,
+				"wave": 1
+			},
+			"id": "event-051a1f979882655a11f106a9e1d374930d3f63d60d977416c10619e031fdea90",
+			"tick": 300,
+			"type": "raid",
+			"unix": 1790999100.0
+		},
+		{
+			"camp": 735,
+			"details": {
+				"wave": 1
+			},
+			"id": "event-3782976339c848219d30704366d137ddd364a9628ba2ffed1a0ec4e9284d103b",
+			"tick": 300,
+			"type": "repelled",
+			"unix": 1790999100.0
+		},
+		{
+			"camp": 735,
+			"details": {
+				"durability": 1,
+				"kind": "well"
+			},
+			"id": "event-884920856f33616dccfd11a82e664d22263d51372d105afe02408868de606687",
+			"tick": 300,
+			"type": "lost",
+			"unix": 1790999100.0
+		},
+		{
+			"camp": 736,
+			"details": {
+				"mined": 15.5,
+				"seconds": 100.0,
+				"spent": 1.0,
+				"tu": 14.5
+			},
+			"id": "event-334cd9d8945b8fb2f953f61ba74740ad700021363ff178c2cdbe1334c25e5595",
+			"tick": 0,
+			"type": "away",
+			"unix": 1790999800.0
+		}
+	],
+	"aggregate": {
+		"built": 3,
+		"capacity": 1500.0,
+		"mined": 15.5,
+		"observed_losses": 1,
+		"owned_camps": 1,
+		"ready_buildings": 3,
+		"ready_defenses": 1,
+		"ready_rovers": 0,
+		"recovered": 0,
+		"repelled": 1,
+		"tu": 501.80999999999995,
+		"visited_camps": 2
+	},
+	"awards": {
+		"evidence": "game_facts_only",
+		"granted": [],
+		"policy": "existing_heat_rules"
+	},
+	"camps": [
+		{
+			"age_days": 2,
+			"claimed_unix": 1790827200.0,
+			"corporation": "bruteforce",
+			"current": false,
+			"freshness": "stored_snapshot",
+			"home": true,
+			"inventory": {
+				"built": 3,
+				"destroyed": 0,
+				"equipment": 0,
+				"ground": 0,
+				"mounted": 0,
+				"pack": 0,
+				"producing": 0,
+				"ready": 0,
+				"storage": 14
+			},
+			"label": "Camp735",
+			"last_raid": {
+				"loss_count": 1,
+				"losses": {
+					"well": 1
+				},
+				"repelled": true,
+				"started_unix": 1790999100.0,
+				"wave": 1,
+				"window_limited": true
+			},
+			"log_window": {
+				"complete_history": false,
+				"limit": 100,
+				"newest_unix": 1790999100.0,
+				"oldest_unix": 1790999100.0,
+				"retained_entries": 4
+			},
+			"metrics": {
+				"built": 3,
+				"capacity": 750.0,
+				"mined": 0.0,
+				"nerve_center_online": true,
+				"observed_losses": 1,
+				"raid_active": false,
+				"raid_wave": 1,
+				"raiders": 0,
+				"ready_buildings": 3,
+				"ready_defenses": 1,
+				"ready_rovers": 0,
+				"recovered": 0,
+				"repelled": 1,
+				"tu": 474.55999999999995
+			},
+			"number": 735,
+			"owner_display_name": "Pioneer",
+			"owner_id": "local-0123456789abcdef0123456789abcdef",
+			"ruleset": "first-plot-0.6",
+			"state_unix": 1790999700.0,
+			"tick": 300
+		},
+		{
+			"age_days": 0,
+			"claimed_unix": 0.0,
+			"corporation": "",
+			"current": true,
+			"freshness": "current_snapshot",
+			"home": false,
+			"inventory": {
+				"built": 0,
+				"destroyed": 0,
+				"equipment": 1,
+				"ground": 0,
+				"mounted": 0,
+				"pack": 11,
+				"producing": 0,
+				"ready": 0,
+				"storage": 0
+			},
+			"label": "Camp736",
+			"last_raid": {},
+			"log_window": {
+				"complete_history": false,
+				"limit": 100,
+				"newest_unix": 1790999800.0,
+				"oldest_unix": 1790999800.0,
+				"retained_entries": 1
+			},
+			"metrics": {
+				"built": 0,
+				"capacity": 750.0,
+				"mined": 15.5,
+				"nerve_center_online": false,
+				"observed_losses": 0,
+				"raid_active": false,
+				"raid_wave": 0,
+				"raiders": 0,
+				"ready_buildings": 0,
+				"ready_defenses": 0,
+				"ready_rovers": 0,
+				"recovered": 0,
+				"repelled": 0,
+				"tu": 27.25
+			},
+			"number": 736,
+			"owner_display_name": "",
+			"owner_id": "",
+			"ruleset": "first-plot-0.6",
+			"state_unix": 1791000000.0,
+			"tick": 0
+		}
+	],
+	"canonical_payload": "{\"activity\":[{\"camp\":735.0,\"details\":{\"raiders\":3.0,\"wave\":1.0},\"id\":\"event-051a1f979882655a11f106a9e1d374930d3f63d60d977416c10619e031fdea90\",\"tick\":300.0,\"type\":\"raid\",\"unix\":1790999100.0},{\"camp\":735.0,\"details\":{\"wave\":1.0},\"id\":\"event-3782976339c848219d30704366d137ddd364a9628ba2ffed1a0ec4e9284d103b\",\"tick\":300.0,\"type\":\"repelled\",\"unix\":1790999100.0},{\"camp\":735.0,\"details\":{\"durability\":1.0,\"kind\":\"well\"},\"id\":\"event-884920856f33616dccfd11a82e664d22263d51372d105afe02408868de606687\",\"tick\":300.0,\"type\":\"lost\",\"unix\":1790999100.0},{\"camp\":736.0,\"details\":{\"mined\":15.5,\"seconds\":100.0,\"spent\":1.0,\"tu\":14.5},\"id\":\"event-334cd9d8945b8fb2f953f61ba74740ad700021363ff178c2cdbe1334c25e5595\",\"tick\":0.0,\"type\":\"away\",\"unix\":1790999800.0}],\"aggregate\":{\"built\":3.0,\"capacity\":1500.0,\"mined\":15.5,\"observed_losses\":1.0,\"owned_camps\":1.0,\"ready_buildings\":3.0,\"ready_defenses\":1.0,\"ready_rovers\":0.0,\"recovered\":0.0,\"repelled\":1.0,\"tu\":501.80999999999995,\"visited_camps\":2.0},\"awards\":{\"evidence\":\"game_facts_only\",\"granted\":[],\"policy\":\"existing_heat_rules\"},\"camps\":[{\"age_days\":2.0,\"claimed_unix\":1790827200.0,\"corporation\":\"bruteforce\",\"current\":false,\"freshness\":\"stored_snapshot\",\"home\":true,\"inventory\":{\"built\":3.0,\"destroyed\":0.0,\"equipment\":0.0,\"ground\":0.0,\"mounted\":0.0,\"pack\":0.0,\"producing\":0.0,\"ready\":0.0,\"storage\":14.0},\"label\":\"Camp735\",\"last_raid\":{\"loss_count\":1.0,\"losses\":{\"well\":1.0},\"repelled\":true,\"started_unix\":1790999100.0,\"wave\":1.0,\"window_limited\":true},\"log_window\":{\"complete_history\":false,\"limit\":100.0,\"newest_unix\":1790999100.0,\"oldest_unix\":1790999100.0,\"retained_entries\":4.0},\"metrics\":{\"built\":3.0,\"capacity\":750.0,\"mined\":0.0,\"nerve_center_online\":true,\"observed_losses\":1.0,\"raid_active\":false,\"raid_wave\":1.0,\"raiders\":0.0,\"ready_buildings\":3.0,\"ready_defenses\":1.0,\"ready_rovers\":0.0,\"recovered\":0.0,\"repelled\":1.0,\"tu\":474.55999999999995},\"number\":735.0,\"owner_display_name\":\"Pioneer\",\"owner_id\":\"local-0123456789abcdef0123456789abcdef\",\"ruleset\":\"first-plot-0.6\",\"state_unix\":1790999700.0,\"tick\":300.0},{\"age_days\":0.0,\"claimed_unix\":0.0,\"corporation\":\"\",\"current\":true,\"freshness\":\"current_snapshot\",\"home\":false,\"inventory\":{\"built\":0.0,\"destroyed\":0.0,\"equipment\":1.0,\"ground\":0.0,\"mounted\":0.0,\"pack\":11.0,\"producing\":0.0,\"ready\":0.0,\"storage\":0.0},\"label\":\"Camp736\",\"last_raid\":{},\"log_window\":{\"complete_history\":false,\"limit\":100.0,\"newest_unix\":1790999800.0,\"oldest_unix\":1790999800.0,\"retained_entries\":1.0},\"metrics\":{\"built\":0.0,\"capacity\":750.0,\"mined\":15.5,\"nerve_center_online\":false,\"observed_losses\":0.0,\"raid_active\":false,\"raid_wave\":0.0,\"raiders\":0.0,\"ready_buildings\":0.0,\"ready_defenses\":0.0,\"ready_rovers\":0.0,\"recovered\":0.0,\"repelled\":0.0,\"tu\":27.25},\"number\":736.0,\"owner_display_name\":\"\",\"owner_id\":\"\",\"ruleset\":\"first-plot-0.6\",\"state_unix\":1791000000.0,\"tick\":0.0}],\"carried_items\":[{\"durability\":5.0,\"id\":9.0,\"kind\":\"grunt\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":11.0,\"kind\":\"pistol\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":12.0,\"kind\":\"pistol\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":13.0,\"kind\":\"cobra\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":14.0,\"kind\":\"tomv\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":15.0,\"kind\":\"spass\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":16.0,\"kind\":\"dreadnaught\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":17.0,\"kind\":\"ballista\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":18.0,\"kind\":\"pistol\",\"location\":\"equipment\"},{\"durability\":5.0,\"id\":20.0,\"kind\":\"enforcer\",\"location\":\"pack\"},{\"durability\":5.0,\"id\":21.0,\"kind\":\"pistol\",\"location\":\"pack\"},{\"durability\":2.0,\"id\":22.0,\"kind\":\"nc\",\"location\":\"pack\"}],\"generated_unix\":1791000000.0,\"profile\":{\"corporation\":\"bruteforce\",\"current_camp\":736.0,\"display_name\":\"Pioneer\",\"equipped_weapon_id\":18.0,\"health\":400.0,\"home_camp\":735.0,\"id\":\"local-0123456789abcdef0123456789abcdef\"},\"registry\":[{\"claimed_unix\":1790827200.0,\"corporation\":\"bruteforce\",\"home\":true,\"number\":735.0,\"owner_display_name\":\"Pioneer\",\"owner_id\":\"local-0123456789abcdef0123456789abcdef\"}],\"schema\":\"10six.heat-report\",\"source\":{\"authority\":\"local_reconstruction\",\"classification\":\"RESTORED\",\"persistence\":\"catch_up_on_return\",\"ruleset\":\"first-plot-0.6\",\"running_server\":false,\"world\":\"visitor-0.1\"},\"version\":1.0}",
+	"carried_items": [
+		{
+			"durability": 5,
+			"id": 9,
+			"kind": "grunt",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 11,
+			"kind": "pistol",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 12,
+			"kind": "pistol",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 13,
+			"kind": "cobra",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 14,
+			"kind": "tomv",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 15,
+			"kind": "spass",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 16,
+			"kind": "dreadnaught",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 17,
+			"kind": "ballista",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 18,
+			"kind": "pistol",
+			"location": "equipment"
+		},
+		{
+			"durability": 5,
+			"id": 20,
+			"kind": "enforcer",
+			"location": "pack"
+		},
+		{
+			"durability": 5,
+			"id": 21,
+			"kind": "pistol",
+			"location": "pack"
+		},
+		{
+			"durability": 2,
+			"id": 22,
+			"kind": "nc",
+			"location": "pack"
+		}
+	],
+	"generated_unix": 1791000000.0,
+	"profile": {
+		"corporation": "bruteforce",
+		"current_camp": 736,
+		"display_name": "Pioneer",
+		"equipped_weapon_id": 18,
+		"health": 400.0,
+		"home_camp": 735,
+		"id": "local-0123456789abcdef0123456789abcdef"
+	},
+	"registry": [
+		{
+			"claimed_unix": 1790827200.0,
+			"corporation": "bruteforce",
+			"home": true,
+			"number": 735,
+			"owner_display_name": "Pioneer",
+			"owner_id": "local-0123456789abcdef0123456789abcdef"
+		}
+	],
+	"report_id": "report-2f2ff4a5e756037fb04884225d021069268ab46466af27d5d1a230d0a2fbee46",
+	"schema": "10six.heat-report",
+	"sha256": "2f2ff4a5e756037fb04884225d021069268ab46466af27d5d1a230d0a2fbee46",
+	"source": {
+		"authority": "local_reconstruction",
+		"classification": "RESTORED",
+		"persistence": "catch_up_on_return",
+		"ruleset": "first-plot-0.6",
+		"running_server": false,
+		"world": "visitor-0.1"
+	},
+	"version": 1
+}

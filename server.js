@@ -5,6 +5,13 @@
  * No dependencies required - uses only Node.js built-in modules
  */
 
+if (process.env.HEAT_VISITOR_PREVIEW === '1') {
+    const { createVisitorServer } = require('./visitor/server.cjs');
+    const { server } = createVisitorServer();
+    const port = Number(process.env.HEAT_PORT || 10660);
+    server.on('error', error => { console.error('HEAT.NET preview could not start: ' + error.code); process.exitCode = 1; });
+    server.listen(port, '127.0.0.1', () => console.log(`HEAT.NET Visitor preview: http://127.0.0.1:${port}/site/pages/10six.html`));
+} else {
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -77,3 +84,4 @@ server.listen(PORT, () => {
     console.log('\nPress Ctrl+C to stop the server');
     console.log('='.repeat(60));
 });
+}

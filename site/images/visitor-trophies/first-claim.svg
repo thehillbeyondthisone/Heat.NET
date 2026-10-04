@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="90" viewBox="0 0 60 90" role="img" aria-label="First Claim, new Visitor trophy">
+  <rect x="1" y="1" width="58" height="88" fill="#080d12" stroke="#65756c"/>
+  <path d="M12 15h36v19L38 48H22L12 34Z" fill="#dfb340" stroke="#fff0a2"/>
+  <path d="M12 20H5v14l13 8M48 20h7v14L42 42" fill="none" stroke="#967227" stroke-width="3"/>
+  <path d="M26 48h8v12h10v6H16v-6h10Z" fill="#be8b2c" stroke="#f4d465"/>
+  <path d="M22 31v-9h16v9l-3 4H25Z" fill="#244833" stroke="#adce8f"/>
+  <path d="M27 34v-6h6v6M22 25h16" fill="none" stroke="#8ad269"/>
+  <rect x="10" y="68" width="40" height="12" fill="#182530" stroke="#596774"/>
+  <text x="30" y="76" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#f3e9b8">FIRST CLAIM</text>
+  <text x="30" y="86" text-anchor="middle" font-family="Arial,sans-serif" font-size="4" fill="#97bbaa">VISITOR · NEW AWARD</text>
+</svg>
