@@ -43,6 +43,27 @@
 <h1>MY HOMEBASE</h1>
 <p>Your pioneer profile, HEAT Degrees and trophy cabinet.</p>
 <p id="connection-message" class="message" hidden></p>
+<section id="account" class="account-panel" aria-labelledby="account-heading">
+<h2 id="account-heading">YOUR HEAT ACCOUNT</h2>
+<p data-account-state role="status" aria-live="polite">Checking your sign-in…</p>
+<button type="button" id="account-logout" hidden>Sign out</button>
+<div id="account-forms">
+<form id="account-login" class="profile-form">
+<h3>SIGN IN</h3>
+<div class="controls"><div><label for="login-username">Username</label><input id="login-username" name="username" autocomplete="username" maxlength="24" required></div><div><label for="login-password">Password</label><input id="login-password" name="password" type="password" autocomplete="current-password" maxlength="256" required></div><button type="submit">Sign in</button></div>
+</form>
+<details id="account-registration"><summary>Create a HEAT account</summary>
+<form id="account-register" class="profile-form">
+<div class="controls"><div><label for="register-username">Username</label><input id="register-username" name="username" autocomplete="username" pattern="[A-Za-z0-9_]{3,24}" minlength="3" maxlength="24" required></div><div><label for="register-name">Display name</label><input id="register-name" name="display_name" autocomplete="nickname" maxlength="32" required placeholder="Pioneer"></div><div><label for="register-password">Password</label><input id="register-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="256" required></div></div>
+<p class="small muted">Username: 3–24 letters, numbers or underscores. Password: at least 12 characters.</p>
+<label id="account-adopt-label"><input type="checkbox" id="account-adopt" name="adopt_local" checked> Keep my existing pioneer, saved camps, Degrees and trophies</label>
+<p class="small muted">Other accounts begin with their own save and stable player identity.</p>
+<button type="submit">Create account &amp; sign in</button>
+</form></details>
+</div>
+<p id="account-status" class="form-status" role="status" aria-live="polite"></p>
+<p class="small muted">Accounts live on this Visitor server. Shared worlds and remote game clients are the next multiplayer step.</p>
+</section>
 <div class="player-picker"><label for="selected-player">Pioneer profile</label><select id="selected-player" disabled><option>Loading profiles…</option></select></div>
 
 <div data-report-summary></div>
@@ -60,7 +81,7 @@
 </section>
 <section aria-labelledby="activity-heading"><h2 id="activity-heading">RECENT CAMP ACTIVITY</h2><div data-activity></div></section>
 
-<section id="connection-help" class="help" aria-labelledby="help-heading"><h2 id="help-heading">LOCAL CONNECTION</h2><p>Play through this channel to update your camp report, Homebase and Degrees. Inactive camps catch up when you return; their stored snapshots are marked in the claim table.</p><p>These profiles belong to the local Visitor reconstruction. They are not online HEAT.NET accounts. Camp losses and activity cover the events retained by the game.</p></section>
+<section id="connection-help" class="help" aria-labelledby="help-heading"><h2 id="help-heading">LOCAL CONNECTION</h2><p>Sign in and play through this channel to update your camp report, Homebase and Degrees. Inactive camps catch up when you return; their stored snapshots are marked in the claim table.</p><p>Play time uses elapsed time while a plot is open and unpaused, including the recovery screen. Setup screens, pauses, long suspension gaps and offline camp catch-up do not count. The service records reports even when you close this browser.</p></section>
 <noscript>Enable JavaScript to read local Visitor reports and launch the game. Historical HEAT.NET pages remain available through the navigation.</noscript>
 </main>
 </div>

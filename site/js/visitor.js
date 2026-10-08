@@ -130,6 +130,10 @@
     setHtml('[data-activity]', `<ul class="activity-list">${events.map(({ event, text }) => `<li><span class="activity-kind">${esc(text[0])}</span> · Camp ${num(event.camp)}<br>${esc(text[1])}${timeHtml(event.unix)}</li>`).join('')}</ul><p class="small muted">Up to 30 recent events from the game’s retained camp logs.</p>`);
   }
   function renderDegrees() {
+    if (state.data?.auth?.enabled && !ownId()) {
+      setHtml('[data-degrees]', empty('Sign in to see your Degrees and time played', 'Your account keeps its own balance and play time. Sign in at My Homebase.'));
+      setHtml('[data-transactions]', ''); return;
+    }
     const r = report();
     const d = r?.degrees || (state.selected === ownId() ? state.data?.degrees : null);
     const own = state.selected === ownId();
@@ -141,7 +145,8 @@
     const value = d?.balance ?? 0;
     const p = d?.progress || {};
     const seconds = d?.gameplay_seconds ?? p.active_seconds ?? 0;
-    let progress = `<p class="small muted">${num(Math.floor(seconds / 60))} active minutes recorded. Full hours earn 250 Degrees; remaining minutes carry forward.</p>`;
+    const played = Math.floor(seconds);
+    let progress = `<p class="play-time"><strong>${num(Math.floor(played / 3600))}h ${num(Math.floor(played / 60) % 60)}m ${num(played % 60)}s</strong> time played</p><p class="small muted">${num(Math.floor(seconds / 60))} active minutes recorded. Full hours earn 250 Degrees; remaining minutes carry forward. Pauses and offline catch-up are excluded.</p>`;
     if (p.month_launch_days !== undefined) progress += `<p class="small">This month: <strong>${num(p.month_launch_days)} / ${num(p.days_in_month)} launch days</strong> · This year: <strong>${num(p.year_launch_days)} / ${num(p.days_in_year)}</strong></p>`;
     setHtml('[data-degrees]', `<div class="degree-balance"><span>YOUR CURRENT BALANCE</span><strong>${num(value)}</strong><span>HEAT DEGREES</span></div>${progress}${!r ? '<p class="small muted">Enter Visitor through HEAT.NET to begin recording attendance and play.</p>' : ''}`);
     const transactions = d?.transactions || d?.ledger || [];
@@ -184,7 +189,7 @@
   function renderEditor() {
     const form = $('#profile-form');
     if (!form) return;
-    const own = state.selected === ownId();
+    const own = !!ownId() && state.selected === ownId();
     form.hidden = !own;
     const input = $('#display-name');
     if (own && document.activeElement !== input && !input.dataset.edited) input.value = report()?.profile.display_name || state.data?.identity?.display_name || state.identityName || '';
@@ -242,7 +247,27 @@
       button.disabled = state.launchBusy || !launch.available;
       button.title = launch.running ? 'Check the game: reopen it if closed, or keep the existing window.' : launch.available ? 'Open your local 10Six game.' : 'The local 10Six launcher is unavailable.';
     });
-    $$('[data-launch-note]').forEach((el) => { el.textContent = launch.running ? '10Six is open in a separate game window. Choose CONTINUE SAVED PLOT or DEPLOY A NEW PLOT there to enter Visitor. Use Alt+Tab to switch to it.' : launch.available ? 'Opens your local Visitor game. Your report updates while you play.' : 'The local game launcher is unavailable. You can still browse imported reports.'; });
+    $$('[data-launch-note]').forEach((el) => { el.textContent = launch.running ? '10Six is open in a separate game window. Choose CONTINUE SAVED PLOT or DEPLOY A NEW PLOT there to enter Visitor. Use Alt+Tab to switch to it.' : launch.available ? 'Opens your signed-in pioneer on this PC. Your report updates while you play.' : !state.data?.auth?.host_pc ? 'LAN account access is connected. Play on the host PC; remote game clients are not connected yet.' : state.data?.auth?.enabled && !ownId() ? 'Sign in at My Homebase to play your pioneer.' : 'The local game launcher is unavailable.'; });
+  }
+  function renderAccount() {
+    const auth = state.data?.auth;
+    if (!auth) return;
+    let bar = $('#account-bar');
+    if (!bar) {
+      bar = document.createElement('p'); bar.id = 'account-bar'; bar.className = 'account-bar';
+      $('.connection-line').after(bar);
+    }
+    setHtml('#account-bar', `<a href="/site/pages/myhomebase.html#account">${auth.account ? 'HEAT account: ' + esc(auth.account.username) : auth.enabled ? 'Sign in / Create account' : 'Set up your HEAT account'}</a>`);
+    const label = $('[data-account-state]');
+    if (!label) return;
+    label.textContent = auth.account ? `Signed in as ${auth.account.username}. Your pioneer: ${state.data.identity?.display_name || 'Pioneer'}.` : auth.enabled ? 'Sign in to continue your pioneer, or create a separate account.' : 'Create your first account to keep this pioneer and protect sign-in on this server.';
+    $('#account-forms').hidden = !!auth.account;
+    $('#account-logout').hidden = !auth.account;
+    $('#account-adopt-label').hidden = !auth.can_adopt;
+    if (!auth.can_adopt) $('#account-adopt').checked = false;
+    if (!auth.enabled && !$('#account-registration').dataset.initialized) {
+      $('#account-registration').open = true; $('#account-registration').dataset.initialized = 'true';
+    }
   }
   function renderDownload() {
     const r = report();
@@ -256,7 +281,7 @@
     });
   }
   function render() {
-    renderPicker(); renderSummary(); renderCamps(); renderActivity(); renderDegrees(); renderTrophies(); renderEditor(); renderPlayers(); renderLaunch(); renderDownload();
+    renderAccount(); renderPicker(); renderSummary(); renderCamps(); renderActivity(); renderDegrees(); renderTrophies(); renderEditor(); renderPlayers(); renderLaunch(); renderDownload();
   }
   async function request(url, body) {
     const controller = new AbortController();
@@ -277,6 +302,7 @@
     try {
       const data = await request('/api/visitor');
       if (data.version !== 1 || !Array.isArray(data.profiles)) throw new Error('This Visitor report version is not supported.');
+      if (state.data && data.selected_profile_id !== ownId()) state.selected = data.selected_profile_id;
       state.data = data;
       state.lastSuccess = Date.now();
       render();
@@ -314,6 +340,23 @@
     finally { state.launchBusy = false; renderLaunch(); }
   }));
   if (page === 'home') {
+    for (const action of ['login', 'register']) $('#account-' + action).addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const form = event.currentTarget, button = form.querySelector('button[type="submit"]');
+      const input = Object.fromEntries(new FormData(form));
+      input.adopt_local = action === 'register' && $('#account-adopt').checked && !!state.data?.auth?.can_adopt;
+      button.disabled = true; $('#account-status').textContent = action === 'register' ? 'Creating your account…' : 'Signing in…';
+      try {
+        await request('/api/visitor/auth/' + action, input);
+        form.reset(); $('#account-status').textContent = 'Signed in. Your pioneer is ready.';
+        delete $('#display-name').dataset.edited; await refresh();
+      } catch (error) { $('#account-status').textContent = error.message; }
+      finally { button.disabled = false; }
+    });
+    $('#account-logout').addEventListener('click', async () => {
+      try { await request('/api/visitor/auth/logout', {}); $('#account-status').textContent = 'Signed out. Any open game keeps recording to its own account.'; await refresh(); }
+      catch (error) { $('#account-status').textContent = error.message; }
+    });
     $('#display-name').addEventListener('input', (event) => { event.target.dataset.edited = 'true'; });
     $('#profile-form').addEventListener('submit', async (event) => {
       event.preventDefault();

@@ -7,6 +7,7 @@ const { spawn } = require('node:child_process');
 const M = require('./model.cjs');
 const D = require('./degrees.cjs');
 const T = require('./trophies.cjs');
+const A = require('./accounts.cjs');
 
 const MIME = { '.html': 'text/html; charset=utf-8', '.htm': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
@@ -45,6 +46,12 @@ function validateTrophies(data) {
   }
   return data;
 }
+function validateRunning(data) {
+  M.assert(M.plain(data) && data.version === 1 && M.plain(data.games), 'Game launch registry needs recovery.');
+  for (const [id, game] of Object.entries(data.games)) M.assert(M.PROFILE_ID.test(id) && M.plain(game) &&
+    M.integer(game.pid, 1) && M.SESSION_ID.test(game.id), 'Invalid running game.');
+  return data;
+}
 function createVisitorServer(options = {}) {
   const root = path.resolve(options.root || path.join(__dirname, '..'));
   const stateDir = path.resolve(options.stateDir || process.env.HEAT_STATE_DIR || path.join(root, '.local', 'visitor'));
@@ -52,14 +59,50 @@ function createVisitorServer(options = {}) {
   const gameRoot = options.gameRoot || process.env.HEAT_GAME_ROOT;
   const identityFile = path.join(stateDir, 'identity.json'), ledgerFile = path.join(stateDir, 'degrees.json');
   const trophyFile = path.join(stateDir, 'trophies.json');
+  const runningFile = path.join(stateDir, 'running-games.json');
   const importDir = path.join(stateDir, 'imports');
   const now = options.now || (() => Date.now() / 1000), spawnGame = options.spawnGame || spawn;
-  let player, ledger, trophyLedger, stateError = '', child = null, childSession = '', launchError = '';
+  let player, ledger, trophyLedger, accounts, runningGames, stateError = '';
+  const children = new Map(), launchErrors = new Map();
+  const allowedHosts = new Set(['127.0.0.1', 'localhost', ...(options.allowedHosts || (process.env.HEAT_ALLOWED_HOSTS || '').split(',').filter(Boolean))]);
   try {
     player = M.identity(identityFile); ledger = M.readJSON(ledgerFile, validateLedger) || D.newLedger();
     trophyLedger = M.readJSON(trophyFile, validateTrophies) || T.newLedger();
+    accounts = A.createAccounts(stateDir, now);
+    runningGames = M.readJSON(runningFile, validateRunning) || { version: 1, games: {} };
   }
-  catch { stateError = 'Your local profile, Degree ledger or trophy cabinet needs recovery. Existing files have been retained.'; }
+  catch { stateError = 'Your local profile, accounts, Degree ledger or trophy cabinet needs recovery. Existing files have been retained.'; }
+
+  const loopback = req => ['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(req.socket.remoteAddress);
+  function playerFiles(account) {
+    const directory = account && !account.legacy ? path.join(stateDir, 'players', account.profile_id) : stateDir;
+    return { identity: path.join(directory, 'identity.json'),
+      save: account && !account.legacy ? path.join(directory, 'first-plot.json') : gameRoot && path.join(gameRoot, 'saves/first-plot.json'),
+      log: path.join(directory, 'game.log') };
+  }
+  function context(req) {
+    const account = req && accounts?.current(req);
+    const localGuest = !accounts?.enabled && (!req || loopback(req));
+    const identity = account ? M.identity(playerFiles(account).identity) : localGuest ? player : null;
+    return { account, identity };
+  }
+  function initializeAccount(account, name) {
+    if (!account.legacy) M.writeIdentity(playerFiles(account).identity, { id: account.profile_id, display_name: name });
+  }
+  function runningGame(id) {
+    if (children.has(id)) return children.get(id);
+    const game = runningGames?.games[id];
+    if (!game) return null;
+    // A live recorded PID blocks another launch after a service restart. Never kill
+    // a recorded process: PID reuse may belong to something else.
+    try { process.kill(game.pid, 0); return game; }
+    catch (error) { if (error.code !== 'ESRCH') return game; }
+    const next = structuredClone(runningGames); delete next.games[id];
+    M.atomicJSON(runningFile, next, validateRunning); runningGames = next; return null;
+  }
+  function activeGameCount() {
+    return new Set([...children.keys(), ...Object.keys(runningGames?.games || {}).filter(id => runningGame(id))]).size;
+  }
 
   function saveLedger(next) { M.atomicJSON(ledgerFile, next, validateLedger); ledger = next; }
   function reports() {
@@ -74,7 +117,7 @@ function createVisitorServer(options = {}) {
           M.assert(report.profile.id + '.json' === file, 'Report identity does not match its filename.');
           M.assert(report.generated_unix <= now() + 5, 'Report comes from a future clock.');
           // Only this machine's opted-in live report can provide ledger evidence.
-          if (!isImport && player && report.profile.id === player.id && !stateError) {
+          if (!isImport && !stateError && (report.profile.id === player?.id || accounts?.accounts.some(a => a.profile_id === report.profile.id))) {
             try {
               const next = structuredClone(ledger);
               if (D.observe(next, report, now()) && M.canonical(next) !== M.canonical(ledger)) saveLedger(next);
@@ -118,46 +161,58 @@ function createVisitorServer(options = {}) {
   function gameAvailable() {
     return Boolean(gameRoot && fs.existsSync(path.join(gameRoot, 'recovery/runtime/Godot.exe')) && fs.existsSync(path.join(gameRoot, 'playable/project.godot')));
   }
-  function snapshot() {
+  function snapshot(req) {
+    const ctx = context(req), own = ctx.identity, running = own && runningGame(own.id);
+    const launchError = own && launchErrors.get(own.id) || '';
     const result = reports(), time = now();
     const profiles = result.all.map(report => {
-      if (player && report.profile.id === player.id) {
-        report.profile = { ...report.profile, display_name: player.display_name };
-        report.camps = report.camps.map(c => ({ ...c, owner_display_name: c.owner_id === player.id ? player.display_name : c.owner_display_name }));
+      if (own && report.profile.id === own.id) {
+        report.profile = { ...report.profile, display_name: own.display_name };
+        report.camps = report.camps.map(c => ({ ...c, owner_display_name: c.owner_id === own.id ? own.display_name : c.owner_display_name }));
       }
-      return { ...report, degrees: player && report.profile.id === player.id && ledger ? D.view(ledger, player.id, time) :
+      return { ...report, degrees: own && report.profile.id === own.id && ledger ? D.view(ledger, own.id, time) :
         { balance: null, transactions: [], ledger: [], status: 'comparison_only', policy: 'archived_heat_rules', timezone: D.POLICY.timezone },
-      trophies: player && report.profile.id === player.id && trophyLedger ? T.view(trophyLedger, player.id) :
+      trophies: own && report.profile.id === own.id && trophyLedger ? T.view(trophyLedger, own.id) :
         { granted: [], proposals: catalogue().proposals, status: 'comparison_only' },
       freshness: { age_seconds: Math.max(0, time - report.generated_unix), stale: time - report.generated_unix > 15 } };
     }).sort((a, b) => a.profile.display_name.localeCompare(b.profile.display_name) || a.profile.id.localeCompare(b.profile.id));
-    return { version: 1, selected_profile_id: player?.id || '', identity: player || null, profiles,
-      degrees: player && ledger ? D.view(ledger, player.id, time) : null, catalog: catalogue(), rules: D.POLICY,
-      trophies: player && trophyLedger ? T.view(trophyLedger, player.id) : null,
-      launch: { available: !stateError && gameAvailable(), running: Boolean(child), profile_id: player?.id || '', error: launchError },
+    return { version: 1, selected_profile_id: own?.id || '', identity: own || null, profiles: own ? profiles : [],
+      auth: { enabled: Boolean(accounts?.enabled), account: accounts?.publicAccount(ctx.account) || null,
+        can_adopt: !accounts?.enabled && (!req || loopback(req)) && activeGameCount() === 0, host_pc: !req || loopback(req) },
+      degrees: own && ledger ? D.view(ledger, own.id, time) : null, catalog: catalogue(), rules: D.POLICY,
+      trophies: own && trophyLedger ? T.view(trophyLedger, own.id) : null,
+      launch: { available: !stateError && gameAvailable() && Boolean(own) && (!req || loopback(req)), running: Boolean(running), any_running: activeGameCount() > 0, profile_id: own?.id || '', error: launchError },
       errors: [...(stateError ? [stateError] : []), ...(launchError ? [launchError] : []), ...result.errors], generated_unix: time };
   }
   function json(res, status, data) { res.writeHead(status, { 'Content-Type': MIME['.json'], 'Cache-Control': 'no-store' }); res.end(JSON.stringify(data)); }
-  async function body(req) {
+  async function body(req, limit = M.MAX_REPORT) {
     M.assert(/^application\/json(?:;|$)/i.test(req.headers['content-type'] || ''), 'Use a JSON request.');
     let size = 0, chunks = [];
-    for await (const chunk of req) { size += chunk.length; M.assert(size <= M.MAX_REPORT, 'Report exceeds the 2 MB limit.'); chunks.push(chunk); }
+    for await (const chunk of req) { size += chunk.length; M.assert(size <= limit, 'Request exceeds its size limit.'); chunks.push(chunk); }
     return JSON.parse(Buffer.concat(chunks).toString('utf8'));
   }
   async function mutate(req, res, pathname) {
     M.assert(!stateError, stateError);
-    const port = server.address().port, expected = `http://127.0.0.1:${port}`;
-    M.assert(req.headers.origin === expected || req.headers.origin === `http://localhost:${port}`, 'Open this action from the local HEAT.NET preview.');
-    const data = await body(req); M.assert(M.plain(data), 'Invalid request.');
+    M.assert(req.headers.origin === 'http://' + req.headers.host, 'Open this action from the same HEAT.NET address.');
+    const data = await body(req, pathname.startsWith('/api/visitor/auth/') ? 4096 : M.MAX_REPORT); M.assert(M.plain(data), 'Invalid request.');
+    if (pathname === '/api/visitor/auth/register') {
+      const account = await accounts.register(req, res, data, player, initializeAccount, loopback(req) && activeGameCount() === 0);
+      return json(res, 200, { ok: true, account });
+    }
+    if (pathname === '/api/visitor/auth/login') return json(res, 200, { ok: true, account: await accounts.login(req, res, data) });
+    if (pathname === '/api/visitor/auth/logout') { accounts.logout(req, res); return json(res, 200, { ok: true }); }
+    const ctx = context(req), own = ctx.identity;
+    if (!own) return json(res, 401, { error: 'Sign in to your HEAT account first.' });
+    const files = playerFiles(ctx.account);
     if (pathname === '/api/visitor/profile') {
       M.assert(M.text(data.display_name, 32) && data.display_name.trim(), 'Use a player name between 1 and 32 characters.');
-      const next = { ...player, display_name: data.display_name.trim() };
-      M.writeIdentity(identityFile, next); player = next;
-      return json(res, 200, { ok: true, identity: player });
+      const next = { ...own, display_name: data.display_name.trim() };
+      M.writeIdentity(files.identity, next); if (!ctx.account || ctx.account.legacy) player = next;
+      return json(res, 200, { ok: true, identity: next });
     }
     if (pathname === '/api/visitor/import') {
       const report = M.validateReport(data.report);
-      M.assert(report.profile.id !== player.id, 'Your own camp updates directly from 10Six. Import another pioneer for comparison.');
+      M.assert(report.profile.id !== own.id && !accounts.accounts.some(a => a.profile_id === report.profile.id), 'Registered pioneers update directly from 10Six. Import another pioneer for comparison.');
       M.assert(report.generated_unix <= now() + 5, 'That report has a future timestamp.');
       const file = path.join(importDir, report.profile.id + '.json'), old = M.readJSON(file, M.validateReport);
       M.assert(!old || report.generated_unix >= old.generated_unix, 'A newer report from this pioneer is already present.');
@@ -165,25 +220,41 @@ function createVisitorServer(options = {}) {
       return json(res, 200, { ok: true, profile_id: report.profile.id, message: 'Pioneer report imported for comparison.' });
     }
     if (pathname === '/api/visitor/launch') {
-      M.assert(!data.profile_id || data.profile_id === player.id, 'Only your local Pioneer can launch here.');
+      M.assert(loopback(req), 'Play on the host PC. LAN browsers can manage accounts; a remote game client is not connected yet.');
+      M.assert(!data.profile_id || data.profile_id === own.id, 'Only your signed-in Pioneer can launch here.');
       M.assert(gameAvailable(), 'The local 10Six runtime is not configured. Use Connect HEAT.NET.cmd.');
-      if (child) return json(res, 200, { ok: true, running: true, session_id: childSession, message: '10Six is already running.' });
-      const time = now(), id = 'session-' + crypto.randomBytes(16).toString('hex'), next = structuredClone(ledger);
-      D.beginSession(next, id, player.id, time); saveLedger(next); launchError = '';
-      const args = ['--path', path.join(gameRoot, 'playable'), '--log-file', path.join(stateDir, 'game.log'), '--',
-        '--heat-identity=' + identityFile, '--heat-report=' + path.join(reportDir, player.id + '.json'),
-        '--heat-session=' + id, '--heat-started=' + time];
+      const running = runningGame(own.id);
+      if (running) return json(res, 200, { ok: true, running: true, session_id: running.id, message: '10Six is already running.' });
+      const time = now(), id = 'session-' + crypto.randomBytes(16).toString('hex');
+      // Settle the previous session before its report file is replaced, even if no browser was open.
+      reports();
+      const opened = structuredClone(ledger); D.beginSession(opened, id, own.id, time); saveLedger(opened); launchErrors.delete(own.id);
+      const args = ['--path', path.join(gameRoot, 'playable'), '--log-file', files.log, '--',
+        '--heat-identity=' + files.identity, '--heat-report=' + path.join(reportDir, own.id + '.json'),
+        '--heat-save=' + files.save, '--heat-session=' + id, '--heat-started=' + time];
       try {
-        child = spawnGame(path.join(gameRoot, 'recovery/runtime/Godot.exe'), args,
-          { cwd: gameRoot, shell: false, windowsHide: false, stdio: 'ignore' }); childSession = id;
+        const child = spawnGame(path.join(gameRoot, 'recovery/runtime/Godot.exe'), args,
+          { cwd: gameRoot, shell: false, windowsHide: false, stdio: 'ignore' }); children.set(own.id, { child, id });
         const close = () => {
-          if (childSession !== id) return;
-          try { reports(); const closed = structuredClone(ledger); closed.sessions[id].closed = true; saveLedger(closed); } catch { launchError = 'Launch ended; Degree ledger could not be updated.'; }
-          child = null; childSession = '';
+          if (children.get(own.id)?.id !== id) return;
+          // Keep the final report observable on readback/restart. Session IDs are unique
+          // and the cumulative counter makes repeats idempotent; a late flush is safe.
+          try { reports(); } catch { launchErrors.set(own.id, 'Launch ended; Degree ledger could not be updated.'); }
+          children.delete(own.id);
+          if (runningGames.games[own.id]?.id === id) {
+            const next = structuredClone(runningGames); delete next.games[own.id];
+            try { M.atomicJSON(runningFile, next, validateRunning); runningGames = next; }
+            catch { launchErrors.set(own.id, 'The game closed, but its launch registry could not be updated.'); }
+          }
         };
-        child.once('error', () => { launchError = '10Six could not open. No launch-day Degrees were awarded.'; close(); });
+        child.once('error', () => { launchErrors.set(own.id, '10Six could not open. No launch-day Degrees were awarded.'); close(); });
         child.once('exit', close);
-      } catch { child = null; next.sessions[id].closed = true; saveLedger(next); throw new Error('10Six could not open.'); }
+        if (Number.isSafeInteger(child.pid) && child.pid > 0) {
+          const next = structuredClone(runningGames); next.games[own.id] = { pid: child.pid, id };
+          try { M.atomicJSON(runningFile, next, validateRunning); runningGames = next; }
+          catch { launchErrors.set(own.id, 'The game opened, but its restart guard could not be saved. Keep HEAT.NET running until you close the game.'); }
+        }
+      } catch { children.delete(own.id); const failed = structuredClone(ledger); failed.sessions[id].closed = true; saveLedger(failed); throw new Error('10Six could not open.'); }
       return json(res, 200, { ok: true, running: true, session_id: id, message: '10Six is opening. Your camp appears after you enter Visitor.' });
     }
     return json(res, 404, { error: 'Unknown Visitor action.' });
@@ -194,12 +265,13 @@ function createVisitorServer(options = {}) {
     res.setHeader('X-Frame-Options', 'SAMEORIGIN');
     try {
       const host = req.headers.host || '';
-      if (!/^(127\.0\.0\.1|localhost)(:\d+)?$/.test(host)) return json(res, 403, { error: 'Use the loopback HEAT.NET preview address.' });
+      if (!allowedHosts.has(host.split(':')[0]) || !/^[a-z0-9.\-]+(?::\d+)?$/i.test(host)) return json(res, 403, { error: 'Use a configured HEAT.NET address.' });
       const url = new URL(req.url, 'http://' + host), pathname = decodeURIComponent(url.pathname);
       if (pathname.startsWith('/api/visitor')) {
-        if (req.method === 'GET' && pathname === '/api/visitor') return json(res, 200, snapshot());
-        if (req.method === 'GET' && pathname === '/api/visitor/health') return json(res, 200, { service: 'heat-visitor-bridge', version: 1 });
+        if (req.method === 'GET' && pathname === '/api/visitor') return json(res, 200, snapshot(req));
+        if (req.method === 'GET' && pathname === '/api/visitor/health') return json(res, 200, { service: 'heat-visitor-bridge', version: 1, capabilities: ['accounts-v1', 'wall-time-v2', 'restart-guard-v1'], lan: allowedHosts.size > 2 });
         if (req.method === 'GET' && pathname === '/api/visitor/report') {
+          if (!context(req).identity) return json(res, 401, { error: 'Sign in to download a report.' });
           const found = reports().all.find(r => r.profile.id === url.searchParams.get('player'));
           if (!found) return json(res, 404, { error: 'Pioneer report not found.' });
           res.setHeader('Content-Disposition', 'attachment; filename="' + found.profile.id + '.json"');
@@ -224,6 +296,9 @@ function createVisitorServer(options = {}) {
       else res.end();
     }
   });
+  // Ingest native heartbeats even when every browser tab is closed.
+  const poll = setInterval(() => { if (!stateError) reports(); }, options.pollMs || 2000);
+  poll.unref(); server.once('close', () => clearInterval(poll));
   return { server, snapshot, get identity() { return player; }, ledgerFile, reportDir, stateDir };
 }
 module.exports = { createVisitorServer, validateLedger, validateTrophies };

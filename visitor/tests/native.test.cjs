@@ -15,7 +15,7 @@ const helper = path.join(gameRoot, 'playable/tests/run_heat_e2e.gd');
 const hash = file => fs.existsSync(file) ? crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex') : null;
 
 test('actual local launch → native play → checked report → Degrees and trophy survive restart',
-  { timeout: 40000, skip: !fs.existsSync(runtime) || !fs.existsSync(helper) }, async () => {
+  { timeout: 60000, skip: !fs.existsSync(runtime) || !fs.existsSync(helper) }, async () => {
     const normalFiles = ['first-plot.json', 'first-plot.json.bak'].map(f => path.join(gameRoot, 'saves', f));
     const original = normalFiles.map(hash);
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'heat-native-chain-'));
@@ -66,5 +66,47 @@ test('actual local launch → native play → checked report → Degrees and tro
       const resolved = fs.realpathSync(temp);
       assert.ok(resolved.startsWith(fs.realpathSync(os.tmpdir()) + path.sep));
       fs.rmSync(resolved, { recursive: true, force: true });
+    }
+  });
+
+test('two real signed-in accounts launch native Godot with separate save slots and durable time',
+  { timeout: 60000, skip: !fs.existsSync(runtime) || !fs.existsSync(helper) }, async () => {
+    const normalFiles = ['first-plot.json', 'first-plot.json.bak'].map(f => path.join(gameRoot, 'saves', f));
+    const original = normalFiles.map(hash), temp = fs.mkdtempSync(path.join(os.tmpdir(), 'heat-native-accounts-'));
+    let child, finished;
+    const slots = [];
+    const bridge = createVisitorServer({ root, stateDir: temp, gameRoot, spawnGame(executable, args, options) {
+      const split = args.indexOf('--'), save = args.find(v => v.startsWith('--heat-save=')).slice('--heat-save='.length);
+      slots.push(save);
+      child = spawn(executable, ['--headless', ...args.slice(0, split), '--script', 'tests/run_heat_e2e.gd', '--', ...args.slice(split + 1), '--test-save=' + save], options);
+      finished = new Promise((resolve, reject) => { child.once('error', reject); child.once('close', resolve); }); return child;
+    } });
+    try {
+      await new Promise(resolve => bridge.server.listen(0, '127.0.0.1', resolve));
+      const base = `http://127.0.0.1:${bridge.server.address().port}`;
+      async function post(route, input, cookie = '') {
+        const res = await fetch(base + '/api/visitor/' + route, { method: 'POST', headers: { Origin: base, 'Content-Type': 'application/json', Cookie: cookie }, body: JSON.stringify(input) });
+        assert.equal(res.status, 200, await res.clone().text());
+        return { data: await res.json(), cookie: (res.headers.get('set-cookie') || '').split(';')[0] };
+      }
+      let firstHash;
+      for (const username of ['native_one', 'native_two']) {
+        const account = await post('auth/register', { username, display_name: username, password: 'isolated native test passphrase', adopt_local: false });
+        const launch = await post('launch', {}, account.cookie); assert.equal(launch.data.running, true);
+        assert.equal(await finished, 0);
+        const id = account.data.account.profile_id, report = M.readJSON(path.join(temp, 'reports', id + '.json'), M.validateReport);
+        assert.equal(report.profile.id, id); assert.equal(report.session.id, launch.data.session_id); assert.ok(report.session.active_seconds >= 5);
+        assert.ok(slots.at(-1).startsWith(path.join(temp, 'players', id) + path.sep)); assert.ok(fs.existsSync(slots.at(-1)));
+        const own = await (await fetch(base + '/api/visitor', { headers: { Cookie: account.cookie } })).json();
+        assert.equal(own.identity.display_name, username); assert.equal(own.degrees.balance, 100);
+        assert.ok(own.degrees.gameplay_seconds >= 5); assert.equal(own.trophies.granted[0].id, 'visitor-first-claim');
+        if (firstHash) assert.equal(hash(slots[0]), firstHash, 'Launching the second player preserves the first player save');
+        else firstHash = hash(slots[0]);
+      }
+      assert.notEqual(slots[0], slots[1]); assert.deepEqual(normalFiles.map(hash), original);
+    } finally {
+      if (child && child.exitCode === null) child.kill(); await new Promise(resolve => bridge.server.close(resolve));
+      assert.deepEqual(normalFiles.map(hash), original); const actual = fs.realpathSync(temp);
+      assert.ok(actual.startsWith(fs.realpathSync(os.tmpdir()) + path.sep)); fs.rmSync(actual, { recursive: true, force: true });
     }
   });

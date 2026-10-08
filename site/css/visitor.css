@@ -237,3 +237,11 @@ noscript { display: block; margin: 10px; padding: 10px; border: 1px solid #8d4a4
   .trophy-card img, .art-missing { width: 52px; height: 78px; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+/* Account controls use the restored Homebase shell. */
+.account-panel { border: 1px solid #535d54; padding: 12px; margin: 16px 0; }
+.account-panel input[type="password"] { width: 100%; min-width: 0; padding: 7px; font: inherit; box-sizing: border-box; }
+.account-panel .controls > div { min-width: 150px; flex: 1; }
+.account-panel .profile-form .controls { flex-wrap: wrap; }
+.account-panel input[type="checkbox"] { width: auto; }
+.account-bar { font-size: 12px; text-align: right; }
+.play-time { font-size: 15px; }
