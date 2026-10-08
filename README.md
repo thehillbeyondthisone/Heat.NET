@@ -1,5 +1,13 @@
 # HEAT.NET
 
+## Public restoration — October 8, 2026
+
+Visit [the restored HEAT.NET website](https://thehillbeyondthisone.github.io/Heat.NET/). Fourteen portal pages share restored navigation and a responsive HEAT-era layout, alongside the preserved source archive.
+
+This public release contains the website only. The native 10Six game, local Visitor service, accounts and saves remain in a separate private project. Historical 10SIX channel artwork is retained as website material.
+
+Run `npm run build` to validate and assemble the public website. A push to `main` deploys through GitHub Pages. See [deployment scope and verification](docs/PUBLIC-DEPLOYMENT.md). The older roadmap below describes the original restoration baseline.
+
 **The Home of Online Gaming - Restored**
 
 A restoration project to bring the classic gaming portal HEAT.NET back to life, preserving the authentic late-90s/early-2000s aesthetic while adding modern functionality.

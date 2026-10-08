@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "serve": "python3 server.py",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "node tools/build-public.mjs",
+    "check": "node tools/build-public.mjs"
   },
   "keywords": [
     "heat",
