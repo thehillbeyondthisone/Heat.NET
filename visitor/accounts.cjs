@@ -34,6 +34,8 @@ function createAccounts(stateDir, now) {
     return session && session.expires_unix > now() ? data.accounts.find(a => a.profile_id === session.profile_id) : null;
   }
   function publicAccount(a) { return a ? { username: a.username, profile_id: a.profile_id } : null; }
+  function activeSession(key) { return Boolean(data.sessions[key] && data.sessions[key].expires_unix > now()); }
+  function sessionKey(req) { const key = hash(token(req)); return activeSession(key) ? key : ''; }
   function setCookie(res, value, age) {
     res.setHeader('Set-Cookie', `heat_session=${value}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${age}`);
   }
@@ -61,6 +63,7 @@ function createAccounts(stateDir, now) {
     M.assert(!busy, 'Another account request is finishing. Please try again.');
     const name = username(input.username);
     M.assert(/^[a-z0-9_]{3,24}$/.test(name), 'Use 3–24 letters, numbers or underscores for your username.');
+    M.assert(name !== 'ozymandias', 'Ozymandias is reserved for the recreated HEAT event.');
     M.assert(typeof input.password === 'string' && input.password.length >= 12 && Buffer.byteLength(input.password) <= 256,
       'Use a password of at least 12 characters (up to 256 bytes).');
     M.assert(M.text(input.display_name, 32) && input.display_name.trim(), 'Use a display name between 1 and 32 characters.');
@@ -91,7 +94,7 @@ function createAccounts(stateDir, now) {
   function logout(req, res) {
     const next = structuredClone(data); delete next.sessions[hash(token(req))]; save(next); setCookie(res, '', 0);
   }
-  return { current, publicAccount, register, login, logout,
+  return { current, publicAccount, register, login, logout, activeSession, sessionKey,
     get enabled() { return data.accounts.length > 0; }, get accounts() { return data.accounts; } };
 }
 module.exports = { createAccounts, validate };

@@ -1,0 +1,550 @@
+<HTML><!-- #BeginTemplate "/Templates/win_degrees_template.dwt" -->
+<HEAD>
+<TITLE>HEAT - The Rant</TITLE>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+  if ( (parent.title.header == null) || (parent.title.header != 'win_degrees') )
+  {
+    window.open('title_win_degrees.html', 'title');
+  }
+// -->
+</SCRIPT>
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+function launch_ad(url, name, width, height)
+{
+		window.open(url,name,'toolbar=no,location=yes,directories=no,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width='+width+',height='+height);
+}
+
+// -->
+</SCRIPT>
+
+</HEAD>
+<BODY BGCOLOR="Black" TEXT="#D9D9D9" LINK="#CCOOOO" VLINK="#CC0000" ALINK="#CC0000" BACKGROUND="graphics/interface/rant_back.gif">
+<A NAME="top"></A> 
+<SCRIPT LANGUAGE="Javascript">
+<!-- 
+// Array of day names
+var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+// Array of month Names
+var monthNames = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+var now = new Date();
+// -->
+</SCRIPT>
+<CENTER>
+  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="620">
+    <TR> 
+      <TD ALIGN="right" BGCOLOR="#000000"><IMG SRC="graphics/interface/grey_line.gif" WIDTH="620" HEIGHT="1" BORDER="0"><BR>
+        <FONT COLOR=#D9D9D9 FACE="Helvetica,Arial,Geneva" SIZE=1><B> 
+        <SCRIPT LANGUAGE = "JavaScript">
+document.write(dayNames[now.getDay()] + ", " + monthNames[now.getMonth()] + " " + now.getDate() + ", 19" + now.getYear())
+</SCRIPT>
+        </B></FONT><BR>
+        <IMG SRC="graphics/interface/grey_line.gif" WIDTH="620" HEIGHT="1" BORDER="0"></TD>
+    </TR>
+  </TABLE>
+</CENTER>
+<CENTER>
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="620">
+    <TR> 
+      <TD WIDTH="460" VALIGN="bottom" HEIGHT="20"><IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="20" WIDTH="1"></TD>
+      <TD WIDTH="24"><IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="1" WIDTH="24"></TD>
+      <TD WIDTH="136" VALIGN=bottom><IMG SRC="graphics/interface/dot_clear.gif" HEIGHT=1 WIDTH="136"></TD>
+    </TR>
+
+    <TR> 
+      <TD WIDTH="460" VALIGN="TOP">
+        <TABLE WIDTH="460" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+          <TR> 
+            <TD WIDTH="245" VALIGN="top">
+
+<!--begin content area-->
+<!-- #BeginEditable "main_story" --> 
+              
+<A name="important_info"></A>
+<FONT size="4" color="#FFFFFF" face="Arial, Helvetica, sans-serif"><B>Important Degree Information!</B></FONT><BR>
+<FONT size="2" color="#d9d9d9" face="Arial, Helvetica, sans-serif"><BR>
+Before  we tell you all the ways you can earn Degrees on HEAT, here is some important information regarding Degrees that you REALLY need to know:<BR><BR>
+              Degrees are awesome! Degrees are even more awesome when you get 
+              them on time. Well, we apologize for that. We try our best to be 
+              timely in all Degree awards, but sometimes we bite off more than 
+              we can chew.<br>
+              <br>
+              So what should you do if you don't get your Degrees? <b>Send an email 
+              to heatprizeman@heat.net</b>. He's the Degree guru and will be able 
+              to assist you with this.<br>
+              <br>
+</FONT>
+
+
+
+ <!-- #EndEditable -->
+<!--end content area-->
+
+</TD>
+            <TD WIDTH="15"> <IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="4" WIDTH="15"> 
+            </TD>
+            <TD WIDTH="200" VALIGN="top">
+
+<!--begin in this section table--> 
+              <TABLE WIDTH="200" BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#444444">
+                <TR> 
+                  <TD WIDTH="8" HEIGHT="9"><IMG SRC="graphics/interface/table_1.gif" WIDTH="8" HEIGHT="9"></TD>
+                  <TD WIDTH="14" HEIGHT="9"><IMG SRC="graphics/interface/table_2.gif" WIDTH="14" HEIGHT="9"></TD>
+                  <TD WIDTH="156" HEIGHT="9"><IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="1" WIDTH="156"></TD>
+                  <TD WIDTH="14" HEIGHT="9"><IMG SRC="graphics/interface/table_3.gif" WIDTH="14" HEIGHT="9"></TD>
+                  <TD WIDTH="8" HEIGHT="9"><IMG SRC="graphics/interface/table_4.gif" WIDTH="8" HEIGHT="9"></TD>
+                </TR>
+                <TR> 
+                  <TD WIDTH="8" ><IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="1" WIDTH="8"></TD>
+                  <TD WIDTH="184" " valign="top" COLSPAN=3> 
+                    <TABLE WIDTH="184" BORDER="0" CELLSPACING="0" CELLPADDING="10" BORDERCOLOR="#3D3D3D" BORDERCOLORLIGHT="#3D3D3D" BORDERCOLORDARK="#3D3D3D" BGCOLOR="#202020" NAME="new today">
+                      <TR> 
+                        <TD ALIGN="left" VALIGN="top"> 
+
+<!-- #BeginEditable "in_this_section_links" -->
+			  <FONT color=#D9D9D9 face="arial,helvetica" size=1> 
+                          <IMG src="graphics/interface/in_this_section.gif" height=12 width=130 hspace=0 vspace=0 alt="Topics"><BR>
+                          <IMG src="graphics/interface/dot_clear.gif" height="5" width="3"><BR>
+                          <A href="#important_info" >Important Degree Information</A><BR>
+<IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#get_paid" target="_self">Get Paid To Support 
+                          HEAT's Sponsors!</A><BR>
+
+                          <IMG src="graphics/interface/dot_clear.gif" height="5" width="3"><BR>
+                          <A href="#brand_new_ways" >Brand New Ways To Win In 
+                          '99 </A><BR>
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          
+<A href="#reverend_schedule" target="_self">Reverend's 
+                          Scheduled Events </A><BR>
+<IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#tgif" target="_self">Thank God its Fragdays!</A><BR>
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#rev_heatmails" target="_self">Rev's HeatMail</A><BR>
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#heat_wave_trivia" target="_self">HEAT Wave 
+                          Trivia</A><BR>
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#heat_trivia" target="_self">HEAT Trivia</A><BR>
+                          
+<IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#professorheat" target="_self">ProfessorHEAT's 
+                          Trivia Raids </A><BR>
+
+
+<IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#trivia_trio" target="_self">Trivia Trio</A><BR>
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#legend_contest" target="_self">HippieChick's Groovy Legend Contest</A><BR>
+                          
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#heat_footsoldiers" target="_self">HEAT Footsoldiers</A><BR>
+                          
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#monthly_links" target="_self">Monthly &quot;Links&quot; 
+                          Programs </A><BR>
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#airraids" target="_self">Air Raids</A><BR>
+                          
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#page_ozymandias" target="_self">Page Ozymandias</A><BR>
+                          <IMG src="graphics/interface/dot_clear.gif" height="4" width="3"><BR>
+                          <A href="#more_ways" target="_self">More Ways To Win 
+                          Coming Soon! </A>
+                          
+                          </FONT>
+<!-- #EndEditable -->
+</TD>
+                      </TR>
+                    </TABLE>
+                  </TD>
+                  <TD WIDTH="8" ><IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="1" WIDTH="8"></TD>
+                </TR>
+                <TR> 
+                  <TD WIDTH="8" HEIGHT="9"><IMG SRC="graphics/interface/table_5.gif" WIDTH="8" HEIGHT="9"></TD>
+                  <TD WIDTH="14" HEIGHT="9"><IMG SRC="graphics/interface/table_6.gif" WIDTH="14" HEIGHT="9"></TD>
+                  <TD WIDTH="156" HEIGHT="9"><IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="1" WIDTH="156"></TD>
+                  <TD WIDTH="14" HEIGHT="9"><IMG SRC="graphics/interface/table_7.gif" WIDTH="14" HEIGHT="9"></TD>
+                  <TD WIDTH="8" HEIGHT="9"><IMG SRC="graphics/interface/table_8.gif" WIDTH="8" HEIGHT="9"></TD>
+                </TR>
+              </TABLE>
+<!--end in this section table--> 
+
+              <P>&nbsp;</P>
+            </TD>
+          </TR>
+        </TABLE>
+
+<!--begin content-->
+<!-- #BeginEditable "main_content" -->  
+<!--begin story-->
+<FONT size="2" color="#d9d9d9" face="Arial, Helvetica, sans-serif">
+What type of events does this include?<br><br>
+
+Everything.  Degrees for Rev Events! Degrees for the Daily Login (except on Mondays, expect a 48-72 hour turn around for those).  Degrees for Prize Matches and Tournaments!<br><br>
+
+Oh yeah, if you have Degree inquiries regarding Trivia, those are handled by HEATriviaGoddess, Punk, Spaz, yadda-yadda - so you may ask them about your Trivia Degrees, but no others!<br><br>
+
+So that's the easy part, but here's where things get tricky.  <b>You can't ask the tech support staff or personalities like Ember, WildRoma, Pearson (and especially HEATPremiumSifu) about Degrees.  If you do, you're subject to forfeit them and that's not cool.</b>  HEAT's personalities have nothing to do with Degrees.  Our tech staff does, but they are overwhelmed dealing with ALL user issues.  Therefore, you need to give them a break by sending your Degree inquires ONLY to <b>heatprizeman@heat.net</b> so the rest of the techs can maintain the site and ensure that each person receives the good, quality service that you've come to expect.<br><br>
+
+We know you want your Degrees and we want you to have them.  So please make sure to contact <b>HEATPrizeMan</b> for any Degree issues that you may have!<br><br>
+</FONT>
+<!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+<!--begin story-->
+	<A name="get_paid"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>Get Paid to Support HEAT'S Sponsors!</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">You can win Degrees when you click on banner ads and visit the web<BR>
+        sites of HEAT's sponsors. You won't win everytime, but you have over<BR>
+        a 50% chance of winning 10, 500, 40,000, or even 100,000 Degrees! So click 
+        on those ads and visit those sponsor sites - it'll be worth your while! 
+        </FONT><BR>
+        <!--end story--> 
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+        <!--end back to top-->
+
+<!--begin story-->
+<A name="brand_new_ways"></A>
+<FONT size="4" color="#FFFFFF" face="Arial, Helvetica, sans-serif"><B>Ways To Win In '99</B></FONT><BR>
+<FONT size="2" color="#d9d9d9" face="Arial, Helvetica, sans-serif"><BR>
+              It's easy to get rich on HEAT Listed below 
+              are the ways to do it:<BR>
+               <BR>
+               - 250 Degrees 
+              for every 60 minutes you are playing a game on HEAT<BR>
+              <BR>
+              - 100 Degrees for every day that you log-in and launch a game on 
+              HEAT<BR>
+              <BR>
+              - 5,000 Degrees if you log-in and launch a game 15 days per month<BR>
+              <BR>
+              - 10,000 Degrees if you log-in and launch a game every day of the 
+              month<BR>
+              <BR>
+              - 500,000 Degrees if you log-in and launch a game every day of the 
+              year<BR><BR>
+		</FONT>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+<!--begin story-->
+	<A name="tgif"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>Thank God Its Fragdays!</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">T.G.I.F is the action event you won't want to miss. Every weekend at the same time,
+               late night gamers gather with a HEAT Prize Personality to frag the night away. And,
+               best of all, each night there are 100,000 Degrees up for grabs!  
+        </FONT><BR>
+        <!--end story--> 
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+        <!--end back to top-->
+
+
+
+        <!--begin story-->
+	<A name="reverend_schedule"></A><FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>REVEREND'S Scheduled Events</B><BR>
+        </FONT><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">
+        Get paid to play! The Rev Events is a daily schedule that lists a differentgame 
+        for each hour. The Rev Events can be found in the EVENTS CALENDAR. If 
+        you play the scheduled game the entire hour, you'll score 500 Degrees 
+        if you're a Perimeter Member and 1000 Degrees if you're a PREMIUM user. 
+        A HEATref will enter the game lobby of the scheduled game SOMETIME during 
+        the hour and award Degrees to everyone playing at that time. That's why 
+        it's important to play the entire hour- you never know WHEN the lobby 
+        will be checked. And as far as Degrees go - you will get them (assuming 
+        you were there playing when the room was checked), so be patient. It can 
+        take a few days for them to show up on your Home Base. Remember, you must 
+        be in the game playing, not hanging out in the lobby. ALL REV EVENT GAME 
+        TIMES ARE (PST).<BR>
+   	</FONT>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+	
+
+	<!--begin story-->
+	<A name="heat_wave_trivia"></A> 
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>HEAT Wave Trivia</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">Every month, (unless you've requested otherwise), 
+        you should receive<BR>
+        a copy of HEAT's Newletter, The HEAT Wave, via email. Watch the Trivia- 
+        Win Degrees section for trivia questions based on material in that month's 
+        issue. Put the ANSWER/S in the SUBJECT HEADING and your HEAT USER NAME 
+        in the BODY of an email addressed to ember@heat.net by the deadline date 
+        indicated on the Newsletter. Out of all the correct answers received by 
+        the deadline date, one randomly picked HEAT user will win 10,000 Degrees!</FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+
+	<!--begin story-->
+	<A name="heat_trivia"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>RANT Trivia</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">When 
+        you see a question about HEAT or THE RANT posted in the HEAT Trivia section 
+        of THE RANT, email trivia@heat.net. Put the ANSWER in SUBJECT HEADING 
+        and your HEAT USER NAME in the BODY of the email. Emails will ONLY be 
+        accepted while the question is on THE RANT. When it comes down, the Contest 
+        is over. Out of all the correct answers received, one randomly picked 
+        person will win the 10,000 Degrees! You NEVER KNOW when a question will 
+        appear, or how long it will stay up- so check that section frequently. 
+        Good luck...</FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+<!--begin story-->
+	<A name="professorheat"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>PROFESSORHEAT'S Trivia Raids</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">ProfessorHEAT will be parking 
+        in some unnamed game lobby, armed with trivia every Wednesday and Saturday 
+        night. Use the locator button on your Home Base to find him. Get in his 
+        room because he has Degrees and prizes to give away to those who can answer 
+        his questions. Be prepared to to answer everything from Geography to SegaSoft 
+        game facts. You can arm yourself with knowledge by visiting any of the 
+        following Segasoft Game Sites: 10SIX, Vigilance, or Flesh Feast. So put 
+        down your weapons and put on your thinking <BR>
+        caps and keep your eyes peeled for ProfessorHEAT. </FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+	
+
+
+<!--begin story-->
+	<A name="trivia_trio"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>Trivia Trio</B>
+        </FONT><BR><BR>
+        <FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">With <b>30,000 Degrees</b> 
+        up for grabs - there's no doubt about it. You're gonna LOVE the Trivia 
+        Trio - on Tuesdays, Thursdays, AND Saturdays every week! HEAT's Trivia 
+        personalities <B>HEATriviaLord, HEATriviaGoddess, HEATriviaSpaz, HEATriviaPunk, 
+        HEATriviaDiva, HEATriviaMonger, and HEATTriviaSpirit </B>can be found 
+        in various game lobbies <B>from 3-4PM and 8-9PM (PT) </B> testing your 
+        Trivia knowledge and handing out major Degrees! To find them, go to the 
+        <b>Events Calendar</b> and check the daily schedule, or click "Search" 
+        on the Navigation Bar (at the top of the page) and enter one of their 
+        names into the Locate Feature. See you in the game lobbies!</FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+
+	<!--begin story-->
+	<A name="legend_contest"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>The HippieChick's Groovy Legend
+            Contest!</B>
+        </FONT><BR><BR>
+        <FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">Time to get those 
+        creative juices flowing! Every two weeks, HEATHippieChick will hold a 
+        &quot;theme-based&quot; Legend Contest to award the creative writers of 
+        HEAT. You will have 5 days to write and email (NOT HEATmail!) your theme-based 
+        Legend to <b><a href="mailto:legends@heat.net">legends@heat.net.</a></b> 
+        Don't forget to write "Groovy Legend Contest" in the subject line of your 
+        email and include your USER NAME somewhere in the body of the message 
+        along with the Legend itself. Also - make sure the Legend you've created 
+        appears on you Homebase during the judging period (the week after the 
+        submission deadline). Prizes are awarded as follows: <BR>
+        <BR>
+        1st Place: 10,000 Degrees <BR>
+        2nd Place: 5,000 Degrees <BR>
+        3rd Place: 3,000 Degrees <BR>
+        4th Place: 1,000 Degrees <BR>
+        5th Place: 1,000 Degrees <BR>
+        <BR>
+        <b>You MUST wait for the Groovy Legend Contest to be announced on THE 
+        RANT before you send in your theme-based Legend, or it will be deleted!!!</b> 
+        Remember - the theme for each Contest will be different, so just don't 
+        write anything and submit it. Check THE RANT every two weeks to see what 
+        the theme is!</FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+	 <!--begin story--> <A name="heat_footsoldiers"></A> 
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>HEAT Footsoldiers</B> 
+        </FONT><BR>
+        <BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">Footsoldiers are dedicated Members who devote time 
+        and energy<BR>
+        spreading the word about HEAT to others. For each new user a Footsoldier 
+        registers on HEAT, he/she scores 500 Degrees that can be used to purchase 
+        items in HEAT's store. Not only that, but Footsoldiers get FREE cool stuff 
+        all the time (t-shirts, dog tags, pins, etc.), and Footsoldier contests 
+        are held all the time for things like trips to E3, trips to HEAT Headquarters, 
+        trips to Penn. for paintball against HEAT employees and more. Trust us, 
+        you DON'T want to miss out on this. The Footsoldier Program is open to 
+        all HEAT users (PREMIUM and Perimeter). To join, go to <A href="http://www.segasoft.com/footsoldier" target="_blank"><BR>
+        <FONT color="#FF0000"><b>The Footsoldiers Web Site</b></FONT></A> and 
+        click on the recruiting office. Fill out all of the required information 
+        on the form. We'll even give you a FREE T-shirt and dogtags for doing 
+        it! </FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+
+	
+
+	<!--begin story--><A name="monthly_links"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>Monthly "Links" Program</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">Every month, we award 10,000 Degrees to 
+        users who create the coolest links to heat.net. To enter, send an e-mail 
+        to links@heat.net with the url of your web page.</FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+	<!--begin story-->
+	<A name="airraids"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>Air Raids</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">A SegaSoftHEATRef, ember, or Reverend 
+        will show up in a game lobby and start a game. They will determine what 
+        everyone is playing for and what the rules are. You can win T-shirts, 
+        hats, Degrees, games, and more. These aren't scheduled - it's luck of 
+        the draw. If you're in the right lobby at the right time when a HEAT Representative 
+        shows up to throw the Raid, you get the opportunity to score BIG!</FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+	
+
+	<!--begin story--><A name="page_ozymandias"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>Page OZYMANDIAS</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">OZYMANDIAS only logs on once per day. If you are 
+        the first person to PAGE him after he’s logged on, you get 10,000 DEGREES. 
+        So, give him a PAGE every time you log on. It could make you rich.</FONT><BR>
+        <!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+	<!--begin story--><A name="more_ways"></A>
+        <FONT size="4" FACE="arial,helvetica" color="#FFFFFF"><B>More WAYS TO WIN Coming Soon</B>
+        </FONT><BR><BR>
+	<FONT COLOR=#D9D9D9 FACE="arial,helvetica" size="2">In 
+        addition to all of these ways to win degrees we're always coming up with 
+        more! That’s why HEAT is the only Internet gaming network you will ever 
+        need. HEAT: The Network That Pays You To Play!</FONT><BR>
+	<!--end story-->
+
+<!--begin back to top-->
+<IMG src="graphics/interface/transparent.gif" width="1" height="8" border="0"><BR><IMG src="graphics/interface/444444.gif" width=400 height=2 border=0 alt=""><A href="#top"><IMG src="graphics/interface/backtotop.gif" width=60 height=11 border=0 alt=""></A><BR><IMG src="graphics/interface/transparent.gif" width="1" height="26" border="0"><BR>
+<!--end back to top-->
+
+
+<!-- #EndEditable -->
+<!--end content-->
+
+<!--begin ad table-->
+              
+<!--end ad table-->
+
+</TD>
+      <TD WIDTH="24"> <IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="1" WIDTH="24"> 
+      </TD>
+      <TD WIDTH="136" VALIGN="top">
+
+<!--start navigation table--> 
+        <TABLE BORDER=0 CELLPADDING="0" CELLSPACING="0" WIDTH="136">
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><IMG SRC="graphics/interface/contents.gif" HEIGHT=12 WIDTH="130" HSPACE=0 VSPACE=0 ALT="contents"></TD>
+          </TR>
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="front_page.html"><IMG SRC="graphics/interface/front_page.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="news.html"><IMG SRC="graphics/interface/news.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="events.html"><IMG SRC="graphics/interface/events.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="games.html"><IMG SRC="graphics/interface/games.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="college_club.html"><IMG SRC="graphics/interface/college_club.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="store.html"><IMG SRC="graphics/interface/store.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="members_zone.html"><IMG SRC="graphics/interface/members_zone.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+          <TR> 
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="heat_affiliates.html"><IMG SRC="graphics/interface/heat_affiliates.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+          <TR>
+            <TD WIDTH="136" VALIGN=MIDDLE HEIGHT=16><A HREF="win_degrees.html"><IMG SRC="graphics/interface/win_degrees.gif" WIDTH=119 HEIGHT=8 BORDER=0 VSPACE=0 HSPACE=0 ALT=feature></A></TD>
+          </TR>
+
+			<TR>
+            <TD WIDTH="136" VALIGN=left HEIGHT=16>
+<IMG SRC="graphics/interface/dot_clear.gif" HEIGHT="18" WIDTH="8"><BR>
+
+<!------AdForce TAG---------->
+<IFRAME WIDTH=125 HEIGHT=125 noresize SCROLLING=No FRAMEBORDER=0 MARGINHEIGHT=0 MARGINWIDTH=0
+SRC="http://adforce.imgis.com/?adiframe|2.0|34|41033|1|6|ADFORCE;target=blank;">
+<SCRIPT LANGUAGE=javascript SRC="http://adforce.imgis.com/?addyn|2.0|34|41033|1|6|ADFORCE;loc=700;target=blank;">
+</SCRIPT>
+<NOSCRIPT>
+<A HREF="http://adforce.imgis.com/?adlink|2.0|34|41033|1|6|ADFORCE;loc=300;" TARGET=_blank>
+<IMG SRC="http://adforce.imgis.com/?adserv|2.0|34|41033|1|6|ADFORCE;loc=300;" BORDER=0 WIDTH=125 HEIGHT=125></A>
+</NOSCRIPT>
+</IFRAME>
+<!--------------End of Tag----------->
+</TD>
+          </TR>
+        </TABLE>
+<!--end navigation table-->
+	
+	</TD>
+    </TR>
+  </TABLE>
+</CENTER>
+<P><BR>
+</BODY>
+<!-- #EndTemplate --></HTML>
+

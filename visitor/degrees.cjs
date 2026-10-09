@@ -77,4 +77,9 @@ function view(ledger, id, unix) {
       minutes_to_next_hour: Math.ceil((3600 - (p.gameplay_seconds % 3600)) / 60),
     } };
 }
-module.exports = { POLICY, newLedger, dayKey, daysInMonth, daysInYear, beginSession, observe, view };
+function creditOzymandias(ledger, id, day, unix) {
+  const p = profile(ledger, id), key = 'ozymandias:' + day;
+  if (p.transactions.some(t => t.id === key)) return false;
+  credit(p, key, unix, require('./messenger-policy.json').ozymandias.degrees, 'First to page OZYMANDIAS — local event recreation'); return true;
+}
+module.exports = { POLICY, newLedger, dayKey, daysInMonth, daysInYear, beginSession, observe, view, creditOzymandias };

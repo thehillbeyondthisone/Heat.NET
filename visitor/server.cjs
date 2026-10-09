@@ -8,6 +8,7 @@ const M = require('./model.cjs');
 const D = require('./degrees.cjs');
 const T = require('./trophies.cjs');
 const A = require('./accounts.cjs');
+const H = require('./messenger.cjs');
 
 const MIME = { '.html': 'text/html; charset=utf-8', '.htm': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
@@ -89,6 +90,13 @@ function createVisitorServer(options = {}) {
   function initializeAccount(account, name) {
     if (!account.legacy) M.writeIdentity(playerFiles(account).identity, { id: account.profile_id, display_name: name });
   }
+  const messenger = !stateError && H.createMessenger(stateDir, now,
+    () => accounts.accounts.map(a => ({ ...accounts.publicAccount(a), display_name: M.identity(playerFiles(a).identity).display_name })),
+    key => accounts.activeSession(key), id => Boolean(runningGame(id)));
+  function settleMessenger() {
+    if (!messenger || messenger.error) return;
+    const next = structuredClone(ledger); if (messenger.reconcile(next)) saveLedger(next);
+  }
   function runningGame(id) {
     if (children.has(id)) return children.get(id);
     const game = runningGames?.games[id];
@@ -162,6 +170,8 @@ function createVisitorServer(options = {}) {
     return Boolean(gameRoot && fs.existsSync(path.join(gameRoot, 'recovery/runtime/Godot.exe')) && fs.existsSync(path.join(gameRoot, 'playable/project.godot')));
   }
   function snapshot(req) {
+    let messengerError = messenger?.error || '';
+    try { settleMessenger(); } catch { messengerError = 'A Messenger prize could not be saved. Its winner is retained for retry.'; }
     const ctx = context(req), own = ctx.identity, running = own && runningGame(own.id);
     const launchError = own && launchErrors.get(own.id) || '';
     const result = reports(), time = now();
@@ -182,7 +192,7 @@ function createVisitorServer(options = {}) {
       degrees: own && ledger ? D.view(ledger, own.id, time) : null, catalog: catalogue(), rules: D.POLICY,
       trophies: own && trophyLedger ? T.view(trophyLedger, own.id) : null,
       launch: { available: !stateError && gameAvailable() && Boolean(own) && (!req || loopback(req)), running: Boolean(running), any_running: activeGameCount() > 0, profile_id: own?.id || '', error: launchError },
-      errors: [...(stateError ? [stateError] : []), ...(launchError ? [launchError] : []), ...result.errors], generated_unix: time };
+      errors: [...(stateError ? [stateError] : []), ...(messengerError ? [messengerError] : []), ...(launchError ? [launchError] : []), ...result.errors], generated_unix: time };
   }
   function json(res, status, data) { res.writeHead(status, { 'Content-Type': MIME['.json'], 'Cache-Control': 'no-store' }); res.end(JSON.stringify(data)); }
   async function body(req, limit = M.MAX_REPORT) {
@@ -194,15 +204,26 @@ function createVisitorServer(options = {}) {
   async function mutate(req, res, pathname) {
     M.assert(!stateError, stateError);
     M.assert(req.headers.origin === 'http://' + req.headers.host, 'Open this action from the same HEAT.NET address.');
-    const data = await body(req, pathname.startsWith('/api/visitor/auth/') ? 4096 : M.MAX_REPORT); M.assert(M.plain(data), 'Invalid request.');
+    const data = await body(req, /\/auth\/|\/messenger/.test(pathname) ? 16384 : M.MAX_REPORT); M.assert(M.plain(data), 'Invalid request.');
     if (pathname === '/api/visitor/auth/register') {
       const account = await accounts.register(req, res, data, player, initializeAccount, loopback(req) && activeGameCount() === 0);
       return json(res, 200, { ok: true, account });
     }
     if (pathname === '/api/visitor/auth/login') return json(res, 200, { ok: true, account: await accounts.login(req, res, data) });
-    if (pathname === '/api/visitor/auth/logout') { accounts.logout(req, res); return json(res, 200, { ok: true }); }
+    if (pathname === '/api/visitor/auth/logout') { const key = accounts.sessionKey(req); accounts.logout(req, res); messenger?.forget(key); return json(res, 200, { ok: true }); }
     const ctx = context(req), own = ctx.identity;
     if (!own) return json(res, 401, { error: 'Sign in to your HEAT account first.' });
+    if (pathname.startsWith('/api/visitor/messenger')) {
+      if (!ctx.account) return json(res, 401, { error: 'Create or sign in to a HEAT account to use Messenger.' });
+      M.assert(messenger && !messenger.error, messenger?.error || 'Messenger is unavailable.');
+      let result;
+      if (pathname === '/api/visitor/messenger/presence') { messenger.heartbeat(own.id, accounts.sessionKey(req), data.status); result = { ok: true }; }
+      else if (pathname === '/api/visitor/messenger/send') result = messenger.send(own.id, data);
+      else if (pathname === '/api/visitor/messenger/contact') result = messenger.update(own.id, data);
+      else if (pathname === '/api/visitor/messenger/event') result = messenger.openVisit(loopback(req));
+      else return json(res, 404, { error: 'Unknown Messenger action.' });
+      settleMessenger(); return json(res, 200, result);
+    }
     const files = playerFiles(ctx.account);
     if (pathname === '/api/visitor/profile') {
       M.assert(M.text(data.display_name, 32) && data.display_name.trim(), 'Use a player name between 1 and 32 characters.');
@@ -269,7 +290,13 @@ function createVisitorServer(options = {}) {
       const url = new URL(req.url, 'http://' + host), pathname = decodeURIComponent(url.pathname);
       if (pathname.startsWith('/api/visitor')) {
         if (req.method === 'GET' && pathname === '/api/visitor') return json(res, 200, snapshot(req));
-        if (req.method === 'GET' && pathname === '/api/visitor/health') return json(res, 200, { service: 'heat-visitor-bridge', version: 1, capabilities: ['accounts-v1', 'wall-time-v2', 'restart-guard-v1'], lan: allowedHosts.size > 2 });
+        if (req.method === 'GET' && pathname === '/api/visitor/health') return json(res, 200, { service: 'heat-visitor-bridge', version: 1, capabilities: ['accounts-v1', 'wall-time-v2', 'restart-guard-v1', 'messenger-v1'], lan: allowedHosts.size > 2 });
+        if (req.method === 'GET' && pathname === '/api/visitor/messenger') {
+          if (!context(req).account) return json(res, 401, { error: 'Sign in to your HEAT account to use Messenger.' });
+          M.assert(messenger && !messenger.error, messenger?.error || stateError);
+          settleMessenger(); const id = context(req).account.profile_id, peer = url.searchParams.get('player');
+          return json(res, 200, peer ? messenger.thread(id, peer, Number(url.searchParams.get('before') || 0)) : messenger.view(id, loopback(req)));
+        }
         if (req.method === 'GET' && pathname === '/api/visitor/report') {
           if (!context(req).identity) return json(res, 401, { error: 'Sign in to download a report.' });
           const found = reports().all.find(r => r.profile.id === url.searchParams.get('player'));

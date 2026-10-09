@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "id": "heat-messenger-local-v1",
+  "classification": "RECONSTRUCTED",
+  "presence_seconds": 45,
+  "message_characters": 2000,
+  "message_limit": 50000,
+  "history_page_size": 100,
+  "burst_messages": 20,
+  "burst_seconds": 30,
+  "ozymandias": {
+    "degrees": 10000,
+    "visit_seconds": 300,
+    "timezone": "America/Chicago",
+    "appearance": "host_controlled_once_per_day",
+    "source_capture": "19991005145552",
+    "source_sha256": "34a211504f7559013d5dc86ee8b9507236bbe5c884ae6bec2cc5ca183c678b01",
+    "original": ["once-daily login", "first member to page wins", "10000 Degrees"],
+    "reconstructed": ["host-controlled appearance", "five-minute visit", "Chicago calendar"]
+  }
+}
