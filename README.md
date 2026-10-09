@@ -1,5 +1,7 @@
 # HEAT.NET
 
+[![HEAT HOME — open the live website](site/images/10six/nav_frontpage.gif)](https://thehillbeyondthisone.github.io/Heat.NET/ "Open the live HEAT.NET website")
+
 ## Public restoration — October 8, 2026
 
 Visit [the restored HEAT.NET website](https://thehillbeyondthisone.github.io/Heat.NET/). Fourteen portal pages share restored navigation and a responsive HEAT-era layout, alongside the preserved source archive.
