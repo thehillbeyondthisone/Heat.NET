@@ -120,8 +120,7 @@ function atomicJSON(file, data, validator) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   const tmp = `${file}.${crypto.randomBytes(8).toString('hex')}.tmp`;
   try {
-    fs.writeFileSync(tmp, JSON.stringify(data, null, 2) + '\n', { flag: 'wx', mode: 0o600 });
-    readJSON(tmp, validator);
+    require('./checked-json.cjs').writeCheckedJSON(tmp,JSON.stringify(data,null,2)+'\n',validator,MAX_REPORT*8);
     if (fs.existsSync(file)) fs.copyFileSync(file, file + '.bak');
     fs.renameSync(tmp, file);
   } finally { if (fs.existsSync(tmp)) fs.unlinkSync(tmp); }

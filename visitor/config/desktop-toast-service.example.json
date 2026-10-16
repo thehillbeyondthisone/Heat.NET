@@ -1,0 +1,7 @@
+{
+  "port": 10661,
+  "game_root": "C:/10Six-Desktop-v3/game",
+  "state_dir": "C:/10Six-Desktop-v3/state/heat",
+  "authority_config_file": "C:/10Six-Desktop-v3/config/remote-authority.json",
+  "player_listener_config_file": "C:/10Six-Desktop-v3/config/player-listener.json"
+}

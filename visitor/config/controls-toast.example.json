@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "role": "toast",
+  "network_approved": false,
+  "game_root": "C:/10Six-Desktop-v3/game",
+  "player_config_file": "C:/10Six-Desktop-v3/config/player.json",
+  "service_config_file": "C:/10Six-Desktop-v3/config/desktop-toast-service.json"
+}

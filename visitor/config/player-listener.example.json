@@ -1,0 +1,7 @@
+{
+  "bind": "192.168.1.68",
+  "port": 10663,
+  "world_id": "toast-harbinger-visitor-v1",
+  "cert_file": "C:/10Six-Desktop-v3/credentials/player-server.pem",
+  "key_file": "C:/10Six-Desktop-v3/credentials/player-server.key"
+}

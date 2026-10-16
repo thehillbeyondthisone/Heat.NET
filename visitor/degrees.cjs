@@ -41,9 +41,9 @@ function beginSession(ledger, id, profileId, unix) {
   ledger.sessions[id] = { profile_id: profileId, started_unix: unix, last_unix: unix,
     active_seconds: 0, confirmed: false, closed: false, connected_days: [] };
 }
-function observe(ledger, report, now) {
+function observe(ledger, report, now, authority = '') {
   const data = report.session, session = data && ledger.sessions[data.id];
-  if (!session || session.closed || session.profile_id !== report.profile.id) return false;
+  if (!session || session.closed || session.profile_id !== report.profile.id || (session.authority || '') !== authority) return false;
   // A report imported from another player cannot invent an earning session.
   if (Math.abs(data.started_unix - session.started_unix) > 1 || report.generated_unix > now + 5 || report.generated_unix < session.last_unix) return false;
   const seconds = data.active_seconds;
@@ -82,4 +82,10 @@ function creditOzymandias(ledger, id, day, unix) {
   if (p.transactions.some(t => t.id === key)) return false;
   credit(p, key, unix, require('./messenger-policy.json').ozymandias.degrees, 'First to page OZYMANDIAS — local event recreation'); return true;
 }
-module.exports = { POLICY, newLedger, dayKey, daysInMonth, daysInYear, beginSession, observe, view, creditOzymandias };
+// Called only with in-process, server-observed participation; never a client report route.
+function observeServer(ledger, evidence, now) {
+  if (evidence.authority !== '10six-server-v1') return false;
+  return observe(ledger, { profile: { id: evidence.profile_id }, generated_unix: evidence.generated_unix,
+    session: { id: evidence.session_id, started_unix: evidence.started_unix, active_seconds: evidence.active_seconds } }, now, evidence.authority);
+}
+module.exports = { observeServer, POLICY, newLedger, dayKey, daysInMonth, daysInYear, beginSession, observe, view, creditOzymandias };

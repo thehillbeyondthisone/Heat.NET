@@ -36,8 +36,8 @@ function createAccounts(stateDir, now) {
   function publicAccount(a) { return a ? { username: a.username, profile_id: a.profile_id } : null; }
   function activeSession(key) { return Boolean(data.sessions[key] && data.sessions[key].expires_unix > now()); }
   function sessionKey(req) { const key = hash(token(req)); return activeSession(key) ? key : ''; }
-  function setCookie(res, value, age) {
-    res.setHeader('Set-Cookie', `heat_session=${value}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${age}`);
+  function setCookie(res, value, age, req) {
+    res.setHeader('Set-Cookie', `heat_session=${value}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${age}${req?.socket?.encrypted ? '; Secure' : ''}`);
   }
   function issue(res, account, req) {
     const next = structuredClone(data), raw = crypto.randomBytes(32).toString('hex');
@@ -45,7 +45,7 @@ function createAccounts(stateDir, now) {
     for (const [key, s] of Object.entries(next.sessions)) if (s.expires_unix <= now()) delete next.sessions[key];
     M.assert(Object.keys(next.sessions).length < 4096, 'Too many sign-in sessions. Sign out an existing session first.');
     next.sessions[hash(raw)] = { profile_id: account.profile_id, expires_unix: now() + TTL };
-    save(next); setCookie(res, raw, TTL);
+    save(next); setCookie(res, raw, TTL, req);
     return publicAccount(account);
   }
   function throttle(req, name) {
@@ -92,7 +92,7 @@ function createAccounts(stateDir, now) {
     return issue(res, account, req);
   }
   function logout(req, res) {
-    const next = structuredClone(data); delete next.sessions[hash(token(req))]; save(next); setCookie(res, '', 0);
+    const next = structuredClone(data); delete next.sessions[hash(token(req))]; save(next); setCookie(res, '', 0, req);
   }
   return { current, publicAccount, register, login, logout, activeSession, sessionKey,
     get enabled() { return data.accounts.length > 0; }, get accounts() { return data.accounts; } };

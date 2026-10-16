@@ -1,0 +1,8 @@
+{
+  "endpoint": "https://127.0.0.1:10662",
+  "world_id": "toast-harbinger-visitor-v1",
+  "server_spki": "REPLACE_WITH_APPROVED_HARBINGER_CERTIFICATE_SPKI_SHA256",
+  "ca_file": "C:/APPROVED/credentials/ca.pem",
+  "cert_file": "C:/APPROVED/credentials/toast.pem",
+  "key_file": "C:/APPROVED/credentials/toast.key"
+}

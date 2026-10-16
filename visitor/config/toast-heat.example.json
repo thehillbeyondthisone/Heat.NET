@@ -1,0 +1,6 @@
+{
+  "port": 10661,
+  "game_root": "C:/APPROVED/toast-client-bundle/game",
+  "state_dir": "C:/APPROVED/isolated-heat-state",
+  "authority_config_file": "C:/APPROVED/config/remote-authority.json"
+}

@@ -1,0 +1,13 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const {createClientRooms}=require('../client-rooms.cjs');
+const root=path.resolve(__dirname,'../../../..'),dir=path.join(root,'.local/client-room-tests');
+test('session-bound room readiness, retries, host transfer, expiry, restart and damaged-history preservation',()=>{
+fs.mkdirSync(dir,{recursive:true});const tmp=fs.mkdtempSync(path.join(dir,'run-'));let time=100,playing=false;const a='local-'+'a'.repeat(32),b='local-'+'b'.repeat(32),sessions=new Set(['alice','bob']);const options={stateDir:tmp,now:()=>time,active:k=>sessions.has(k),inGame:id=>playing&&id===a,name:id=>id===a?'Alice':'Bob',worldId:'test-world'};
+try{let r=createClientRooms(options);assert.throws(()=>r.join(a,'unknown'),/Sign in/);r.join(a,'alice');time++;r.join(b,'bob');assert.equal(r.view(a,'alice').host_id,a);r.ready(a,'alice',true);assert.throws(()=>r.begin(a,'alice'),/Everyone/);r.ready(b,'bob',true);assert.throws(()=>r.begin(b,'bob'),/host/);
+const g=r.begin(a,'alice');r.permit(a,'alice',g);assert.throws(()=>r.permit(a,'bob',g),/Join/);const message={text:'<img src=x onerror=alert(1)>',request_id:crypto.randomUUID()};assert.equal(r.send(a,'alice',message).duplicate,undefined);assert.equal(r.send(a,'alice',message).duplicate,true);assert.throws(()=>r.send(a,'alice',{...message,text:'different'}),/another message/);assert.throws(()=>r.send(a,'alice',{...message,awards:[1]}),/message/);assert.equal(r.view(b,'bob').messages.length,1);
+playing=true;r.launched(a,'alice',g);assert.throws(()=>r.leave(a,'alice'),/Close/);playing=false;r.returned(a);assert.equal(r.view(a,'alice').members[0].ready,false);assert.equal(r.view(a,'alice').launch_generation,0);
+r.leave(a,'alice');assert.equal(r.view(b,'bob').host_id,b);sessions.delete('bob');assert.equal(r.view(b,'bob').joined,false);
+sessions.add('alice');r.join(a,'alice');r.ready(a,'alice',true);r=createClientRooms(options);assert.equal(r.view(a,'alice').members.length,0);assert.equal(r.view(a,'alice').messages.length,0);r.join(a,'alice');assert.equal(r.view(a,'alice').messages.length,1);assert.equal(r.view(a,'alice').members[0].ready,false);time+=46;assert.equal(r.view(a,'alice').joined,false);
+fs.writeFileSync(path.join(tmp,'client-rooms.json'),'{broken');r=createClientRooms(options);assert.match(r.view().error,/recovery/);assert.throws(()=>r.join(a,'alice'),/recovery/);assert.equal(fs.readFileSync(path.join(tmp,'client-rooms.json'),'utf8'),'{broken');
+}finally{const safe=fs.realpathSync(tmp);assert.ok(safe.startsWith(fs.realpathSync(dir)+path.sep));fs.rmSync(safe,{recursive:true,force:true});}});

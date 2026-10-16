@@ -1,0 +1,6 @@
+{
+  "endpoint": "https://192.168.1.68:10663",
+  "world_id": "toast-harbinger-visitor-v1",
+  "server_spki": "REPLACE_WITH_ACTUAL_TOAST_PLAYER_SERVER_SPKI_SHA256",
+  "ca_file": "C:/10Six-Desktop-v3/trust/public-ca.pem"
+}
